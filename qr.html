@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Menu — Jarul Domnesc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { background: var(--bg, #f5f0e8); }
+    .qr-page {
+      max-width: 420px;
+      margin: 60px auto;
+      padding: 40px 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+    }
+    .qr-page .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #1c1714;
+      margin-bottom: 0.2rem;
+    }
+    .qr-page .logo-text em {
+      font-style: italic;
+      color: #b5451b;
+    }
+    .qr-page .sub {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    .qr-page img {
+      width: 220px;
+      height: 220px;
+      border: 3px solid #1c1714;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .qr-page .instruction {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .qr-page .url-text {
+      font-size: 0.8rem;
+      color: #999;
+      word-break: break-all;
+      margin-bottom: 2rem;
+    }
+    .qr-divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 1.5rem 0;
+    }
+    .qr-info {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .qr-info strong {
+      color: #1c1714;
+    }
+    .print-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 10px 28px;
+      background: #b5451b;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .print-btn:hover { background: #8a2f10; }
+    @media print {
+      .print-btn { display: none; }
+      nav, footer { display: none !important; }
+      body { background: #fff; }
+      .qr-page {
+        box-shadow: none;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
+    <div class="nav-top-row">
+      <a href="index.html" class="logo"><em>Jarul</em> Domnesc</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="contatti.html">Contatti</a>
+    </div>
+  </nav>
+
+  <div class="qr-page">
+    <div class="logo-text"><em>Jarul</em> Domnesc</div>
+    <div class="sub">Ristorante Rumeno &middot; Padova</div>
+
+    <img
+      src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://dut17.github.io/jaruldomnesc/menu.html&color=1c1714&bgcolor=ffffff"
+      alt="QR Code Menu Jarul Domnesc"
+      width="220"
+      height="220"
+      loading="eager"
+    >
+
+    <div class="instruction">Scansiona per vedere il menu completo</div>
+    <div class="url-text">dut17.github.io/jaruldomnesc/menu.html</div>
+
+    <hr class="qr-divider">
+
+    <div class="qr-info">
+      <strong>Via [Da Inserire]</strong><br>
+      35100 Padova (PD)<br><br>
+      Tel: <strong>+39 &mdash; Da inserire</strong><br><br>
+      Lun&ndash;Ven: 12:00&ndash;15:00 / 19:00&ndash;23:00<br>
+      Sabato: 19:00&ndash;23:30<br>
+      Domenica: <strong>Chiuso</strong>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Stampa questa pagina</button>
+  </div>
+
+  <footer style="background: var(--footer-bg, #1c1714); color: white; padding: 30px 20px; text-align: center; margin-top: 40px;">
+    <p>&copy; 2025 Jarul Domnesc &middot; Padova</p>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
