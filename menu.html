@@ -10,9 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    main { padding-top: 90px; }
+    /* Layout pagina: footer sempre in fondo */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+      padding-top: 100px;
+    }
     .menu-oggi-section {
-      padding: 6rem 1rem 5rem;
+      padding: 3rem 1rem 6rem;
       max-width: 680px;
       margin: 0 auto;
       text-align: center;
@@ -170,16 +179,15 @@
     // CONFIGURAZIONE — modifica solo questa parte
     // =====================================================
     const SHEET_ID = 'INSERISCI_QUI_ID_GOOGLE_SHEET';
-    const SHEET_NAME = 'Menu'; // nome del foglio (tab in basso)
+    const SHEET_NAME = 'Menu';
     // =====================================================
 
     const oggi = new Date();
-    const giornoSettimana = oggi.getDay(); // 0=Dom, 6=Sab
+    const giornoSettimana = oggi.getDay();
     const dataFormattata = oggi.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
 
     const container = document.getElementById('menu-container');
 
-    // Sabato (6) e Domenica (0): ristorante chiuso al pranzo
     if (giornoSettimana === 0 || giornoSettimana === 6) {
       container.innerHTML = `
         <div class="menu-chiuso">
@@ -188,7 +196,6 @@
           Per feste ed eventi privati nel weekend, <a href="contatti.html">contattaci</a>.
         </div>`;
     } else {
-      // Giorni feriali: fetch da Google Sheets
       const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
 
       fetch(url)
