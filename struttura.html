@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La struttura di Jarul Domnesc: sale interne, spazi all'aperto e ambienti per ogni occasione a Padova.">
+  <title>Struttura — Jarul Domnesc · Padova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body{min-height:100vh;display:flex;flex-direction:column}
+    main{flex:1}
+    .page-hero{position:relative;height:340px;overflow:hidden;display:flex;align-items:flex-end}
+    .page-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+    .page-hero-content{position:relative;z-index:1;padding:2.5rem 2rem;max-width:1100px;margin:0 auto;width:100%}
+    .page-hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#fff;margin:0}
+    .struttura-section{padding:4rem 2rem;max-width:1100px;margin:0 auto}
+    .struttura-intro{font-family:'Inter',sans-serif;font-size:1.05rem;color:#555;max-width:620px;line-height:1.7;margin-bottom:3.5rem}
+    .sale-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+    .sala-card{background:#fff;border:1px solid #f0e6c8;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(189,35,54,.06)}
+    .sala-card-img{width:100%;height:200px;object-fit:cover;display:block;background:#f5f0e8}
+    .sala-card-img-placeholder{width:100%;height:200px;background:linear-gradient(135deg,#f5f0e8 0%,#ede3cc 100%);display:flex;align-items:center;justify-content:center;font-size:3rem}
+    .sala-card-body{padding:1.5rem}
+    .sala-card-body h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#1c1714;margin:0 0 .5rem}
+    .sala-card-meta{display:flex;gap:1.5rem;margin:.75rem 0;font-family:'Inter',sans-serif;font-size:.82rem;color:#888}
+    .sala-card-meta span{display:flex;align-items:center;gap:.3rem}
+    .sala-card-body p{font-family:'Inter',sans-serif;font-size:.92rem;color:#555;line-height:1.6;margin:0}
+    .cta-struttura{margin-top:3.5rem;background:#1c1714;border-radius:12px;padding:2.5rem 2rem;text-align:center}
+    .cta-struttura h2{font-family:'Playfair Display',serif;color:#f5f0e8;font-size:1.8rem;margin:0 0 .75rem}
+    .cta-struttura p{font-family:'Inter',sans-serif;color:#aaa;font-size:.95rem;margin:0 0 1.5rem}
+    .cta-struttura a{display:inline-block;background:#bd2336;color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 2.2rem;border-radius:6px;text-decoration:none}
+    .cta-struttura a:hover{background:#a01f2d}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Salta al contenuto</a>
+
+  <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
+    <div class="nav-top-row">
+      <a href="index.html" class="logo"><em>Jarul</em> Domnesc</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="struttura.html" class="active">Struttura</a>
+      <a href="eventi.html">Eventi</a>
+      <a href="contatti.html">Contatti</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="page-hero">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80" alt="Interno del ristorante Jarul Domnesc">
+      <div class="page-hero-content">
+        <h1>La Nostra Struttura</h1>
+      </div>
+    </div>
+
+    <section class="struttura-section" aria-label="Le nostre sale">
+      <p class="struttura-intro">
+        Jarul Domnesc offre ambienti accoglienti e versatili, pensati sia per il pranzo di tutti i giorni
+        che per occasioni speciali. Ogni spazio è curato nei dettagli per garantire comfort e un'atmosfera
+        autentica rumena.
+      </p>
+
+      <div class="sale-grid">
+
+        <article class="sala-card">
+          <div class="sala-card-img-placeholder">🍽️</div>
+          <div class="sala-card-body">
+            <h3>Sala Principale</h3>
+            <div class="sala-card-meta">
+              <span>👥 fino a [X] posti</span>
+              <span>🪟 con finestre</span>
+            </div>
+            <p>La sala principale del ristorante, luminosa e accogliente. Ideale per pranzi in famiglia, cene romantiche e tavolate tra amici. Arredi caldi e atmosfera tipicamente rumena.</p>
+          </div>
+        </article>
+
+        <article class="sala-card">
+          <div class="sala-card-img-placeholder">🥂</div>
+          <div class="sala-card-body">
+            <h3>Sala Privata</h3>
+            <div class="sala-card-meta">
+              <span>👥 fino a [X] posti</span>
+              <span>🔒 riservabile</span>
+            </div>
+            <p>Sala riservata ideale per piccoli gruppi, riunioni di lavoro o celebrazioni esclusive. Può essere allestita su misura in base all'evento.</p>
+          </div>
+        </article>
+
+        <article class="sala-card">
+          <div class="sala-card-img-placeholder">🌿</div>
+          <div class="sala-card-body">
+            <h3>Spazio Esterno</h3>
+            <div class="sala-card-meta">
+              <span>👥 fino a [X] posti</span>
+              <span>☀️ stagionale</span>
+            </div>
+            <p>Area esterna disponibile nella bella stagione. Perfetta per aperitivi, cene estive e momenti di relax all'aperto in un contesto tranquillo.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="cta-struttura">
+        <h2>Vuoi visitarci o prenotare uno spazio?</h2>
+        <p>Contattaci per informazioni sulla disponibilità e per organizzare la tua visita.</p>
+        <a href="contatti.html">Contattaci ora</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo"><em>Jarul</em> Domnesc</span>
+        <p>Cucina rumena tradizionale<br>nel cuore di Padova.</p>
+      </div>
+      <div>
+        <h4>Naviga</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu del Giorno</a></li>
+          <li><a href="struttura.html">Struttura</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <p>Via [Da inserire]<br>35100 Padova (PD)</p>
+        <a href="tel:+39">+39 — Da inserire</a>
+      </div>
+      <div>
+        <h4>Orari</h4>
+        <p>Lun &ndash; Ven: 12:00 &ndash; 15:00<br>Lun &ndash; Sab: 19:00 &ndash; 23:00<br>Domenica pranzo: <strong>Chiuso</strong></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Jarul Domnesc &middot; Padova</p>
+    </div>
+  </footer>
+
+  <script>
+    var btn=document.getElementById('navHamburger'),topnav=document.getElementById('myTopnav');
+    if(btn){btn.addEventListener('click',function(){var o=topnav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});}
+  </script>
+</body>
+</html>
