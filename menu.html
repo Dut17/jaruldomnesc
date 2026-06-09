@@ -26,12 +26,25 @@
     .menu-errore{text-align:center;padding:2rem 1rem;font-family:'Inter',sans-serif;color:#bd2336;font-size:.95rem;background:#fff5f5;border-radius:8px;border:1px solid #fdd}
     .menu-chiuso{text-align:center;padding:2.5rem 1rem;font-family:'Inter',sans-serif;color:#555;font-size:1rem;background:#fafafa;border-radius:12px;border:1px solid #eee}
     .menu-chiuso strong{display:block;font-family:'Playfair Display',serif;font-size:1.4rem;color:#222;margin-bottom:.5rem}
+    .allergeni-nota{font-family:'Inter',sans-serif;font-size:.8rem;color:#888;margin-top:1.5rem;text-align:center;line-height:1.5}
+    .allergeni-nota a{color:#b8962e;text-decoration:underline}
     .footer-menu{background:#1c1714;color:#f5f0e8;padding:3rem 2rem;margin-top:auto}
     .footer-menu-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;font-family:'Inter',sans-serif;font-size:.9rem}
+    /* Cookie banner */
+    #cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#1c1714;color:#f5f0e8;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:9999;font-family:'Inter',sans-serif;font-size:.85rem;flex-wrap:wrap}
+    #cookie-banner a{color:#b8962e;text-decoration:underline}
+    #cookie-accept{background:#bd2336;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;white-space:nowrap}
+    #cookie-accept:hover{background:#a01f2d}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Salta al contenuto</a>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="alert" aria-live="polite" style="display:none">
+    <span>Questo sito utilizza solo cookie tecnici necessari al funzionamento. Nessun cookie di profilazione. <a href="contatti.html">Maggiori info</a>.</span>
+    <button id="cookie-accept" onclick="accettaCookie()">OK, ho capito</button>
+  </div>
 
   <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
     <div class="nav-top-row">
@@ -40,30 +53,48 @@
     </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="menu.html" class="active" aria-current="page">Menu</a>
+      <a href="menu.html" class="active">Menu</a>
       <a href="contatti.html">Contatti</a>
     </div>
   </nav>
 
   <main id="main-content">
-    <section class="menu-oggi-section">
+    <section class="menu-oggi-section" aria-label="Menu di oggi">
       <h1>Menu di Oggi</h1>
       <p class="sottotitolo">Aggiornato ogni mattina &mdash; Lun&ndash;Ven a pranzo</p>
+
       <div id="menu-container">
-        <div class="menu-loading">Caricamento menu in corso&hellip;</div>
+        <p class="menu-loading">Caricamento menu in corso&hellip;</p>
       </div>
+
+      <p class="allergeni-nota">
+        Per informazioni sugli allergeni presenti nei nostri piatti,
+        chiedi al personale di sala. Reg. UE 1169/2011.
+      </p>
+
+      <p style="margin-top:2rem;font-family:'Inter',sans-serif;font-size:.9rem;color:#888">
+        Per informazioni e prenotazioni: <a href="contatti.html" style="color:#b8962e">contattaci</a>.
+      </p>
     </section>
-    <p style="text-align:center;font-family:'Inter',sans-serif;font-size:.9rem;color:#999;padding-bottom:2rem">
-      Per informazioni e prenotazioni: <a href="contatti.html">contattaci</a>.
-    </p>
   </main>
 
-  <footer class="footer-menu">
+  <footer class="footer-menu" role="contentinfo">
     <div class="footer-menu-inner">
-      <div><p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem">Jarul</p><p>Domnesc</p></div>
-      <div><p>Via [INDIRIZZO] &mdash; Padova</p></div>
-      <div><p>[RAGIONE SOCIALE] &mdash; P.IVA [NUMERO]</p></div>
-      <div><p>&copy; 2025 Jarul Domnesc. Tutti i diritti riservati.</p></div>
+      <div>
+        <strong style="font-family:'Playfair Display',serif;font-size:1.1rem"><em style="color:#b8962e">Jarul</em><br>Domnesc</strong>
+      </div>
+      <div>
+        <span style="opacity:.6;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em">Sede</span><br>
+        Via [Da inserire] &mdash; Padova
+      </div>
+      <div>
+        <span style="opacity:.6;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em">Legale</span><br>
+        [Ragione Sociale] &mdash; P.IVA [Numero]
+      </div>
+      <div>
+        <span style="opacity:.6;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em">&copy; 2025</span><br>
+        Jarul Domnesc. Tutti i diritti riservati.
+      </div>
     </div>
   </footer>
 
@@ -71,6 +102,15 @@
     // Hamburger
     var btn=document.getElementById('navHamburger'),topnav=document.getElementById('myTopnav');
     if(btn){btn.addEventListener('click',function(){var o=topnav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});}
+
+    // Cookie banner
+    function accettaCookie(){
+      localStorage.setItem('cookie_ok','1');
+      document.getElementById('cookie-banner').style.display='none';
+    }
+    if(!localStorage.getItem('cookie_ok')){
+      document.getElementById('cookie-banner').style.display='flex';
+    }
 
     // =====================================================
     // CONFIGURAZIONE: URL del Google Apps Script Web App
