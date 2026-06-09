@@ -3,53 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Menu del giorno di Jarul Domnesc — Cucina tradizionale rumena a Padova. Pranzo per lavoratori dal lunedi al venerdi.">
+  <meta name="description" content="Menu del giorno di Jarul Domnesc — Cucina tradizionale rumena a Padova.">
   <title>Menu — Jarul Domnesc · Padova</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* Layout pagina: footer sempre in fondo */
-    body { min-height: 100vh; display: flex; flex-direction: column; }
-    main { flex: 1; padding-top: 100px; }
-    .menu-oggi-section { padding: 3rem 1rem 6rem; max-width: 680px; margin: 0 auto; text-align: center; }
-    .menu-oggi-section h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--rosso, #bd2336); margin-bottom: 0.25rem; }
-    .menu-oggi-section .sottotitolo { font-family: 'Inter', sans-serif; color: #888; font-size: 0.95rem; margin-bottom: 2.5rem; }
-    .menu-card { background: #fff; border: 1px solid #f0e6c8; border-radius: 12px; padding: 2rem 2rem 1.5rem; box-shadow: 0 4px 24px rgba(189,35,54,0.07); text-align: left; }
-    .menu-card .data-oggi { font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--oro, #b8962e); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; }
-    .piatto-riga { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #f0e6c8; padding: 0.75rem 0; gap: 1rem; }
-    .piatto-riga:last-of-type { border-bottom: none; }
-    .piatto-label { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--rosso, #bd2336); text-transform: uppercase; letter-spacing: 0.06em; min-width: 80px; }
-    .piatto-nome { font-family: 'Inter', sans-serif; font-size: 1rem; color: #222; flex: 1; }
-    .piatto-prezzo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--oro, #b8962e); white-space: nowrap; }
-    .menu-loading { text-align: center; padding: 3rem 1rem; font-family: 'Inter', sans-serif; color: #888; font-size: 0.95rem; }
-    .menu-errore { text-align: center; padding: 2rem 1rem; font-family: 'Inter', sans-serif; color: #bd2336; font-size: 0.95rem; background: #fff5f5; border-radius: 8px; border: 1px solid #fdd; }
-    .menu-chiuso { text-align: center; padding: 2.5rem 1rem; font-family: 'Inter', sans-serif; color: #555; font-size: 1rem; background: #fafafa; border-radius: 12px; border: 1px solid #eee; }
-    .menu-chiuso strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #222; margin-bottom: 0.5rem; }
-    .note-menu { margin-top: 1.5rem; font-family: 'Inter', sans-serif; font-size: 0.82rem; color: #999; text-align: center; line-height: 1.6; }
+    body{min-height:100vh;display:flex;flex-direction:column}
+    main{flex:1;padding-top:120px}
+    .menu-oggi-section{padding:3rem 1rem 6rem;max-width:680px;margin:0 auto;text-align:center}
+    .menu-oggi-section h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);color:#bd2336;margin-bottom:.25rem}
+    .sottotitolo{font-family:'Inter',sans-serif;color:#888;font-size:.95rem;margin-bottom:2.5rem}
+    .menu-card{background:#fff;border:1px solid #f0e6c8;border-radius:12px;padding:2rem 2rem 1.5rem;box-shadow:0 4px 24px rgba(189,35,54,.07);text-align:left}
+    .data-oggi{font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;color:#b8962e;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.5rem}
+    .piatto-riga{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed #f0e6c8;padding:.75rem 0;gap:1rem}
+    .piatto-riga:last-of-type{border-bottom:none}
+    .piatto-label{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:#bd2336;text-transform:uppercase;letter-spacing:.06em;min-width:80px}
+    .piatto-nome{font-family:'Inter',sans-serif;font-size:1rem;color:#222;flex:1}
+    .piatto-prezzo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#b8962e;white-space:nowrap}
+    .menu-loading{text-align:center;padding:3rem 1rem;font-family:'Inter',sans-serif;color:#888;font-size:.95rem}
+    .menu-errore{text-align:center;padding:2rem 1rem;font-family:'Inter',sans-serif;color:#bd2336;font-size:.95rem;background:#fff5f5;border-radius:8px;border:1px solid #fdd}
+    .menu-chiuso{text-align:center;padding:2.5rem 1rem;font-family:'Inter',sans-serif;color:#555;font-size:1rem;background:#fafafa;border-radius:12px;border:1px solid #eee}
+    .menu-chiuso strong{display:block;font-family:'Playfair Display',serif;font-size:1.4rem;color:#222;margin-bottom:.5rem}
+    .footer-menu{background:#1c1714;color:#f5f0e8;padding:3rem 2rem;margin-top:auto}
+    .footer-menu-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;font-family:'Inter',sans-serif;font-size:.9rem}
   </style>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Salta al contenuto</a>
+  <a class="skip-link" href="#main-content">Salta al contenuto</a>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo" aria-label="Jarul Domnesc — Home">
-        <span class="logo-italic">Jarul</span> Domnesc
-      </a>
-      <button class="hamburger" aria-label="Apri menu" aria-expanded="false" aria-controls="nav-menu">
-        &#9776;
-      </button>
-      <nav id="nav-menu" class="nav-menu" aria-label="Navigazione principale">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html" aria-current="page">Menu</a></li>
-          <li><a href="contatti.html">Contatti</a></li>
-        </ul>
-      </nav>
+  <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
+    <div class="nav-top-row">
+      <a href="index.html" class="logo"><em>Jarul</em> Domnesc</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
     </div>
-  </header>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html" class="active" aria-current="page">Menu</a>
+      <a href="contatti.html">Contatti</a>
+    </div>
+  </nav>
 
   <main id="main-content">
     <section class="menu-oggi-section">
@@ -59,92 +53,60 @@
         <div class="menu-loading">Caricamento menu in corso&hellip;</div>
       </div>
     </section>
-    <p style="text-align:center; font-family:'Inter',sans-serif; font-size:0.9rem; color:#999; padding-bottom:2rem;">
+    <p style="text-align:center;font-family:'Inter',sans-serif;font-size:.9rem;color:#999;padding-bottom:2rem">
       Per informazioni e prenotazioni: <a href="contatti.html">contattaci</a>.
     </p>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-col">
-        <p class="footer-logo"><em>Jarul</em><br>Domnesc</p>
-      </div>
-      <div class="footer-col">
-        <p>Via [INDIRIZZO] &mdash; Padova</p>
-      </div>
-      <div class="footer-col">
-        <p>[RAGIONE SOCIALE] &mdash; P.IVA [NUMERO]</p>
-      </div>
-      <div class="footer-col">
-        <p>&copy; 2025 Jarul Domnesc. Tutti i diritti riservati.</p>
-      </div>
+  <footer class="footer-menu">
+    <div class="footer-menu-inner">
+      <div><p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem">Jarul</p><p>Domnesc</p></div>
+      <div><p>Via [INDIRIZZO] &mdash; Padova</p></div>
+      <div><p>[RAGIONE SOCIALE] &mdash; P.IVA [NUMERO]</p></div>
+      <div><p>&copy; 2025 Jarul Domnesc. Tutti i diritti riservati.</p></div>
     </div>
   </footer>
 
   <script>
-    // =====================================================
-    // CONFIGURAZIONE
-    // =====================================================
-    const SHEET_ID = '1lrCBo1OL7Met2DKvq0QXdilqldlTDguHB3m7Dx3cfwo';
-    const SHEET_NAME = 'Menu';
-    // =====================================================
+    // Hamburger
+    var btn=document.getElementById('navHamburger'),nav=document.getElementById('myTopnav');
+    if(btn){btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});}
 
-    const oggi = new Date();
-    const giornoSettimana = oggi.getDay();
-    const dataFormattata = oggi.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
-    const container = document.getElementById('menu-container');
+    // Menu da Google Sheets via JSONP
+    var SHEET_ID='1lrCBo1OL7Met2DKvq0QXdilqldlTDguHB3m7Dx3cfwo';
+    var SHEET_NAME='Menu';
+    var oggi=new Date();
+    var g=oggi.getDay();
+    var data=oggi.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
+    var c=document.getElementById('menu-container');
 
-    if (giornoSettimana === 0 || giornoSettimana === 6) {
-      container.innerHTML = `
-        <div class="menu-chiuso">
-          <strong>Oggi siamo chiusi al pranzo</strong>
-          Il ristorante &egrave; aperto dal Luned&igrave; al Venerd&igrave; a pranzo.<br>
-          Per feste ed eventi privati nel weekend, <a href="contatti.html">contattaci</a>.
-        </div>`;
+    if(g===0||g===6){
+      c.innerHTML='<div class="menu-chiuso"><strong>Oggi siamo chiusi al pranzo</strong>Aperto Lun&ndash;Ven a pranzo.<br>Per eventi privati nel weekend, <a href="contatti.html">contattaci</a>.</div>';
     } else {
-      // JSONP via gviz — bypassa CORS su GitHub Pages
-      window._menuCallback = function(data) {
-        try {
-          const rows = data.table.rows;
-          // La riga 0 e' l'intestazione (primo, secondo, contorno, prezzo)
-          // I dati del giorno sono dalla riga 1 in poi; prendiamo la prima riga dati
-          const dataRows = rows.filter(r => r.c && r.c[0] && r.c[0].v);
-          if (!dataRows || dataRows.length === 0) {
-            container.innerHTML = '<div class="menu-errore">Il menu di oggi non &egrave; ancora stato inserito. Riprova pi&ugrave; tardi.</div>';
-            return;
-          }
-          const riga = dataRows[0].c;
-          const primo    = riga[0] ? riga[0].v : '';
-          const secondo  = riga[1] ? riga[1].v : '';
-          const contorno = riga[2] ? riga[2].v : '';
-          const prezzo   = riga[3] ? riga[3].v : '';
-          container.innerHTML = `
-            <div class="menu-card">
-              <div class="data-oggi">${dataFormattata}</div>
-              ${primo    ? `<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">${primo}</span></div>` : ''}
-              ${secondo  ? `<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">${secondo}</span></div>` : ''}
-              ${contorno ? `<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">${contorno}</span></div>` : ''}
-              ${prezzo   ? `<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">${prezzo}</span></div>` : ''}
-            </div>`;
-        } catch(e) {
-          container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
-        }
+      window._menuCb=function(d){
+        try{
+          var rows=d.table.rows;
+          var dr=rows.filter(function(r){return r.c&&r.c[0]&&r.c[0].v;});
+          if(!dr||!dr.length){c.innerHTML='<div class="menu-errore">Menu non ancora inserito. Riprova pi&ugrave; tardi.</div>';return;}
+          var r=dr[0].c;
+          var p1=r[0]?r[0].v:'';
+          var p2=r[1]?r[1].v:'';
+          var p3=r[2]?r[2].v:'';
+          var pz=r[3]?r[3].v:'';
+          var h='<div class="menu-card"><div class="data-oggi">'+data+'</div>';
+          if(p1)h+='<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">'+p1+'</span></div>';
+          if(p2)h+='<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">'+p2+'</span></div>';
+          if(p3)h+='<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">'+p3+'</span></div>';
+          if(pz)h+='<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">'+pz+'</span></div>';
+          h+='</div>';
+          c.innerHTML=h;
+        }catch(e){c.innerHTML='<div class="menu-errore">Errore nel caricamento. Riprova pi&ugrave; tardi.</div>';}
       };
-
-      // Timeout di sicurezza
-      const timeout = setTimeout(function() {
-        if (document.getElementById('menu-container').querySelector('.menu-loading')) {
-          container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
-        }
-      }, 8000);
-
-      const script = document.createElement('script');
-      script.src = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&tq=select%20*&sheet=${encodeURIComponent(SHEET_NAME)}&callback=_menuCallback`;
-      script.onerror = function() {
-        clearTimeout(timeout);
-        container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
-      };
-      document.head.appendChild(script);
+      var t=setTimeout(function(){if(c.querySelector('.menu-loading'))c.innerHTML='<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';},8000);
+      var s=document.createElement('script');
+      s.src='https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/gviz/tq?tqx=out:json;responseHandler:_menuCb&sheet='+encodeURIComponent(SHEET_NAME);
+      s.onerror=function(){clearTimeout(t);c.innerHTML='<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';};
+      document.head.appendChild(s);
     }
   </script>
 </body>
