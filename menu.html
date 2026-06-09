@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
+    /* Layout pagina: footer sempre in fondo */
     body { min-height: 100vh; display: flex; flex-direction: column; }
     main { flex: 1; padding-top: 100px; }
     .menu-oggi-section { padding: 3rem 1rem 6rem; max-width: 680px; margin: 0 auto; text-align: center; }
@@ -30,20 +31,25 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
 
-  <a class="skip-link" href="#main-content">Salta al contenuto</a>
-
-  <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
-    <div class="nav-top-row">
-      <a href="index.html" class="logo"><em>Jarul</em> Domnesc</a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Jarul Domnesc — Home">
+        <span class="logo-italic">Jarul</span> Domnesc
+      </a>
+      <button class="hamburger" aria-label="Apri menu" aria-expanded="false" aria-controls="nav-menu">
+        &#9776;
+      </button>
+      <nav id="nav-menu" class="nav-menu" aria-label="Navigazione principale">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html" aria-current="page">Menu</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="menu.html" class="active" aria-current="page">Menu</a>
-      <a href="contatti.html">Contatti</a>
-    </div>
-  </nav>
+  </header>
 
   <main id="main-content">
     <section class="menu-oggi-section">
@@ -52,22 +58,36 @@
       <div id="menu-container">
         <div class="menu-loading">Caricamento menu in corso&hellip;</div>
       </div>
-      <p class="note-menu">Per informazioni e prenotazioni: <a href="contatti.html">contattaci</a>.</p>
     </section>
+    <p style="text-align:center; font-family:'Inter',sans-serif; font-size:0.9rem; color:#999; padding-bottom:2rem;">
+      Per informazioni e prenotazioni: <a href="contatti.html">contattaci</a>.
+    </p>
   </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="footer-brand"><em>Jarul</em> Domnesc</p>
-      <p>Via [INDIRIZZO] &mdash; Padova</p>
-      <p>[RAGIONE SOCIALE] &mdash; P.IVA [NUMERO]</p>
-      <p class="footer-copy">&copy; 2025 Jarul Domnesc. Tutti i diritti riservati.</p>
+      <div class="footer-col">
+        <p class="footer-logo"><em>Jarul</em><br>Domnesc</p>
+      </div>
+      <div class="footer-col">
+        <p>Via [INDIRIZZO] &mdash; Padova</p>
+      </div>
+      <div class="footer-col">
+        <p>[RAGIONE SOCIALE] &mdash; P.IVA [NUMERO]</p>
+      </div>
+      <div class="footer-col">
+        <p>&copy; 2025 Jarul Domnesc. Tutti i diritti riservati.</p>
+      </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
   <script>
+    // =====================================================
+    // CONFIGURAZIONE
+    // =====================================================
     const SHEET_ID = '1lrCBo1OL7Met2DKvq0QXdilqldlTDguHB3m7Dx3cfwo';
+    const SHEET_NAME = 'Menu';
+    // =====================================================
 
     const oggi = new Date();
     const giornoSettimana = oggi.getDay();
@@ -82,20 +102,22 @@
           Per feste ed eventi privati nel weekend, <a href="contatti.html">contattaci</a>.
         </div>`;
     } else {
-      window._menuCB = function(data) {
-        clearTimeout(window._menuTO);
+      // JSONP via gviz — bypassa CORS su GitHub Pages
+      window._menuCallback = function(data) {
         try {
           const rows = data.table.rows;
-          // rows[0] = riga dati (intestazioni escluse dalla query)
-          if (!rows || rows.length === 0 || !rows[0].c[0]) {
-            container.innerHTML = '<div class="menu-errore">Menu non ancora inserito. Riprova pi&ugrave; tardi.</div>';
+          // La riga 0 e' l'intestazione (primo, secondo, contorno, prezzo)
+          // I dati del giorno sono dalla riga 1 in poi; prendiamo la prima riga dati
+          const dataRows = rows.filter(r => r.c && r.c[0] && r.c[0].v);
+          if (!dataRows || dataRows.length === 0) {
+            container.innerHTML = '<div class="menu-errore">Il menu di oggi non &egrave; ancora stato inserito. Riprova pi&ugrave; tardi.</div>';
             return;
           }
-          const r = rows[0].c;
-          const primo    = r[0] && r[0].v ? String(r[0].v) : '';
-          const secondo   = r[1] && r[1].v ? String(r[1].v) : '';
-          const contorno  = r[2] && r[2].v ? String(r[2].v) : '';
-          const prezzo    = r[3] && r[3].v ? String(r[3].v) : '';
+          const riga = dataRows[0].c;
+          const primo    = riga[0] ? riga[0].v : '';
+          const secondo  = riga[1] ? riga[1].v : '';
+          const contorno = riga[2] ? riga[2].v : '';
+          const prezzo   = riga[3] ? riga[3].v : '';
           container.innerHTML = `
             <div class="menu-card">
               <div class="data-oggi">${dataFormattata}</div>
@@ -105,19 +127,25 @@
               ${prezzo   ? `<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">${prezzo}</span></div>` : ''}
             </div>`;
         } catch(e) {
-          container.innerHTML = '<div class="menu-errore">Errore nel caricamento del menu.</div>';
+          container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
         }
       };
 
-      window._menuTO = setTimeout(() => {
-        container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
+      // Timeout di sicurezza
+      const timeout = setTimeout(function() {
+        if (document.getElementById('menu-container').querySelector('.menu-loading')) {
+          container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
+        }
       }, 8000);
 
-      const s = document.createElement('script');
-      s.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:json&callback=_menuCB';
-      document.head.appendChild(s);
+      const script = document.createElement('script');
+      script.src = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&tq=select%20*&sheet=${encodeURIComponent(SHEET_NAME)}&callback=_menuCallback`;
+      script.onerror = function() {
+        clearTimeout(timeout);
+        container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
+      };
+      document.head.appendChild(script);
     }
   </script>
-
 </body>
 </html>
