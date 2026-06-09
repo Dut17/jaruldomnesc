@@ -82,42 +82,40 @@
           Per feste ed eventi privati nel weekend, <a href="contatti.html">contattaci</a>.
         </div>`;
     } else {
-      // JSONP: niente CORS, funziona su GitHub Pages
-      window.handleMenu = function(data) {
-        const rows = data.table.rows;
-        if (!rows || rows.length === 0) {
-          container.innerHTML = '<div class="menu-errore">Il menu di oggi non &egrave; ancora stato inserito. Riprova pi&ugrave; tardi.</div>';
-          return;
+      window._menuCB = function(data) {
+        clearTimeout(window._menuTO);
+        try {
+          const rows = data.table.rows;
+          // rows[0] = riga dati (intestazioni escluse dalla query)
+          if (!rows || rows.length === 0 || !rows[0].c[0]) {
+            container.innerHTML = '<div class="menu-errore">Menu non ancora inserito. Riprova pi&ugrave; tardi.</div>';
+            return;
+          }
+          const r = rows[0].c;
+          const primo    = r[0] && r[0].v ? String(r[0].v) : '';
+          const secondo   = r[1] && r[1].v ? String(r[1].v) : '';
+          const contorno  = r[2] && r[2].v ? String(r[2].v) : '';
+          const prezzo    = r[3] && r[3].v ? String(r[3].v) : '';
+          container.innerHTML = `
+            <div class="menu-card">
+              <div class="data-oggi">${dataFormattata}</div>
+              ${primo    ? `<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">${primo}</span></div>` : ''}
+              ${secondo  ? `<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">${secondo}</span></div>` : ''}
+              ${contorno ? `<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">${contorno}</span></div>` : ''}
+              ${prezzo   ? `<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">${prezzo}</span></div>` : ''}
+            </div>`;
+        } catch(e) {
+          container.innerHTML = '<div class="menu-errore">Errore nel caricamento del menu.</div>';
         }
-        const r = rows[0].c;
-        const primo    = r[0] && r[0].v ? r[0].v : '';
-        const secondo   = r[1] && r[1].v ? r[1].v : '';
-        const contorno  = r[2] && r[2].v ? r[2].v : '';
-        const prezzo    = r[3] && r[3].v ? r[3].v : '';
-
-        container.innerHTML = `
-          <div class="menu-card">
-            <div class="data-oggi">${dataFormattata}</div>
-            ${primo    ? `<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">${primo}</span></div>` : ''}
-            ${secondo  ? `<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">${secondo}</span></div>` : ''}
-            ${contorno ? `<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">${contorno}</span></div>` : ''}
-            ${prezzo   ? `<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">${prezzo}</span></div>` : ''}
-          </div>`;
       };
 
-      // Timeout: se Google non risponde in 5 secondi
-      const timeout = setTimeout(() => {
+      window._menuTO = setTimeout(() => {
         container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
-      }, 5000);
+      }, 8000);
 
-      const script = document.createElement('script');
-      script.src = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&tq=select%20A%2CB%2CC%2CD%20limit%201%20offset%201&callback=handleMenu`;
-      script.onerror = () => {
-        clearTimeout(timeout);
-        container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
-      };
-      script.onload = () => clearTimeout(timeout);
-      document.head.appendChild(script);
+      const s = document.createElement('script');
+      s.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:json&callback=_menuCB';
+      document.head.appendChild(s);
     }
   </script>
 
