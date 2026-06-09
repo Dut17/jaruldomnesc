@@ -69,44 +69,55 @@
 
   <script>
     // Hamburger
-    var btn=document.getElementById('navHamburger'),nav=document.getElementById('myTopnav');
-    if(btn){btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});}
+    var btn=document.getElementById('navHamburger'),topnav=document.getElementById('myTopnav');
+    if(btn){btn.addEventListener('click',function(){var o=topnav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});}
 
-    // Menu da Google Sheets via JSONP
-    var SHEET_ID='1lrCBo1OL7Met2DKvq0QXdilqldlTDguHB3m7Dx3cfwo';
-    var SHEET_NAME='Menu';
+    // =====================================================
+    // CONFIGURAZIONE: URL CSV pubblicato del foglio Google
+    // =====================================================
+    var CSV_URL='https://docs.google.com/spreadsheets/d/1lrCBo1OL7Met2DKvq0QXdilqldlTDguHB3m7Dx3cfwo/pub?gid=0&single=true&output=csv';
+    // =====================================================
+
     var oggi=new Date();
     var g=oggi.getDay();
-    var data=oggi.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
+    var dataStr=oggi.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
     var c=document.getElementById('menu-container');
 
     if(g===0||g===6){
       c.innerHTML='<div class="menu-chiuso"><strong>Oggi siamo chiusi al pranzo</strong>Aperto Lun&ndash;Ven a pranzo.<br>Per eventi privati nel weekend, <a href="contatti.html">contattaci</a>.</div>';
     } else {
-      window._menuCb=function(d){
-        try{
-          var rows=d.table.rows;
-          var dr=rows.filter(function(r){return r.c&&r.c[0]&&r.c[0].v;});
-          if(!dr||!dr.length){c.innerHTML='<div class="menu-errore">Menu non ancora inserito. Riprova pi&ugrave; tardi.</div>';return;}
-          var r=dr[0].c;
-          var p1=r[0]?r[0].v:'';
-          var p2=r[1]?r[1].v:'';
-          var p3=r[2]?r[2].v:'';
-          var pz=r[3]?r[3].v:'';
-          var h='<div class="menu-card"><div class="data-oggi">'+data+'</div>';
+      // Usa corsproxy.io per bypassare CORS del CSV di Google Sheets
+      var proxyUrl='https://corsproxy.io/?url='+encodeURIComponent(CSV_URL);
+      fetch(proxyUrl)
+        .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
+        .then(function(csv){
+          var lines=csv.trim().split('\n');
+          // lines[0] = header (primo,secondo,contorno,prezzo)
+          // lines[1] = dati del giorno
+          if(lines.length<2){
+            c.innerHTML='<div class="menu-errore">Menu non ancora inserito. Riprova pi&ugrave; tardi.</div>';
+            return;
+          }
+          var cols=lines[1].split(',');
+          var p1=(cols[0]||'').trim().replace(/^"|"$/g,'');
+          var p2=(cols[1]||'').trim().replace(/^"|"$/g,'');
+          var p3=(cols[2]||'').trim().replace(/^"|"$/g,'');
+          var pz=(cols[3]||'').trim().replace(/^"|"$/g,'');
+          if(!p1&&!p2&&!p3){
+            c.innerHTML='<div class="menu-errore">Menu non ancora inserito. Riprova pi&ugrave; tardi.</div>';
+            return;
+          }
+          var h='<div class="menu-card"><div class="data-oggi">'+dataStr+'</div>';
           if(p1)h+='<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">'+p1+'</span></div>';
           if(p2)h+='<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">'+p2+'</span></div>';
           if(p3)h+='<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">'+p3+'</span></div>';
           if(pz)h+='<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">'+pz+'</span></div>';
           h+='</div>';
           c.innerHTML=h;
-        }catch(e){c.innerHTML='<div class="menu-errore">Errore nel caricamento. Riprova pi&ugrave; tardi.</div>';}
-      };
-      var t=setTimeout(function(){if(c.querySelector('.menu-loading'))c.innerHTML='<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';},8000);
-      var s=document.createElement('script');
-      s.src='https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/gviz/tq?tqx=out:json;responseHandler:_menuCb&sheet='+encodeURIComponent(SHEET_NAME);
-      s.onerror=function(){clearTimeout(t);c.innerHTML='<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';};
-      document.head.appendChild(s);
+        })
+        .catch(function(){
+          c.innerHTML='<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
+        });
     }
   </script>
 </body>
