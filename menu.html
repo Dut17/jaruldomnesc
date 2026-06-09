@@ -12,82 +12,20 @@
   <style>
     body { min-height: 100vh; display: flex; flex-direction: column; }
     main { flex: 1; padding-top: 100px; }
-    .menu-oggi-section {
-      padding: 3rem 1rem 6rem;
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .menu-oggi-section h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--rosso, #bd2336);
-      margin-bottom: 0.25rem;
-    }
-    .menu-oggi-section .sottotitolo {
-      font-family: 'Inter', sans-serif;
-      color: #888;
-      font-size: 0.95rem;
-      margin-bottom: 2.5rem;
-    }
-    .menu-card {
-      background: #fff;
-      border: 1px solid #f0e6c8;
-      border-radius: 12px;
-      padding: 2rem 2rem 1.5rem;
-      box-shadow: 0 4px 24px rgba(189,35,54,0.07);
-      text-align: left;
-    }
-    .menu-card .data-oggi {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--oro, #b8962e);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 1.5rem;
-    }
-    .piatto-riga {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 1px dashed #f0e6c8;
-      padding: 0.75rem 0;
-      gap: 1rem;
-    }
+    .menu-oggi-section { padding: 3rem 1rem 6rem; max-width: 680px; margin: 0 auto; text-align: center; }
+    .menu-oggi-section h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--rosso, #bd2336); margin-bottom: 0.25rem; }
+    .menu-oggi-section .sottotitolo { font-family: 'Inter', sans-serif; color: #888; font-size: 0.95rem; margin-bottom: 2.5rem; }
+    .menu-card { background: #fff; border: 1px solid #f0e6c8; border-radius: 12px; padding: 2rem 2rem 1.5rem; box-shadow: 0 4px 24px rgba(189,35,54,0.07); text-align: left; }
+    .menu-card .data-oggi { font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--oro, #b8962e); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; }
+    .piatto-riga { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #f0e6c8; padding: 0.75rem 0; gap: 1rem; }
     .piatto-riga:last-of-type { border-bottom: none; }
-    .piatto-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--rosso, #bd2336);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      min-width: 80px;
-    }
+    .piatto-label { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--rosso, #bd2336); text-transform: uppercase; letter-spacing: 0.06em; min-width: 80px; }
     .piatto-nome { font-family: 'Inter', sans-serif; font-size: 1rem; color: #222; flex: 1; }
-    .piatto-prezzo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--oro, #b8962e);
-      white-space: nowrap;
-    }
+    .piatto-prezzo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--oro, #b8962e); white-space: nowrap; }
     .menu-loading { text-align: center; padding: 3rem 1rem; font-family: 'Inter', sans-serif; color: #888; font-size: 0.95rem; }
-    .menu-errore {
-      text-align: center; padding: 2rem 1rem;
-      font-family: 'Inter', sans-serif; color: #bd2336; font-size: 0.95rem;
-      background: #fff5f5; border-radius: 8px; border: 1px solid #fdd;
-    }
-    .menu-chiuso {
-      text-align: center; padding: 2.5rem 1rem;
-      font-family: 'Inter', sans-serif; color: #555; font-size: 1rem;
-      background: #fafafa; border-radius: 12px; border: 1px solid #eee;
-    }
-    .menu-chiuso strong {
-      display: block; font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; color: #222; margin-bottom: 0.5rem;
-    }
+    .menu-errore { text-align: center; padding: 2rem 1rem; font-family: 'Inter', sans-serif; color: #bd2336; font-size: 0.95rem; background: #fff5f5; border-radius: 8px; border: 1px solid #fdd; }
+    .menu-chiuso { text-align: center; padding: 2.5rem 1rem; font-family: 'Inter', sans-serif; color: #555; font-size: 1rem; background: #fafafa; border-radius: 12px; border: 1px solid #eee; }
+    .menu-chiuso strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #222; margin-bottom: 0.5rem; }
     .note-menu { margin-top: 1.5rem; font-family: 'Inter', sans-serif; font-size: 0.82rem; color: #999; text-align: center; line-height: 1.6; }
   </style>
 </head>
@@ -129,7 +67,7 @@
 
   <script src="assets/js/main.js"></script>
   <script>
-    const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTGEEcI-XrkFgjG5xsQhzOTJGUfpsWbj4SC9gSlz8DAt1v7cVFNwgWTe28WDdqYG7Jh94r5oX_pgsaA/pub?gid=0&single=true&output=csv';
+    const SHEET_ID = '1lrCBo1OL7Met2DKvq0QXdilqldlTDguHB3m7Dx3cfwo';
 
     const oggi = new Date();
     const giornoSettimana = oggi.getDay();
@@ -144,33 +82,42 @@
           Per feste ed eventi privati nel weekend, <a href="contatti.html">contattaci</a>.
         </div>`;
     } else {
-      fetch(CSV_URL)
-        .then(res => res.text())
-        .then(csv => {
-          const righe = csv.trim().split('\n');
-          // righe[0] = intestazioni, righe[1] = menu di oggi
-          if (righe.length < 2 || !righe[1].trim()) {
-            container.innerHTML = '<div class="menu-errore">Il menu di oggi non &egrave; ancora stato inserito. Riprova pi&ugrave; tardi.</div>';
-            return;
-          }
-          const celle = righe[1].split(',');
-          const primo    = (celle[0] || '').trim();
-          const secondo   = (celle[1] || '').trim();
-          const contorno  = (celle[2] || '').trim();
-          const prezzo    = (celle[3] || '').trim();
+      // JSONP: niente CORS, funziona su GitHub Pages
+      window.handleMenu = function(data) {
+        const rows = data.table.rows;
+        if (!rows || rows.length === 0) {
+          container.innerHTML = '<div class="menu-errore">Il menu di oggi non &egrave; ancora stato inserito. Riprova pi&ugrave; tardi.</div>';
+          return;
+        }
+        const r = rows[0].c;
+        const primo    = r[0] && r[0].v ? r[0].v : '';
+        const secondo   = r[1] && r[1].v ? r[1].v : '';
+        const contorno  = r[2] && r[2].v ? r[2].v : '';
+        const prezzo    = r[3] && r[3].v ? r[3].v : '';
 
-          container.innerHTML = `
-            <div class="menu-card">
-              <div class="data-oggi">${dataFormattata}</div>
-              ${primo    ? `<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">${primo}</span></div>` : ''}
-              ${secondo  ? `<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">${secondo}</span></div>` : ''}
-              ${contorno ? `<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">${contorno}</span></div>` : ''}
-              ${prezzo   ? `<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">${prezzo}</span></div>` : ''}
-            </div>`;
-        })
-        .catch(() => {
-          container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Controlla la connessione o riprova tra qualche minuto.</div>';
-        });
+        container.innerHTML = `
+          <div class="menu-card">
+            <div class="data-oggi">${dataFormattata}</div>
+            ${primo    ? `<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">${primo}</span></div>` : ''}
+            ${secondo  ? `<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">${secondo}</span></div>` : ''}
+            ${contorno ? `<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">${contorno}</span></div>` : ''}
+            ${prezzo   ? `<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">${prezzo}</span></div>` : ''}
+          </div>`;
+      };
+
+      // Timeout: se Google non risponde in 5 secondi
+      const timeout = setTimeout(() => {
+        container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
+      }, 5000);
+
+      const script = document.createElement('script');
+      script.src = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&tq=select%20A%2CB%2CC%2CD%20limit%201%20offset%201&callback=handleMenu`;
+      script.onerror = () => {
+        clearTimeout(timeout);
+        container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
+      };
+      script.onload = () => clearTimeout(timeout);
+      document.head.appendChild(script);
     }
   </script>
 
