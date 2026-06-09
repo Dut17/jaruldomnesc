@@ -73,9 +73,9 @@
     if(btn){btn.addEventListener('click',function(){var o=topnav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});}
 
     // =====================================================
-    // CONFIGURAZIONE: URL CSV pubblicato del foglio Google
+    // CONFIGURAZIONE: URL del Google Apps Script Web App
     // =====================================================
-    var CSV_URL='https://docs.google.com/spreadsheets/d/1lrCBo1OL7Met2DKvq0QXdilqldlTDguHB3m7Dx3cfwo/pub?gid=0&single=true&output=csv';
+    var API_URL='https://script.google.com/macros/s/AKfycbwSCEJjHK3mF-exPXR37uANCZqk2oNtHTRSeC8VMz83BpLUAmtwpdbfJh4fpcZzgX8-/exec';
     // =====================================================
 
     var oggi=new Date();
@@ -86,23 +86,14 @@
     if(g===0||g===6){
       c.innerHTML='<div class="menu-chiuso"><strong>Oggi siamo chiusi al pranzo</strong>Aperto Lun&ndash;Ven a pranzo.<br>Per eventi privati nel weekend, <a href="contatti.html">contattaci</a>.</div>';
     } else {
-      // Usa corsproxy.io per bypassare CORS del CSV di Google Sheets
-      var proxyUrl='https://corsproxy.io/?url='+encodeURIComponent(CSV_URL);
-      fetch(proxyUrl)
-        .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
-        .then(function(csv){
-          var lines=csv.trim().split('\n');
-          // lines[0] = header (primo,secondo,contorno,prezzo)
-          // lines[1] = dati del giorno
-          if(lines.length<2){
-            c.innerHTML='<div class="menu-errore">Menu non ancora inserito. Riprova pi&ugrave; tardi.</div>';
-            return;
-          }
-          var cols=lines[1].split(',');
-          var p1=(cols[0]||'').trim().replace(/^"|"$/g,'');
-          var p2=(cols[1]||'').trim().replace(/^"|"$/g,'');
-          var p3=(cols[2]||'').trim().replace(/^"|"$/g,'');
-          var pz=(cols[3]||'').trim().replace(/^"|"$/g,'');
+      fetch(API_URL)
+        .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+        .then(function(d){
+          var p1=d.primo||'';
+          var p2=d.secondo||'';
+          var p3=d.contorno||'';
+          var pz=d.prezzo||'';
+          if(typeof pz==='number')pz=pz+'\u20ac';
           if(!p1&&!p2&&!p3){
             c.innerHTML='<div class="menu-errore">Menu non ancora inserito. Riprova pi&ugrave; tardi.</div>';
             return;
