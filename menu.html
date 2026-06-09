@@ -3,12 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Menu di Jarul Domnesc — Cucina tradizionale rumena a Padova. Antipasti, zuppe, secondi di carne, contorni e dolci.">
+  <meta name="description" content="Menu del giorno di Jarul Domnesc — Cucina tradizionale rumena a Padova. Pranzo per lavoratori dal lunedi al venerdi.">
   <title>Menu — Jarul Domnesc · Padova</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .menu-oggi-section {
+      padding: 3rem 1rem 5rem;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .menu-oggi-section h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--rosso, #bd2336);
+      margin-bottom: 0.25rem;
+    }
+    .menu-oggi-section .sottotitolo {
+      font-family: 'Inter', sans-serif;
+      color: #888;
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+    .menu-card {
+      background: #fff;
+      border: 1px solid #f0e6c8;
+      border-radius: 12px;
+      padding: 2rem 2rem 1.5rem;
+      box-shadow: 0 4px 24px rgba(189,35,54,0.07);
+      text-align: left;
+    }
+    .menu-card .data-oggi {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--oro, #b8962e);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+    .piatto-riga {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dashed #f0e6c8;
+      padding: 0.75rem 0;
+      gap: 1rem;
+    }
+    .piatto-riga:last-of-type {
+      border-bottom: none;
+    }
+    .piatto-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--rosso, #bd2336);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      min-width: 80px;
+    }
+    .piatto-nome {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #222;
+      flex: 1;
+    }
+    .piatto-prezzo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--oro, #b8962e);
+      white-space: nowrap;
+    }
+    .menu-loading {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-family: 'Inter', sans-serif;
+      color: #888;
+      font-size: 0.95rem;
+    }
+    .menu-errore {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-family: 'Inter', sans-serif;
+      color: #bd2336;
+      font-size: 0.95rem;
+      background: #fff5f5;
+      border-radius: 8px;
+      border: 1px solid #fdd;
+    }
+    .menu-chiuso {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-family: 'Inter', sans-serif;
+      color: #555;
+      font-size: 1rem;
+      background: #fafafa;
+      border-radius: 12px;
+      border: 1px solid #eee;
+    }
+    .menu-chiuso strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+    .note-menu {
+      margin-top: 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      color: #999;
+      text-align: center;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 
@@ -21,86 +133,98 @@
     </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
+      <a href="menu.html" class="active" aria-current="page">Menu</a>
       <a href="contatti.html">Contatti</a>
     </div>
   </nav>
 
   <main id="main-content">
+    <section class="menu-oggi-section">
+      <h1>Menu di Oggi</h1>
+      <p class="sottotitolo">Aggiornato ogni mattina &mdash; Lun&ndash;Ven a pranzo</p>
 
-    <div class="menu-hero">
-      <img class="menu-hero-bg" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1400&q=80" alt="" width="1400" height="420" loading="eager">
-      <h1 class="menu-hero-title">Il Nostro Menu</h1>
-    </div>
+      <div id="menu-container">
+        <div class="menu-loading">Caricamento menu in corso&hellip;</div>
+      </div>
 
-    <div class="menu-page-body">
-
-      <section class="menu-category" aria-labelledby="cat-antipasti">
-        <h2 class="menu-category-title" id="cat-antipasti"><span class="menu-category-icon" aria-hidden="true">🥗</span> Antipasti &amp; Insalate</h2>
-        <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Salata de Vinete</div><p class="menu-item-desc">Crema di melanzane grigliate con olio e aglio, servita con pane tostato.</p></div><div class="menu-item-price">€ 7,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Zacusca</div><p class="menu-item-desc">Composta di peperoni e melanzane arrostite, fatta in casa.</p></div><div class="menu-item-price">€ 6,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Platou Aperitiv</div><p class="menu-item-desc">Affettati rumeni misti, formaggio telemea, olive e verdure sottaceto.</p></div><div class="menu-item-price">€ 13,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Salata Orientala</div><p class="menu-item-desc">Patate lesse con maionese, carote, piselli e cetriolini.</p></div><div class="menu-item-price">€ 7,00</div></div>
-        </div>
-      </section>
-
-      <section class="menu-category" aria-labelledby="cat-zuppe">
-        <h2 class="menu-category-title" id="cat-zuppe"><span class="menu-category-icon" aria-hidden="true">🍲</span> Zuppe &amp; Ciorbe</h2>
-        <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Ciorba de Burta</div><p class="menu-item-desc">Zuppa di trippa con panna acida, aglio e aceto. Piatto tradizionale.</p></div><div class="menu-item-price">€ 9,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Bors de Pui</div><p class="menu-item-desc">Zuppa acidula di pollo con verdure e panna acida, aromatizzata con lovage.</p></div><div class="menu-item-price">€ 8,50</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Ciorba de Fasole</div><p class="menu-item-desc">Zuppa di fagioli affumicati con pancetta e paprika dolce.</p></div><div class="menu-item-price">€ 8,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Ciorba de Legume</div><p class="menu-item-desc">Minestrone di stagione con verdure fresche. Opzione vegetariana.</p></div><div class="menu-item-price">€ 7,50</div></div>
-        </div>
-      </section>
-
-      <section class="menu-category" aria-labelledby="cat-principali">
-        <h2 class="menu-category-title" id="cat-principali"><span class="menu-category-icon" aria-hidden="true">🥩</span> Piatti Principali</h2>
-        <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mici</div><p class="menu-item-desc">Polpette di manzo e agnello speziate, grigliate su brace. Servite con senape e pane.</p></div><div class="menu-item-price">€ 12,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Sarmale</div><p class="menu-item-desc">Involtini di cavolo con carne macinata e riso, cotti nel sugo di pomodoro. Con mamalighe e panna.</p></div><div class="menu-item-price">€ 14,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Friptura de Porc</div><p class="menu-item-desc">Maiale arrosto con aglio e timo, con patate al forno e sottaceti.</p></div><div class="menu-item-price">€ 15,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Tochitura Moldoveneasca</div><p class="menu-item-desc">Spezzatino di maiale con vino bianco e salsa di pomodoro. Con mamalighe e uovo fritto.</p></div><div class="menu-item-price">€ 16,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Ostropel de Pui</div><p class="menu-item-desc">Pollo in umido con aglio, vino bianco e salsa di pomodoro saporita.</p></div><div class="menu-item-price">€ 14,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Costita la Gratar</div><p class="menu-item-desc">Costine di maiale marinate e grigliate con cipolla caramellata.</p></div><div class="menu-item-price">€ 16,00</div></div>
-        </div>
-      </section>
-
-      <section class="menu-category" aria-labelledby="cat-contorni">
-        <h2 class="menu-category-title" id="cat-contorni"><span class="menu-category-icon" aria-hidden="true">🌽</span> Contorni</h2>
-        <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mamalighe</div><p class="menu-item-desc">Polenta rumena di farina di mais fine. Servita calda.</p></div><div class="menu-item-price">€ 4,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cartofi la Cuptor</div><p class="menu-item-desc">Patate al forno con rosmarino, aglio e olio.</p></div><div class="menu-item-price">€ 4,50</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Muraturi</div><p class="menu-item-desc">Verdure sottaceto fatte in casa: cetrioli, cavolo, cavolfiore.</p></div><div class="menu-item-price">€ 4,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Varza Calita</div><p class="menu-item-desc">Cavolo stufato con cipolle e carote, profumato con aneto.</p></div><div class="menu-item-price">€ 4,50</div></div>
-        </div>
-      </section>
-
-      <section class="menu-category" aria-labelledby="cat-dolci">
-        <h2 class="menu-category-title" id="cat-dolci"><span class="menu-category-icon" aria-hidden="true">🍮</span> Dolci</h2>
-        <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Papanasi</div><p class="menu-item-desc">Frittelle di ricotta fritte, con panna acida e marmellata di mirtilli.</p></div><div class="menu-item-price">€ 7,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cozonac</div><p class="menu-item-desc">Pan dolce lievitato con noci e cacao, tipico delle feste rumene.</p></div><div class="menu-item-price">€ 5,00</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Placinta cu Mere</div><p class="menu-item-desc">Crostata di mele con cannella e zucchero a velo.</p></div><div class="menu-item-price">€ 5,50</div></div>
-          <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Savarina</div><p class="menu-item-desc">Pan di Spagna inzuppato nel rum, con panna montata e ciliegia.</p></div><div class="menu-item-price">€ 6,00</div></div>
-        </div>
-      </section>
-
-    </div>
-
+      <p class="note-menu">
+        Il menu cambia ogni giorno in base alla disponibilit&agrave; degli ingredienti.<br>
+        Per informazioni e prenotazioni: <a href="contatti.html">contattaci</a>.
+      </p>
+    </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand"><div class="footer-logo"><em>Jarul</em> Domnesc</div><p class="footer-tagline">Cucina rumena tradizionale<br>Padova</p></div>
-      <div class="footer-col"><h4>Dove Siamo</h4><address>Via [Da Inserire]<br>35100 Padova (PD)</address></div>
-      <div class="footer-col"><h4>Contatti</h4><p><a href="tel:+39">+39 — Da inserire</a></p></div>
-      <div class="footer-col"><h4>Orari</h4><p>Lun – Ven: 12:00 – 15:00<br>Lun – Dom: 19:00 – 23:00</p></div>
+      <p class="footer-brand"><em>Jarul</em> Domnesc</p>
+      <p>Via [INDIRIZZO] &mdash; Padova</p>
+      <p>[RAGIONE SOCIALE] &mdash; P.IVA [NUMERO]</p>
+      <p class="footer-copy">&copy; 2025 Jarul Domnesc. Tutti i diritti riservati.</p>
     </div>
-    <div class="footer-bottom">&copy; 2025 Jarul Domnesc · Padova · Demo sito web</div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // =====================================================
+    // CONFIGURAZIONE — modifica solo questa parte
+    // =====================================================
+    const SHEET_ID = 'INSERISCI_QUI_ID_GOOGLE_SHEET';
+    const SHEET_NAME = 'Menu'; // nome del foglio (tab in basso)
+    // =====================================================
+
+    const GIORNI = ['Domenica','Lunedi','Martedi','Mercoledi','Giovedi','Venerdi','Sabato'];
+    const oggi = new Date();
+    const giornoSettimana = oggi.getDay(); // 0=Dom, 6=Sab
+    const dataFormattata = oggi.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
+
+    const container = document.getElementById('menu-container');
+
+    // Sabato (6) e Domenica (0): ristorante chiuso al pranzo
+    if (giornoSettimana === 0 || giornoSettimana === 6) {
+      container.innerHTML = `
+        <div class="menu-chiuso">
+          <strong>Oggi siamo chiusi al pranzo</strong>
+          Il ristorante &egrave; aperto dal Luned&igrave; al Venerd&igrave; a pranzo.<br>
+          Per feste ed eventi privati nel weekend, <a href="contatti.html">contattaci</a>.
+        </div>`;
+    } else {
+      // Giorni feriali: fetch da Google Sheets
+      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+
+      fetch(url)
+        .then(res => res.text())
+        .then(text => {
+          // Google restituisce JSON avvolto in google.visualization.Query.setResponse(...)
+          const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
+          const rows = json.table.rows;
+
+          if (!rows || rows.length === 0) {
+            container.innerHTML = '<div class="menu-errore">Il menu di oggi non &egrave; ancora stato inserito. Riprova pi&ugrave; tardi.</div>';
+            return;
+          }
+
+          // Prende la prima riga (il menu di oggi)
+          const riga = rows[0].c;
+          const primo    = riga[0] ? riga[0].v : '';
+          const secondo   = riga[1] ? riga[1].v : '';
+          const contorno  = riga[2] ? riga[2].v : '';
+          const prezzo    = riga[3] ? riga[3].v : '';
+
+          container.innerHTML = `
+            <div class="menu-card">
+              <div class="data-oggi">${dataFormattata}</div>
+              ${primo ? `<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">${primo}</span></div>` : ''}
+              ${secondo ? `<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">${secondo}</span></div>` : ''}
+              ${contorno ? `<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">${contorno}</span></div>` : ''}
+              ${prezzo ? `<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">${prezzo}</span></div>` : ''}
+            </div>`;
+        })
+        .catch(() => {
+          container.innerHTML = '<div class="menu-errore">Impossibile caricare il menu. Controlla la connessione o riprova tra qualche minuto.</div>';
+        });
+    }
+  </script>
+
 </body>
 </html>
