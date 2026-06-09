@@ -10,16 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* Layout pagina: footer sempre in fondo */
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    main {
-      flex: 1;
-      padding-top: 100px;
-    }
+    body { min-height: 100vh; display: flex; flex-direction: column; }
+    main { flex: 1; padding-top: 100px; }
     .menu-oggi-section {
       padding: 3rem 1rem 6rem;
       max-width: 680px;
@@ -63,9 +55,7 @@
       padding: 0.75rem 0;
       gap: 1rem;
     }
-    .piatto-riga:last-of-type {
-      border-bottom: none;
-    }
+    .piatto-riga:last-of-type { border-bottom: none; }
     .piatto-label {
       font-family: 'Inter', sans-serif;
       font-size: 0.78rem;
@@ -75,12 +65,7 @@
       letter-spacing: 0.06em;
       min-width: 80px;
     }
-    .piatto-nome {
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      color: #222;
-      flex: 1;
-    }
+    .piatto-nome { font-family: 'Inter', sans-serif; font-size: 1rem; color: #222; flex: 1; }
     .piatto-prezzo {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
@@ -88,48 +73,22 @@
       color: var(--oro, #b8962e);
       white-space: nowrap;
     }
-    .menu-loading {
-      text-align: center;
-      padding: 3rem 1rem;
-      font-family: 'Inter', sans-serif;
-      color: #888;
-      font-size: 0.95rem;
-    }
+    .menu-loading { text-align: center; padding: 3rem 1rem; font-family: 'Inter', sans-serif; color: #888; font-size: 0.95rem; }
     .menu-errore {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-family: 'Inter', sans-serif;
-      color: #bd2336;
-      font-size: 0.95rem;
-      background: #fff5f5;
-      border-radius: 8px;
-      border: 1px solid #fdd;
+      text-align: center; padding: 2rem 1rem;
+      font-family: 'Inter', sans-serif; color: #bd2336; font-size: 0.95rem;
+      background: #fff5f5; border-radius: 8px; border: 1px solid #fdd;
     }
     .menu-chiuso {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      font-family: 'Inter', sans-serif;
-      color: #555;
-      font-size: 1rem;
-      background: #fafafa;
-      border-radius: 12px;
-      border: 1px solid #eee;
+      text-align: center; padding: 2.5rem 1rem;
+      font-family: 'Inter', sans-serif; color: #555; font-size: 1rem;
+      background: #fafafa; border-radius: 12px; border: 1px solid #eee;
     }
     .menu-chiuso strong {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: #222;
-      margin-bottom: 0.5rem;
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: #222; margin-bottom: 0.5rem;
     }
-    .note-menu {
-      margin-top: 1.5rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
-      color: #999;
-      text-align: center;
-      line-height: 1.6;
-    }
+    .note-menu { margin-top: 1.5rem; font-family: 'Inter', sans-serif; font-size: 0.82rem; color: #999; text-align: center; line-height: 1.6; }
   </style>
 </head>
 <body>
@@ -152,14 +111,10 @@
     <section class="menu-oggi-section">
       <h1>Menu di Oggi</h1>
       <p class="sottotitolo">Aggiornato ogni mattina &mdash; Lun&ndash;Ven a pranzo</p>
-
       <div id="menu-container">
         <div class="menu-loading">Caricamento menu in corso&hellip;</div>
       </div>
-
-      <p class="note-menu">
-        Per informazioni e prenotazioni: <a href="contatti.html">contattaci</a>.
-      </p>
+      <p class="note-menu">Per informazioni e prenotazioni: <a href="contatti.html">contattaci</a>.</p>
     </section>
   </main>
 
@@ -173,19 +128,12 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
-
   <script>
-    // =====================================================
-    // CONFIGURAZIONE — modifica solo questa parte
-    // =====================================================
-    const SHEET_ID = 'INSERISCI_QUI_ID_GOOGLE_SHEET';
-    const SHEET_NAME = 'Menu';
-    // =====================================================
+    const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTGEEcI-XrkFgjG5xsQhzOTJGUfpsWbj4SC9gSlz8DAt1v7cVFNwgWTe28WDdqYG7Jh94r5oX_pgsaA/pub?gid=0&single=true&output=csv';
 
     const oggi = new Date();
     const giornoSettimana = oggi.getDay();
     const dataFormattata = oggi.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
-
     const container = document.getElementById('menu-container');
 
     if (giornoSettimana === 0 || giornoSettimana === 6) {
@@ -196,32 +144,28 @@
           Per feste ed eventi privati nel weekend, <a href="contatti.html">contattaci</a>.
         </div>`;
     } else {
-      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
-
-      fetch(url)
+      fetch(CSV_URL)
         .then(res => res.text())
-        .then(text => {
-          const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
-          const rows = json.table.rows;
-
-          if (!rows || rows.length === 0) {
+        .then(csv => {
+          const righe = csv.trim().split('\n');
+          // righe[0] = intestazioni, righe[1] = menu di oggi
+          if (righe.length < 2 || !righe[1].trim()) {
             container.innerHTML = '<div class="menu-errore">Il menu di oggi non &egrave; ancora stato inserito. Riprova pi&ugrave; tardi.</div>';
             return;
           }
-
-          const riga = rows[0].c;
-          const primo    = riga[0] ? riga[0].v : '';
-          const secondo   = riga[1] ? riga[1].v : '';
-          const contorno  = riga[2] ? riga[2].v : '';
-          const prezzo    = riga[3] ? riga[3].v : '';
+          const celle = righe[1].split(',');
+          const primo    = (celle[0] || '').trim();
+          const secondo   = (celle[1] || '').trim();
+          const contorno  = (celle[2] || '').trim();
+          const prezzo    = (celle[3] || '').trim();
 
           container.innerHTML = `
             <div class="menu-card">
               <div class="data-oggi">${dataFormattata}</div>
-              ${primo ? `<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">${primo}</span></div>` : ''}
-              ${secondo ? `<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">${secondo}</span></div>` : ''}
+              ${primo    ? `<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">${primo}</span></div>` : ''}
+              ${secondo  ? `<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">${secondo}</span></div>` : ''}
               ${contorno ? `<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">${contorno}</span></div>` : ''}
-              ${prezzo ? `<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">${prezzo}</span></div>` : ''}
+              ${prezzo   ? `<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">${prezzo}</span></div>` : ''}
             </div>`;
         })
         .catch(() => {
