@@ -148,3 +148,8 @@ footer { background-color: var(--footer-bg); color: rgba(255,255,255,0.70); padd
     padding-top: 100px;
   }
 }
+
+/* Scroll to top button */
+.scroll-top { position: fixed; bottom: 28px; left: 28px; width: 48px; height: 48px; border-radius: 50%; background: var(--footer-bg); color: var(--white); border: 2px solid rgba(255,255,255,0.2); font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s, background .2s; z-index: 999; }
+.scroll-top.visible { opacity: 1; visibility: visible; }
+.scroll-top:hover { background: var(--accent); border-color: var(--accent); }
