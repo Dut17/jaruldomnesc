@@ -134,11 +134,10 @@
       fetch(API_URL)
         .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
         .then(function(d){
-          var p1=d.primo||'';
-          var p2=d.secondo||'';
-          var p3=d.contorno||'';
-          var pz=d.prezzo||'';
-          if(typeof pz==='number')pz=pz+'\u20ac';
+          function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}         var p1=esc(d.primo||'');
+          var p2=esc(d.secondo||'');
+          var p3=esc(d.contorno||'');
+          var pz=d.prezzo||''; if(typeof pz==='number')pz=pz+'€'; pz=esc(pz);
           if(!p1&&!p2&&!p3){
             c.innerHTML='<div class="menu-errore">Menu non ancora inserito. Riprova pi&ugrave; tardi.</div>';
             return;
