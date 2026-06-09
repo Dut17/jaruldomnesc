@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .menu-oggi-section {
-      padding: 3rem 1rem 5rem;
+      padding: 6rem 1rem 5rem;
       max-width: 680px;
       margin: 0 auto;
       text-align: center;
@@ -148,7 +148,6 @@
       </div>
 
       <p class="note-menu">
-        Il menu cambia ogni giorno in base alla disponibilit&agrave; degli ingredienti.<br>
         Per informazioni e prenotazioni: <a href="contatti.html">contattaci</a>.
       </p>
     </section>
@@ -173,7 +172,6 @@
     const SHEET_NAME = 'Menu'; // nome del foglio (tab in basso)
     // =====================================================
 
-    const GIORNI = ['Domenica','Lunedi','Martedi','Mercoledi','Giovedi','Venerdi','Sabato'];
     const oggi = new Date();
     const giornoSettimana = oggi.getDay(); // 0=Dom, 6=Sab
     const dataFormattata = oggi.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
@@ -195,7 +193,6 @@
       fetch(url)
         .then(res => res.text())
         .then(text => {
-          // Google restituisce JSON avvolto in google.visualization.Query.setResponse(...)
           const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
           const rows = json.table.rows;
 
@@ -204,7 +201,6 @@
             return;
           }
 
-          // Prende la prima riga (il menu di oggi)
           const riga = rows[0].c;
           const primo    = riga[0] ? riga[0].v : '';
           const secondo   = riga[1] ? riga[1].v : '';
