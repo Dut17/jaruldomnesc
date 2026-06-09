@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Organizza il tuo evento da Jarul Domnesc: battesimi, comunioni, compleanni, cene aziendali e feste private a Padova.">
+  <title>Eventi — Jarul Domnesc · Padova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body{min-height:100vh;display:flex;flex-direction:column}
+    main{flex:1}
+    .page-hero{position:relative;height:340px;overflow:hidden;display:flex;align-items:flex-end}
+    .page-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5)}
+    .page-hero-content{position:relative;z-index:1;padding:2.5rem 2rem;max-width:1100px;margin:0 auto;width:100%}
+    .page-hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#fff;margin:0 0 .5rem}
+    .page-hero-content p{font-family:'Inter',sans-serif;color:rgba(255,255,255,.8);font-size:1rem;margin:0}
+    .eventi-section{padding:4rem 2rem;max-width:1100px;margin:0 auto}
+    .eventi-intro{font-family:'Inter',sans-serif;font-size:1.05rem;color:#555;max-width:640px;line-height:1.7;margin-bottom:3.5rem}
+    .eventi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:4rem}
+    .evento-card{border-radius:12px;padding:2rem 1.75rem;border:1px solid #f0e6c8;background:#fff;box-shadow:0 4px 20px rgba(189,35,54,.06);transition:transform .2s,box-shadow .2s}
+    .evento-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(189,35,54,.12)}
+    .evento-icon{font-size:2.5rem;margin-bottom:1rem;display:block}
+    .evento-card h3{font-family:'Playfair Display',serif;font-size:1.25rem;color:#1c1714;margin:0 0 .6rem}
+    .evento-card p{font-family:'Inter',sans-serif;font-size:.9rem;color:#666;line-height:1.6;margin:0}
+    .come-funziona{background:#faf7f2;border-radius:16px;padding:3rem 2.5rem;margin-bottom:3.5rem}
+    .come-funziona h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:#1c1714;margin:0 0 2rem;text-align:center}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+    .step{text-align:center}
+    .step-num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#bd2336;color:#fff;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:.75rem}
+    .step h4{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:#1c1714;margin:0 0 .3rem}
+    .step p{font-family:'Inter',sans-serif;font-size:.85rem;color:#777;margin:0;line-height:1.5}
+    .cta-eventi{background:#1c1714;border-radius:12px;padding:2.5rem 2rem;text-align:center}
+    .cta-eventi h2{font-family:'Playfair Display',serif;color:#f5f0e8;font-size:1.8rem;margin:0 0 .75rem}
+    .cta-eventi p{font-family:'Inter',sans-serif;color:#aaa;font-size:.95rem;margin:0 0 1.5rem}
+    .cta-eventi a{display:inline-block;background:#bd2336;color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 2.2rem;border-radius:6px;text-decoration:none;margin:.4rem}
+    .cta-eventi a:hover{background:#a01f2d}
+    .cta-eventi a.btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.3);color:#f5f0e8}
+    .cta-eventi a.btn-ghost:hover{border-color:rgba(255,255,255,.7)}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Salta al contenuto</a>
+
+  <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
+    <div class="nav-top-row">
+      <a href="index.html" class="logo"><em>Jarul</em> Domnesc</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="struttura.html">Struttura</a>
+      <a href="eventi.html" class="active">Eventi</a>
+      <a href="contatti.html">Contatti</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="page-hero">
+      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1400&q=80" alt="Evento privato da Jarul Domnesc">
+      <div class="page-hero-content">
+        <h1>Eventi Privati</h1>
+        <p>Battesimi, comunioni, compleanni, cene aziendali e molto altro</p>
+      </div>
+    </div>
+
+    <section class="eventi-section" aria-label="I nostri eventi">
+      <p class="eventi-intro">
+        Da Jarul Domnesc ogni occasione speciale merita una tavola all'altezza. Organizziamo eventi
+        su misura per famiglie, gruppi e aziende: dall'allestimento al menù, ci occupiamo di tutto
+        perché tu possa goderti ogni momento.
+      </p>
+
+      <div class="eventi-grid">
+
+        <div class="evento-card">
+          <span class="evento-icon">👶</span>
+          <h3>Battesimi</h3>
+          <p>Un giorno indimenticabile per tutta la famiglia. Menù personalizzato, sala riservata e attenzione ad ogni dettaglio.</p>
+        </div>
+
+        <div class="evento-card">
+          <span class="evento-icon">✝️</span>
+          <h3>Comunioni &amp; Cresime</h3>
+          <p>Celebra il grande giorno con un pranzo o una cena dedicata, in un ambiente caldo e accogliente.</p>
+        </div>
+
+        <div class="evento-card">
+          <span class="evento-icon">🎂</span>
+          <h3>Compleanni</h3>
+          <p>Feste di compleanno per tutte le età: dal dopocena tra amici alla tavolata in famiglia con torta inclusa.</p>
+        </div>
+
+        <div class="evento-card">
+          <span class="evento-icon">💍</span>
+          <h3>Anniversari</h3>
+          <p>Sorprendi la persona speciale con una cena romantica o un pranzo in compagnia delle persone più care.</p>
+        </div>
+
+        <div class="evento-card">
+          <span class="evento-icon">🍾</span>
+          <h3>Cene Aziendali</h3>
+          <p>Team building, cene di fine anno o pranzi di lavoro: ambienti discreti e menù adatti a ogni budget aziendale.</p>
+        </div>
+
+        <div class="evento-card">
+          <span class="evento-icon">🎉</span>
+          <h3>Feste Private</h3>
+          <p>Qualsiasi altra occasione da festeggiare: lauree, promozioni, riunioni di famiglia. Contattaci e costruiamo insieme il tuo evento.</p>
+        </div>
+
+      </div>
+
+      <div class="come-funziona">
+        <h2>Come organizziamo il tuo evento</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h4>Ci contatti</h4>
+            <p>Chiamaci o scrivici indicando data, numero di persone e tipo di evento.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h4>Definiamo i dettagli</h4>
+            <p>Scegliamo insieme menù, allestimento e orari. Tutto su misura per te.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h4>Confermiamo</h4>
+            <p>Fissiamo la prenotazione con un piccolo acconto a garanzia della data.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <h4>Festeggia!</h4>
+            <p>Il giorno dell'evento pensiamo a tutto noi. Tu goditi ogni momento.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-eventi">
+        <h2>Pronto a organizzare il tuo evento?</h2>
+        <p>Contattaci subito per verificare la disponibilità e ricevere un preventivo gratuito.</p>
+        <a href="contatti.html">Richiedi informazioni</a>
+        <a href="tel:+39" class="btn-ghost">Chiamaci ora</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo"><em>Jarul</em> Domnesc</span>
+        <p>Cucina rumena tradizionale<br>nel cuore di Padova.</p>
+      </div>
+      <div>
+        <h4>Naviga</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu del Giorno</a></li>
+          <li><a href="struttura.html">Struttura</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <p>Via [Da inserire]<br>35100 Padova (PD)</p>
+        <a href="tel:+39">+39 — Da inserire</a>
+      </div>
+      <div>
+        <h4>Orari</h4>
+        <p>Lun &ndash; Ven: 12:00 &ndash; 15:00<br>Lun &ndash; Sab: 19:00 &ndash; 23:00<br>Domenica pranzo: <strong>Chiuso</strong></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Jarul Domnesc &middot; Padova</p>
+    </div>
+  </footer>
+
+  <script>
+    var btn=document.getElementById('navHamburger'),topnav=document.getElementById('myTopnav');
+    if(btn){btn.addEventListener('click',function(){var o=topnav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});}
+  </script>
+</body>
+</html>
