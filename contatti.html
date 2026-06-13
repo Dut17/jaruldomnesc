@@ -9,6 +9,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .map-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(28, 23, 20, 0.10);
+      min-height: 420px;
+      background: #f0ece5;
+    }
+    .map-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 420px;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -22,8 +38,8 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="menu.html">Menu</a>
-            <a href="struttura.html">Struttura</a>
-            <a href="eventi.html">Eventi</a>
+      <a href="struttura.html">Struttura</a>
+      <a href="eventi.html">Eventi</a>
       <a href="contatti.html">Contatti</a>
     </div>
   </nav>
@@ -38,7 +54,7 @@
     <div class="contatti-body">
       <div class="contatti-info">
         <h2>Vieni a Trovarci</h2>
-        <div class="contatti-block"><h3>Indirizzo</h3><address>Viale della Regione Veneto, 6<br>35100 Padova (PD)</address></div>
+        <div class="contatti-block"><h3>Indirizzo</h3><address>Viale della Regione Veneto, 6<br>35121 Padova (PD)</address></div>
         <div class="contatti-block"><h3>Telefono</h3><p><a href="tel:+393398548172">+39 339 854 8172</a></p></div>
         <div class="contatti-block"><h3>Email</h3><p><a href="mailto:info@jaruldomnesc.it">info@jaruldomnesc.it</a></p></div>
         <div class="contatti-block">
@@ -53,11 +69,18 @@
               <tr><td>Sabato</td><td class="orari-chiuso">Solo eventi privati</td></tr>
               <tr><td>Domenica</td><td class="orari-chiuso">Solo eventi privati</td></tr>
             </tbody>
-        </table>
-          </div>
+          </table>
+        </div>
       </div>
+
       <div class="map-wrapper">
-        
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.123!2d11.8817!3d45.4064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eda4b3b3b3b3b%3A0x0!2sViale+della+Regione+Veneto%2C+6%2C+35121+Padova+PD!5e0!3m2!1sit!2sit!4v1700000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Posizione di Jarul Domnesc Official — Viale della Regione Veneto 6, Padova"
+        ></iframe>
       </div>
     </div>
 
@@ -66,14 +89,14 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand"><div class="footer-logo"><em>Jarul</em> Domnesc</div><p class="footer-tagline">Cucina rumena tradizionale<br>Padova</p></div>
-      <div class="footer-col"><h4>Dove Siamo</h4><address>Viale della Regione Veneto, 6<br>35100 Padova (PD)</address></div>
+      <div class="footer-col"><h4>Dove Siamo</h4><address>Viale della Regione Veneto, 6<br>35121 Padova (PD)</address></div>
       <div class="footer-col"><h4>Contatti</h4><p><a href="tel:+393398548172">+39 339 854 8172</a></p></div>
       <div class="footer-col"><h4>Orari</h4><p>Lun – Ven: 12:00 – 14:30<br>Sab – Dom: <strong>Solo eventi privati</strong></p></div>
     </div>
     <div class="footer-bottom">&copy; 2026 Jarul Domnesc Official · Padova &nbsp;&middot;&nbsp; P.IVA 05661800283</div>
   </footer>
-      <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
 
+  <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
