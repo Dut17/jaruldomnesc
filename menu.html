@@ -28,23 +28,10 @@
     .menu-chiuso strong{display:block;font-family:'Playfair Display',serif;font-size:1.4rem;color:#222;margin-bottom:.5rem}
     .allergeni-nota{font-family:'Inter',sans-serif;font-size:.8rem;color:#888;margin-top:1.5rem;text-align:center;line-height:1.5}
     .allergeni-nota a{color:#b8962e;text-decoration:underline}
-    .footer-menu{background:#1c1714;color:#f5f0e8;padding:3rem 2rem;margin-top:auto}
-    .footer-menu-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;font-family:'Inter',sans-serif;font-size:.9rem}
-    /* Cookie banner */
-    #cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#1c1714;color:#f5f0e8;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:9999;font-family:'Inter',sans-serif;font-size:.85rem;flex-wrap:wrap}
-    #cookie-banner a{color:#b8962e;text-decoration:underline}
-    #cookie-accept{background:#bd2336;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;white-space:nowrap}
-    #cookie-accept:hover{background:#a01f2d}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Salta al contenuto</a>
-
-  <!-- Cookie Consent Banner -->
-  <div id="cookie-banner" role="alert" aria-live="polite" style="display:none">
-    <span>Questo sito utilizza solo cookie tecnici necessari al funzionamento. Nessun cookie di profilazione. <a href="contatti.html">Maggiori info</a>.</span>
-    <button id="cookie-accept" onclick="accettaCookie()">OK, ho capito</button>
-  </div>
 
   <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
     <div class="nav-top-row">
@@ -54,8 +41,8 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="menu.html" class="active">Menu</a>
-            <a href="struttura.html">Struttura</a>
-            <a href="eventi.html">Eventi</a>
+      <a href="struttura.html">Struttura</a>
+      <a href="eventi.html">Eventi</a>
       <a href="contatti.html">Contatti</a>
     </div>
   </nav>
@@ -80,7 +67,7 @@
     </section>
   </main>
 
-<footer>
+  <footer>
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-logo"><em>Jarul</em> Domnesc</div>
@@ -88,7 +75,7 @@
       </div>
       <div class="footer-col">
         <h4>Dove Siamo</h4>
-        <address>Viale della Regione Veneto, 6<br>35100 Padova (PD)</address>
+        <address>Viale della Regione Veneto, 6<br>35121 Padova (PD)</address>
       </div>
       <div class="footer-col">
         <h4>Contatti</h4>
@@ -99,29 +86,19 @@
         <p>Lun &ndash; Ven: 12:00 &ndash; 14:30<br>Sab &ndash; Dom: <strong>Solo eventi privati</strong></p>
       </div>
     </div>
-    <div class="footer-bottom"><p>&copy; 2026 Jarul Domnesc Official &middot; Padova &nbsp;&middot;&nbsp; P.IVA 05661800283</p></div>
+    <div class="footer-bottom">
+      &copy; 2026 Jarul Domnesc Official &middot; Padova &nbsp;&middot;&nbsp; P.IVA 05661800283
+      &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:#b8962e;">Privacy &amp; Cookie</a>
+    </div>
   </footer>
-      <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
 
   <script>
-    // Hamburger
     var btn=document.getElementById('navHamburger'),topnav=document.getElementById('myTopnav');
     if(btn){btn.addEventListener('click',function(){var o=topnav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});}
 
-    // Cookie banner
-    function accettaCookie(){
-      localStorage.setItem('cookie_ok','1');
-      document.getElementById('cookie-banner').style.display='none';
-    }
-    if(!localStorage.getItem('cookie_ok')){
-      document.getElementById('cookie-banner').style.display='flex';
-    }
-
-    // =====================================================
-    // CONFIGURAZIONE: URL del Google Apps Script Web App
-    // =====================================================
     var API_URL='https://script.google.com/macros/s/AKfycbwSCEJjHK3mF-exPXR37uANCZqk2oNtHTRSeC8VMz83BpLUAmtwpdbfJh4fpcZzgX8-/exec';
-    // =====================================================
 
     var oggi=new Date();
     var g=oggi.getDay();
@@ -134,7 +111,8 @@
       fetch(API_URL)
         .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
         .then(function(d){
-          function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}         var p1=esc(d.primo||'');
+          function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+          var p1=esc(d.primo||'');
           var p2=esc(d.secondo||'');
           var p3=esc(d.contorno||'');
           var pz=d.prezzo||''; if(typeof pz==='number')pz=pz+'€'; pz=esc(pz);
@@ -155,6 +133,7 @@
         });
     }
   </script>
-      <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/cookie.js" defer></script>
 </body>
 </html>
