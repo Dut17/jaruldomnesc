@@ -40,7 +40,7 @@
     </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
+      <a href="menu.html" class="active">Menu</a>
       <a href="struttura.html">Struttura</a>
       <a href="eventi.html">Eventi</a>
       <a href="contatti.html">Contatti</a>
@@ -50,7 +50,7 @@
   <main id="main-content">
     <section class="menu-oggi-section" aria-label="Menu di oggi">
       <h1>Menu di Oggi</h1>
-      <p class="sottotitolo">Aggiornato ogni mattina &mdash; Lun&ndash;Ven a pranzo</p>
+      <p class="sottotitolo">Aggiornato ogni mattina &mdash; aperto tutti i giorni a pranzo</p>
 
       <div id="menu-container">
         <p class="menu-loading">Caricamento menu in corso&hellip;</p>
@@ -71,7 +71,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-logo"><em>Jarul</em> Domnesc</div>
-        <p class="footer-tagline">Cucina rumena tradizionale<br>Padova</p>
+        <p class="footer-tagline">Cucina rumena, moldava e italiana<br>Padova</p>
       </div>
       <div class="footer-col">
         <h4>Dove Siamo</h4>
@@ -80,10 +80,11 @@
       <div class="footer-col">
         <h4>Contatti</h4>
         <p><a href="tel:+393398548172">+39 339 854 8172</a></p>
+        <p><a href="mailto:jaruldomnescofficial@gmail.com">jaruldomnescofficial@gmail.com</a></p>
       </div>
       <div class="footer-col">
         <h4>Orari</h4>
-        <p>Lun &ndash; Ven: 12:00 &ndash; 14:30<br>Sab &ndash; Dom: <strong>Solo eventi privati</strong></p>
+        <p>Lun&ndash;Gio: 12:00&ndash;14:30<br>Ven: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sab&ndash;Dom: 12:00&ndash;14:30 / 19:00&ndash;22:00</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -98,37 +99,33 @@
     var API_URL='https://script.google.com/macros/s/AKfycbwSCEJjHK3mF-exPXR37uANCZqk2oNtHTRSeC8VMz83BpLUAmtwpdbfJh4fpcZzgX8-/exec';
 
     var oggi=new Date();
-    var g=oggi.getDay();
     var dataStr=oggi.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
     var c=document.getElementById('menu-container');
 
-    if(g===0||g===6){
-      c.innerHTML='<div class="menu-chiuso"><strong>Oggi siamo chiusi al pranzo</strong>Aperto Lun&ndash;Ven a pranzo.<br>Per eventi privati nel weekend, <a href="contatti.html">contattaci</a>.</div>';
-    } else {
-      fetch(API_URL)
-        .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-        .then(function(d){
-          function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-          var p1=esc(d.primo||'');
-          var p2=esc(d.secondo||'');
-          var p3=esc(d.contorno||'');
-          var pz=d.prezzo||''; if(typeof pz==='number')pz=pz+'€'; pz=esc(pz);
-          if(!p1&&!p2&&!p3){
-            c.innerHTML='<div class="menu-errore">Menu non ancora inserito. Riprova pi&ugrave; tardi.</div>';
-            return;
-          }
-          var h='<div class="menu-card"><div class="data-oggi">'+dataStr+'</div>';
-          if(p1)h+='<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">'+p1+'</span></div>';
-          if(p2)h+='<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">'+p2+'</span></div>';
-          if(p3)h+='<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">'+p3+'</span></div>';
-          if(pz)h+='<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">'+pz+'</span></div>';
-          h+='</div>';
-          c.innerHTML=h;
-        })
-        .catch(function(){
-          c.innerHTML='<div class="menu-errore">Impossibile caricare il menu. Riprova pi&ugrave; tardi.</div>';
-        });
-    }
+    /* Il ristorante è aperto a pranzo tutti i giorni — nessun blocco weekend */
+    fetch(API_URL)
+      .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+      .then(function(d){
+        function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+        var p1=esc(d.primo||'');
+        var p2=esc(d.secondo||'');
+        var p3=esc(d.contorno||'');
+        var pz=d.prezzo||''; if(typeof pz==='number')pz=pz+'€'; pz=esc(pz);
+        if(!p1&&!p2&&!p3){
+          c.innerHTML='<div class="menu-errore">Menu non ancora inserito. Riprova più tardi.</div>';
+          return;
+        }
+        var h='<div class="menu-card"><div class="data-oggi">'+dataStr+'</div>';
+        if(p1)h+='<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">'+p1+'</span></div>';
+        if(p2)h+='<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">'+p2+'</span></div>';
+        if(p3)h+='<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">'+p3+'</span></div>';
+        if(pz)h+='<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">'+pz+'</span></div>';
+        h+='</div>';
+        c.innerHTML=h;
+      })
+      .catch(function(){
+        c.innerHTML='<div class="menu-errore">Impossibile caricare il menu. Riprova più tardi.</div>';
+      });
   </script>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/cookie.js" defer></script>
