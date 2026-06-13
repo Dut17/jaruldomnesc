@@ -12,15 +12,12 @@
   <style>
     body{min-height:100vh;display:flex;flex-direction:column}
     main{flex:1}
-    .page-hero{position:relative;height:340px;overflow:hidden;display:flex;align-items:flex-end}
-    .page-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
-    .page-hero-content{position:relative;z-index:1;padding:2.5rem 2rem;max-width:1100px;margin:0 auto;width:100%}
-    .page-hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#fff;margin:0}
     .struttura-section{padding:4rem 2rem;max-width:1100px;margin:0 auto}
     .struttura-intro{font-family:'Inter',sans-serif;font-size:1.05rem;color:#555;max-width:620px;line-height:1.7;margin-bottom:3.5rem}
     .sale-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
     .sala-card{background:#fff;border:1px solid #f0e6c8;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(189,35,54,.06)}
-    .sala-card-img-placeholder{width:100%;height:200px;background:linear-gradient(135deg,#f5f0e8 0%,#ede3cc 100%);display:flex;align-items:center;justify-content:center}
+    .sala-card-img{width:100%;height:220px;object-fit:cover;display:block}
+    .sala-card-img-placeholder{width:100%;height:220px;background:linear-gradient(135deg,#f5f0e8 0%,#ede3cc 100%);display:flex;align-items:center;justify-content:center}
     .sala-card-img-placeholder span{font-family:'Playfair Display',serif;font-size:1.1rem;color:#b8962e;letter-spacing:.05em;text-transform:uppercase}
     .sala-card-body{padding:1.5rem}
     .sala-card-body h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#1c1714;margin:0 0 .5rem}
@@ -30,8 +27,8 @@
     .cta-struttura{margin-top:3.5rem;background:#1c1714;border-radius:12px;padding:2.5rem 2rem;text-align:center}
     .cta-struttura h2{font-family:'Playfair Display',serif;color:#f5f0e8;font-size:1.8rem;margin:0 0 .75rem}
     .cta-struttura p{font-family:'Inter',sans-serif;color:#aaa;font-size:.95rem;margin:0 0 1.5rem}
-    .cta-struttura a{display:inline-block;background:#bd2336;color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 2.2rem;border-radius:6px;text-decoration:none}
-    .cta-struttura a:hover{background:#a01f2d}
+    .cta-struttura a{display:inline-block;background:#b5451b;color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 2.2rem;border-radius:6px;text-decoration:none}
+    .cta-struttura a:hover{background:#8a2f10}
   </style>
 </head>
 <body>
@@ -52,8 +49,9 @@
   </nav>
 
   <main id="main-content">
-    <div class="page-hero">
-      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80" alt="Interno del ristorante Jarul Domnesc Official">
+    <!-- Hero: foto reale del salone -->
+    <div class="page-hero" style="margin-top: clamp(72px, 10vw, 110px);">
+      <img src="assets/WhatsApp Image 2026-06-10 at 07.21.27.jpeg" alt="Salone del ristorante Jarul Domnesc Official" width="1400" height="340" loading="eager">
       <div class="page-hero-content">
         <h1>La Nostra Struttura</h1>
       </div>
@@ -67,8 +65,9 @@
       </p>
 
       <div class="sale-grid">
+        <!-- Sala Principale: foto reale -->
         <article class="sala-card">
-          <div class="sala-card-img-placeholder"><span>Sala Principale</span></div>
+          <img class="sala-card-img" src="assets/WhatsApp Image 2026-06-10 at 07.21.16.jpeg" alt="Sala principale del ristorante Jarul Domnesc" width="600" height="220" loading="lazy">
           <div class="sala-card-body">
             <h3>Sala Principale</h3>
             <div class="sala-card-meta">
@@ -79,6 +78,7 @@
           </div>
         </article>
 
+        <!-- Sala Privata: placeholder fino a nuova foto -->
         <article class="sala-card">
           <div class="sala-card-img-placeholder"><span>Sala Privata</span></div>
           <div class="sala-card-body">
@@ -91,6 +91,7 @@
           </div>
         </article>
 
+        <!-- Spazio Esterno: placeholder fino a nuova foto -->
         <article class="sala-card">
           <div class="sala-card-img-placeholder"><span>Spazio Esterno</span></div>
           <div class="sala-card-body">

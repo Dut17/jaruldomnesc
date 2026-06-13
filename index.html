@@ -14,28 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* Video hero */
-    .hero-video-wrap {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      z-index: 0;
-    }
-    .hero-video-wrap video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    /* Fallback: se il video non carica, mostra immagine */
-    .hero-video-wrap img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
+    .hero-video-wrap { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+    .hero-video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-video-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
   </style>
 </head>
 <body>
@@ -59,9 +40,8 @@
   <main id="main-content">
 
     <section class="hero" aria-label="Hero">
-      <!-- Video sfondo: autoplay, muted, loop, nessun controllo -->
       <div class="hero-video-wrap" aria-hidden="true">
-        <img src="assets/WhatsApp Image 2026-06-10 at 07.21.27.jpeg" alt="">
+        <img src="assets/WhatsApp Image 2026-06-10 at 07.20.28.jpeg" alt="">
         <video autoplay muted loop playsinline preload="none">
           <source src="assets/WhatsApp Video 2026-06-10 at 07.23.28.mp4" type="video/mp4">
         </video>
@@ -107,7 +87,7 @@
         <a href="contatti.html" class="btn-primary">Vieni a Trovarci</a>
       </div>
       <div class="about-strip-img">
-        <img src="assets/WhatsApp Image 2026-06-10 at 07.21.16.jpeg" alt="Salone del ristorante Jarul Domnesc Official a Padova" width="800" height="600" loading="lazy">
+        <img src="assets/WhatsApp Image 2026-06-10 at 07.20.27.jpeg" alt="Salone del ristorante Jarul Domnesc Official a Padova" width="800" height="600" loading="lazy">
       </div>
     </section>
 
@@ -161,12 +141,12 @@
     </section>
 
     <section class="foto-grid" aria-label="Galleria foto">
-      <div class="foto-grid-item"><img src="assets/WhatsApp Image 2026-06-10 at 07.21.27.jpeg" alt="Salone del ristorante" width="600" height="600" loading="lazy"></div>
-      <div class="foto-grid-item"><img src="assets/WhatsApp Image 2026-06-10 at 07.21.16.jpeg" alt="Salone centrale" width="600" height="600" loading="lazy"></div>
       <div class="foto-grid-item"><img src="assets/WhatsApp Image 2026-06-10 at 07.20.28.jpeg" alt="Piatto di formaggi con marmellata" width="600" height="600" loading="lazy"></div>
       <div class="foto-grid-item"><img src="assets/WhatsApp Image 2026-06-10 at 07.20.27.jpeg" alt="Piatti del ristorante" width="600" height="600" loading="lazy"></div>
       <div class="foto-grid-item"><img src="assets/WhatsApp Image 2026-06-10 at 07.20.26.jpeg" alt="Salumi" width="600" height="600" loading="lazy"></div>
       <div class="foto-grid-item"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Interno del ristorante" width="600" height="600" loading="lazy"></div>
+      <div class="foto-grid-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Atmosfera del ristorante" width="600" height="600" loading="lazy"></div>
+      <div class="foto-grid-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Grigliata rumena" width="600" height="600" loading="lazy"></div>
     </section>
 
   </main>
