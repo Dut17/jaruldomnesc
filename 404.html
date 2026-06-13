@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pagina non trovata — Jarul Domnesc Official · Padova">
+  <title>Pagina non trovata — Jarul Domnesc Official</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .not-found-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    .not-found-code {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(5rem, 20vw, 10rem);
+      line-height: 1;
+      color: #f0e6c8;
+      letter-spacing: -.02em;
+      margin-bottom: .5rem;
+      user-select: none;
+    }
+    .not-found-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: #1c1714;
+      margin-bottom: .75rem;
+    }
+    .not-found-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #777;
+      max-width: 380px;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+    .not-found-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .not-found-actions a {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .8rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .18s, border-color .18s;
+    }
+    .btn-home {
+      background: #bd2336;
+      color: #fff;
+    }
+    .btn-home:hover {
+      background: #a01f2d;
+    }
+    .btn-menu {
+      background: transparent;
+      color: #bd2336;
+      border: 2px solid #bd2336;
+    }
+    .btn-menu:hover {
+      background: #bd2336;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Salta al contenuto</a>
+
+  <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
+    <div class="nav-top-row">
+      <a href="index.html" class="logo"><em>Jarul</em> Domnesc</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="struttura.html">Struttura</a>
+      <a href="eventi.html">Eventi</a>
+      <a href="contatti.html">Contatti</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="not-found-wrap">
+      <div class="not-found-code" aria-hidden="true">404</div>
+      <h1 class="not-found-title">Pagina non trovata</h1>
+      <p class="not-found-sub">
+        La pagina che cerchi non esiste o è stata spostata.
+        Torna alla home o dai un'occhiata al menu di oggi.
+      </p>
+      <div class="not-found-actions">
+        <a href="index.html" class="btn-home">Torna alla Home</a>
+        <a href="menu.html" class="btn-menu">Menu di Oggi</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo"><em>Jarul</em> Domnesc</div>
+        <p class="footer-tagline">Cucina rumena tradizionale<br>Padova</p>
+      </div>
+      <div class="footer-col">
+        <h4>Dove Siamo</h4>
+        <address>Viale della Regione Veneto, 6<br>35121 Padova (PD)</address>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <p><a href="tel:+393398548172">+39 339 854 8172</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Orari</h4>
+        <p>Lun &ndash; Ven: 12:00 &ndash; 14:30<br>Sab &ndash; Dom: <strong>Solo eventi privati</strong></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Jarul Domnesc Official &middot; Padova &nbsp;&middot;&nbsp; P.IVA 05661800283
+      &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:#b8962e;">Privacy &amp; Cookie</a>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/cookie.js" defer></script>
+</body>
+</html>
