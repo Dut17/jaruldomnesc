@@ -48,24 +48,6 @@ jaruldomnesc/
 
 ---
 
-## Dati reali confermati
-
-| Campo | Valore |
-|---|---|
-| Ragione sociale | Jarul Domnesc Official |
-| Indirizzo | Viale della Regione Veneto, 6 — 35121 Padova (PD) |
-| Telefono | +39 339 854 8172 |
-| P.IVA | 05661800283 |
-| Email | jaruldomnescofficial@gmail.com |
-| Cucina | Rumena, moldava e italiana |
-| Lun–Gio | Pranzo 12:00–14:30 |
-| Venerdì | Pranzo 12:00–14:30 / Cena 19:00–22:00 |
-| Sab–Dom | Pranzo 12:00–14:30 / Cena 19:00–22:00 |
-| Sale | ❌ Da confermare con il cliente |
-| URL deploy | ❌ Da aggiornare post-deploy in qr.html |
-
----
-
 ## Prossimi step
 
 ### 🔴 Bloccante go-live
