@@ -41,37 +41,38 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Salta al contenuto</a>
+  <a class="skip-link" href="#main-content" data-i18n="skip.link">Salta al contenuto</a>
 
   <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
     <div class="nav-top-row">
       <a href="index.html" class="logo"><img src="assets/images-removebg-preview.png" alt="Jarul Domnesc" height="55" style="display:block;"></a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">☰</button>
     </div>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="struttura.html">Struttura</a>
-      <a href="eventi.html" class="active">Eventi</a>
-      <a href="contatti.html">Contatti</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="struttura.html" data-i18n="nav.struttura">Struttura</a>
+      <a href="eventi.html" class="active" data-i18n="nav.eventi">Eventi</a>
+      <a href="contatti.html" data-i18n="nav.contatti">Contatti</a>
+      <div class="lang-switcher" aria-label="Seleziona lingua">
+        <button type="button" data-lang-btn="it" class="lang-btn lang-btn--active" aria-label="Italiano">IT</button>
+        <button type="button" data-lang-btn="en" class="lang-btn" aria-label="English">EN</button>
+        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Română">RO</button>
+      </div>
     </div>
   </nav>
 
   <main id="main-content">
     <div class="page-hero">
-      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1400&q=80" alt="Evento privato da Jarul Domnesc">
+      <img src="assets/WhatsApp Image 2026-06-10 at 07.20.28.jpeg" alt="Evento privato da Jarul Domnesc" loading="lazy">
       <div class="page-hero-content">
         <h1>Eventi Privati</h1>
         <p>Battesimi, comunioni, compleanni, cene aziendali e molto altro</p>
       </div>
     </div>
 
-    <section class="eventi-section" aria-label="I nostri eventi">
-      <p class="eventi-intro">
-        Da Jarul Domnesc ogni occasione speciale merita una tavola all'altezza. Organizziamo eventi
-        su misura per famiglie, gruppi e aziende: dall'allestimento al menù, ci occupiamo di tutto
-        perché tu possa goderti ogni momento.
-      </p>
+    <section class="eventi-section">
+      <p class="eventi-intro">Da Jarul Domnesc ogni occasione speciale merita una tavola all'altezza. Organizziamo eventi su misura per famiglie, gruppi e aziende: dall'allestimento al menù, ci occupiamo di tutto perché tu possa goderti ogni momento.</p>
 
       <div class="eventi-grid">
         <div class="evento-card"><h3>Battesimi</h3><p>Un giorno indimenticabile per tutta la famiglia. Menù personalizzato, sala riservata e attenzione ad ogni dettaglio.</p></div>
@@ -103,17 +104,34 @@
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-brand"><div class="footer-logo"><em>Jarul</em> Domnesc</div><p class="footer-tagline">Cucina rumena, moldava e italiana<br>Padova</p></div>
-      <div class="footer-col"><h4>Dove Siamo</h4><address>Viale della Regione Veneto, 6<br>35121 Padova (PD)</address></div>
-      <div class="footer-col"><h4>Contatti</h4><p><a href="tel:+393398548172">+39 339 854 8172</a></p><p><a href="mailto:jaruldomnescofficial@gmail.com">jaruldomnescofficial@gmail.com</a></p></div>
-      <div class="footer-col"><h4>Orari</h4><p>Lun&ndash;Gio: 12:00&ndash;14:30<br>Ven: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sab&ndash;Dom: 12:00&ndash;14:30 / 19:00&ndash;22:00</p></div>
+      <div class="footer-brand">
+        <div class="footer-logo"><em>Jarul</em> Domnesc</div>
+        <p class="footer-tagline" data-i18n="footer.tagline">Cucina rumena, moldava e italiana<br>Padova</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.where">Dove Siamo</h4>
+        <address>Viale della Regione Veneto, 6<br>35121 Padova (PD)</address>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.contacts">Contatti</h4>
+        <p><a href="tel:+393398548172">+39 339 854 8172</a></p>
+        <p><a href="mailto:jaruldomnescofficial@gmail.com">jaruldomnescofficial@gmail.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.hours">Orari</h4>
+        <p data-i18n="footer.schedule">Lun&ndash;Gio: 12:00&ndash;14:30<br>Ven: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sab&ndash;Dom: 12:00&ndash;14:30 / 19:00&ndash;22:00</p>
+      </div>
     </div>
-    <div class="footer-bottom">&copy; 2026 Jarul Domnesc Official &middot; Padova &nbsp;&middot;&nbsp; P.IVA 05661800283
-    &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:#b8962e;">Privacy &amp; Cookie</a></div>
+    <div class="footer-bottom">
+      &copy; 2026 Jarul Domnesc Official &middot; Padova &nbsp;&middot;&nbsp;
+      P.IVA 05661800283 &nbsp;&middot;&nbsp;
+      <a href="privacy.html" style="color:#b8962e;">Privacy &amp; Cookie</a>
+    </div>
   </footer>
 
-  <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
+  <button class="scroll-top" id="scrollTop" aria-label="Torna su">⇧</button>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/cookie.js" defer></script>
+  <script src="assets/js/i18n.js" defer></script>
 </body>
 </html>
