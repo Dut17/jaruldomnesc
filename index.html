@@ -6,7 +6,7 @@
   <meta name="description" content="Jarul Domnesc Official — Ristorante di cucina rumena, moldava e italiana a Padova. Menu fisso a pranzo, aperto tutti i giorni.">
   <title>Jarul Domnesc Official — Ristorante Rumeno · Padova</title>
   <meta property="og:title" content="Jarul Domnesc Official — Ristorante Rumeno · Padova">
-  <meta property="og:description" content="Cucina rumena, moldava e italiana nel cuore di Padova. Sapori autentici, carne alla brace e ospitalit\u00e0 calda.">
+  <meta property="og:description" content="Cucina rumena, moldava e italiana nel cuore di Padova. Sapori autentici, carne alla brace e ospitalità calda.">
   <meta property="og:type" content="restaurant">
   <meta property="og:locale" content="it_IT">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,6 +45,14 @@
       border-color: #b8962e;
       color: #b8962e;
     }
+
+    /* ─── Video grid items ──────────────────────────────────────────── */
+    .foto-grid-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -65,7 +73,7 @@
       <div class="lang-switcher" aria-label="Seleziona lingua">
         <button type="button" data-lang-btn="it" class="lang-btn lang-btn--active" aria-label="Italiano">IT</button>
         <button type="button" data-lang-btn="en" class="lang-btn" aria-label="English">EN</button>
-        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Rom\u00e2n\u0103">RO</button>
+        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Română">RO</button>
       </div>
     </div>
   </nav>
@@ -116,7 +124,7 @@
       <div class="about-strip-text">
         <span class="section-eyebrow" data-i18n="about.eyebrow">La Nostra Storia</span>
         <h2 class="section-title" data-i18n="about.title">Un pezzo di<br>Romania a Padova</h2>
-        <p class="section-body" data-i18n="about.body">Jarul Domnesc Official nasce dal desiderio di portare la vera cucina di casa rumena e moldava in Italia. Ogni piatto \u00e8 preparato seguendo ricette tramandate di generazione in generazione: dal mamalighe croccante ai sarmale invernali, dall\u2019ostropel profumato alla papanasi calda con panna acida. Menu fisso a pranzo, aperto tutti i giorni.</p>
+        <p class="section-body" data-i18n="about.body">Jarul Domnesc Official nasce dal desiderio di portare la vera cucina di casa rumena e moldava in Italia. Ogni piatto è preparato seguendo ricette tramandate di generazione in generazione: dal mamalighe croccante ai sarmale invernali, dall'ostropel profumato alla papanasi calda con panna acida. Menu fisso a pranzo, aperto tutti i giorni.</p>
         <a href="contatti.html" class="btn-primary" data-i18n="about.cta">Vieni a Trovarci</a>
       </div>
       <div class="about-strip-img">
@@ -128,9 +136,21 @@
       <div class="foto-grid-item"><img src="assets/WhatsApp Image 2026-06-10 at 07.20.28.jpeg" alt="Piatto di formaggi con marmellata" width="600" height="600" loading="lazy"></div>
       <div class="foto-grid-item"><img src="assets/WhatsApp Image 2026-06-10 at 07.20.27.jpeg" alt="Piatti del ristorante" width="600" height="600" loading="lazy"></div>
       <div class="foto-grid-item"><img src="assets/WhatsApp Image 2026-06-10 at 07.20.26.jpeg" alt="Salumi" width="600" height="600" loading="lazy"></div>
-      <div class="foto-grid-item"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Interno del ristorante" width="600" height="600" loading="lazy"></div>
-      <div class="foto-grid-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Atmosfera del ristorante" width="600" height="600" loading="lazy"></div>
-      <div class="foto-grid-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Grigliata rumena" width="600" height="600" loading="lazy"></div>
+      <div class="foto-grid-item">
+        <video autoplay muted loop playsinline preload="none" aria-label="Video piatto del ristorante">
+          <source src="assets/WhatsApp Video 2026-06-10 at 07.15.23.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="foto-grid-item">
+        <video autoplay muted loop playsinline preload="none" aria-label="Video piatto del ristorante">
+          <source src="assets/WhatsApp Video 2026-06-10 at 07.16.07.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="foto-grid-item">
+        <video autoplay muted loop playsinline preload="none" aria-label="Video piatto del ristorante">
+          <source src="assets/WhatsApp Video 2026-06-10 at 07.17.47.mp4" type="video/mp4">
+        </video>
+      </div>
     </section>
 
   </main>
