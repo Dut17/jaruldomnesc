@@ -21,6 +21,19 @@
       'footer.hours':    'Orari',
       'footer.schedule': 'Lun&ndash;Gio: 12:00&ndash;14:30<br>Ven: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sab&ndash;Dom: 12:00&ndash;14:30 / 19:00&ndash;22:00',
 
+      // menu.html
+      'menu.h1':       'Menu di Oggi',
+      'menu.subtitle': 'Aggiornato ogni mattina — aperto tutti i giorni a pranzo',
+      'menu.primo':    'Primo',
+      'menu.secondo':  'Secondo',
+      'menu.contorno': 'Contorno',
+      'menu.prezzo':   'Prezzo',
+      'menu.loading':  'Caricamento menu in corso…',
+      'menu.empty':    'Menu non ancora inserito. Riprova più tardi.',
+      'menu.error':    'Impossibile caricare il menu. Riprova più tardi.',
+      'menu.allergeni':'Per informazioni sugli allergeni presenti nei nostri piatti, chiedi al personale di sala. Reg. UE 1169/2011.',
+      'menu.contact':  'Per informazioni e prenotazioni: <a href="contatti.html" style="color:#b8962e;">contattaci</a>.',
+
       // index.html
       'hero.badge':        'Padova &middot; Cucina Rumena &amp; Moldava',
       'hero.title':        'Sapori<br><em>di Casa</em>',
@@ -60,7 +73,7 @@
       // eventi.html
       'ev.hero.h1':        'Eventi Privati',
       'ev.hero.p':         'Battesimi, comunioni, compleanni, cene aziendali e molto altro',
-      'ev.intro':          'Che sia un battesimo con tutta la famiglia allargata o una cena aziendale di fine anno, da Jarul Domnesc ogni tavolata ha il suo peso. Concordiamo menu, allestimento e orari — noi pensiamo ai dettagli, tu ti godi l\u2019occasione.',
+      'ev.intro':          'Che sia un battesimo con tutta la famiglia allargata o una cena aziendale di fine anno, da Jarul Domnesc ogni tavolata ha il suo peso. Concordiamo menu, allestimento e orari \u2014 noi pensiamo ai dettagli, tu ti godi l\u2019occasione.',
       'ev.card1.h3':       'Battesimi',
       'ev.card1.p':        'Un giorno indimenticabile per tutta la famiglia. Men\u00f9 personalizzato, sala riservata e attenzione ad ogni dettaglio.',
       'ev.card2.h3':       'Comunioni &amp; Cresime',
@@ -119,6 +132,19 @@
       'footer.contacts': 'Contact',
       'footer.hours':    'Opening Hours',
       'footer.schedule': 'Mon&ndash;Thu: 12:00&ndash;14:30<br>Fri: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sat&ndash;Sun: 12:00&ndash;14:30 / 19:00&ndash;22:00',
+
+      // menu.html
+      'menu.h1':       "Today's Menu",
+      'menu.subtitle': 'Updated every morning \u2014 open every day for lunch',
+      'menu.primo':    'First course',
+      'menu.secondo':  'Main course',
+      'menu.contorno': 'Side dish',
+      'menu.prezzo':   'Price',
+      'menu.loading':  'Loading menu\u2026',
+      'menu.empty':    'Menu not yet available. Please check back later.',
+      'menu.error':    'Unable to load the menu. Please try again later.',
+      'menu.allergeni':'For allergen information, please ask a member of staff. EU Reg. 1169/2011.',
+      'menu.contact':  'For information and reservations: <a href="contatti.html" style="color:#b8962e;">contact us</a>.',
 
       'hero.badge':        'Padua &middot; Romanian &amp; Moldovan Cuisine',
       'hero.title':        'Flavours<br><em>of Home</em>',
@@ -214,6 +240,19 @@
       'footer.contacts': 'Contact',
       'footer.hours':    'Program',
       'footer.schedule': 'Lun&ndash;Joi: 12:00&ndash;14:30<br>Vin: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>S\u00e2m&ndash;Dum: 12:00&ndash;14:30 / 19:00&ndash;22:00',
+
+      // menu.html
+      'menu.h1':       'Meniul de Azi',
+      'menu.subtitle': 'Actualizat \u00een fiecare diminea\u0163\u0103 \u2014 deschis \u00een fiecare zi la pr\u00e2nz',
+      'menu.primo':    'Fel \u00eent\u00e2i',
+      'menu.secondo':  'Fel principal',
+      'menu.contorno': 'Garnitur\u0103',
+      'menu.prezzo':   'Pre\u0163',
+      'menu.loading':  'Se \u00eencarc\u0103 meniul\u2026',
+      'menu.empty':    'Meniul nu a fost \u00eenc\u0103 introdus. Reveniti mai t\u00e2rziu.',
+      'menu.error':    'Nu se poate \u00eenc\u0103rca meniul. \u00cencerca\u0163i din nou mai t\u00e2rziu.',
+      'menu.allergeni':'Pentru informa\u0163ii despre alergeni, rug\u0103m s\u0103 \u00eentreba\u0163i personalul. Reg. UE 1169/2011.',
+      'menu.contact':  'Pentru informa\u0163ii \u015fi rezerv\u0103ri: <a href="contatti.html" style="color:#b8962e;">contacta\u0163i-ne</a>.',
 
       'hero.badge':        'Padova &middot; Buc\u0103t\u0103rie Rom\u00e2n\u0103 &amp; Moldoveneasc\u0103',
       'hero.title':        'Gusturi<br><em>de Acas\u0103</em>',
@@ -332,6 +371,13 @@
     applyLanguage(resolveInitialLang());
   });
 
-  window.i18n = { setLanguage: setLanguage };
+  window.i18n = {
+    setLanguage: setLanguage,
+    t: function (key) {
+      var lang = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
+      var dict = translations[lang] || translations[DEFAULT_LANG];
+      return dict[key] !== undefined ? dict[key] : (translations[DEFAULT_LANG][key] || key);
+    },
+  };
 
 }());

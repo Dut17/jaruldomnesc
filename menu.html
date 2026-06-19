@@ -36,7 +36,7 @@
   <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
     <div class="nav-top-row">
       <a href="index.html" class="logo"><img src="assets/images-removebg-preview.png" alt="Jarul Domnesc" height="55" style="display:block;"></a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">☰</button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
     </div>
     <div class="nav-links">
       <a href="index.html" data-i18n="nav.home">Home</a>
@@ -47,20 +47,20 @@
       <div class="lang-switcher" aria-label="Seleziona lingua">
         <button type="button" data-lang-btn="it" class="lang-btn lang-btn--active" aria-label="Italiano">IT</button>
         <button type="button" data-lang-btn="en" class="lang-btn" aria-label="English">EN</button>
-        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Română">RO</button>
+        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Rom\u00e2n\u0103">RO</button>
       </div>
     </div>
   </nav>
 
   <main id="main-content">
     <section class="menu-oggi-section">
-      <h1>Menu di Oggi</h1>
-      <p class="sottotitolo">Aggiornato ogni mattina — aperto tutti i giorni a pranzo</p>
-      <div id="menu-container"><p class="menu-loading">Caricamento menu in corso…</p></div>
-      <p class="allergeni-nota">Per informazioni sugli allergeni presenti nei nostri piatti, chiedi al personale di sala. Reg. UE 1169/2011.</p>
+      <h1 data-i18n="menu.h1">Menu di Oggi</h1>
+      <p class="sottotitolo" data-i18n="menu.subtitle">Aggiornato ogni mattina — aperto tutti i giorni a pranzo</p>
+      <div id="menu-container"><p class="menu-loading" data-i18n="menu.loading">Caricamento menu in corso…</p></div>
+      <p class="allergeni-nota" data-i18n="menu.allergeni">Per informazioni sugli allergeni presenti nei nostri piatti, chiedi al personale di sala. Reg. UE 1169/2011.</p>
     </section>
     <section style="text-align:center;padding:1rem 1rem 4rem;">
-      <p style="font-family:'Inter',sans-serif;color:#888;font-size:.9rem;">Per informazioni e prenotazioni: <a href="contatti.html" style="color:#b8962e;">contattaci</a>.</p>
+      <p style="font-family:'Inter',sans-serif;color:#888;font-size:.9rem;" data-i18n="menu.contact">Per informazioni e prenotazioni: <a href="contatti.html" style="color:#b8962e;">contattaci</a>.</p>
     </section>
   </main>
 
@@ -91,37 +91,62 @@
     </div>
   </footer>
 
-  <button class="scroll-top" id="scrollTop" aria-label="Torna su">⇧</button>
+  <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
+
   <script>
-    var API_URL='https://script.google.com/macros/s/AKfycbwSCEJjHK3mF-exPXR37uANCZqk2oNtHTRSeC8VMz83BpLUAmtwpdbfJh4fpcZzgX8-/exec';
-    var oggi=new Date();
-    var dataStr=oggi.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
-    var c=document.getElementById('menu-container');
-    /* Il ristorante è aperto a pranzo tutti i giorni — nessun blocco weekend */
-    fetch(API_URL)
-    .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-    .then(function(d){
-      function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-      var p1=esc(d.primo||'');
-      var p2=esc(d.secondo||'');
-      var p3=esc(d.contorno||'');
-      var pz=d.prezzo||''; if(typeof pz==='number')pz=pz+'€'; pz=esc(pz);
-      if(!p1&&!p2&&!p3){
-        c.innerHTML='<div class="menu-errore">Menu non ancora inserito. Riprova più tardi.</div>';
+    var API_URL = 'https://script.google.com/macros/s/AKfycbwSCEJjHK3mF-exPXR37uANCZqk2oNtHTRSeC8VMz83BpLUAmtwpdbfJh4fpcZzgX8-/exec';
+    var oggi = new Date();
+    var dataStr = oggi.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
+    var c = document.getElementById('menu-container');
+
+    function buildMenu(d) {
+      /* Read active lang from localStorage, fall back to 'it' */
+      var lang = localStorage.getItem('jd_lang') || 'it';
+
+      /* Use window.i18n.t if available, otherwise plain fallbacks */
+      var t = (window.i18n && window.i18n.t)
+        ? function (key) { return window.i18n.t(key); }
+        : function (key) { return key; };
+
+      function esc(s) {
+        return String(s)
+          .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      }
+
+      var p1 = esc(d.primo    || '');
+      var p2 = esc(d.secondo  || '');
+      var p3 = esc(d.contorno || '');
+      var pz = d.prezzo || '';
+      if (typeof pz === 'number') { pz = pz + '\u20ac'; }
+      pz = esc(pz);
+
+      if (!p1 && !p2 && !p3) {
+        c.innerHTML = '<div class="menu-errore">' + t('menu.empty') + '</div>';
         return;
       }
-      var h='<div class="menu-card"><div class="data-oggi">'+dataStr+'</div>';
-      if(p1)h+='<div class="piatto-riga"><span class="piatto-label">Primo</span><span class="piatto-nome">'+p1+'</span></div>';
-      if(p2)h+='<div class="piatto-riga"><span class="piatto-label">Secondo</span><span class="piatto-nome">'+p2+'</span></div>';
-      if(p3)h+='<div class="piatto-riga"><span class="piatto-label">Contorno</span><span class="piatto-nome">'+p3+'</span></div>';
-      if(pz)h+='<div class="piatto-riga"><span class="piatto-label">Prezzo</span><span class="piatto-nome"></span><span class="piatto-prezzo">'+pz+'</span></div>';
-      h+='</div>';
-      c.innerHTML=h;
-    })
-    .catch(function(){
-      c.innerHTML='<div class="menu-errore">Impossibile caricare il menu. Riprova più tardi.</div>';
-    });
+
+      var h = '<div class="menu-card"><div class="data-oggi">' + dataStr + '</div>';
+      if (p1) { h += '<div class="piatto-riga"><span class="piatto-label">' + t('menu.primo')   + '</span><span class="piatto-nome">' + p1 + '</span></div>'; }
+      if (p2) { h += '<div class="piatto-riga"><span class="piatto-label">' + t('menu.secondo') + '</span><span class="piatto-nome">' + p2 + '</span></div>'; }
+      if (p3) { h += '<div class="piatto-riga"><span class="piatto-label">' + t('menu.contorno')+ '</span><span class="piatto-nome">' + p3 + '</span></div>'; }
+      if (pz) { h += '<div class="piatto-riga"><span class="piatto-label">' + t('menu.prezzo')  + '</span><span class="piatto-nome"></span><span class="piatto-prezzo">' + pz + '</span></div>'; }
+      h += '</div>';
+      c.innerHTML = h;
+    }
+
+    fetch(API_URL)
+      .then(function (r) {
+        if (!r.ok) { throw new Error('HTTP ' + r.status); }
+        return r.json();
+      })
+      .then(buildMenu)
+      .catch(function () {
+        var t = (window.i18n && window.i18n.t) ? window.i18n.t : function (k) { return k; };
+        c.innerHTML = '<div class="menu-errore">' + t('menu.error') + '</div>';
+      });
   </script>
+
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/cookie.js" defer></script>
   <script src="assets/js/i18n.js" defer></script>
