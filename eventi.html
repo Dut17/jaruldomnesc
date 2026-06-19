@@ -38,6 +38,11 @@
     .cta-eventi a:hover{background:#a01f2d}
     .cta-eventi a.btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.3);color:#f5f0e8}
     .cta-eventi a.btn-ghost:hover{border-color:rgba(255,255,255,.7)}
+    /* Lang switcher */
+    .lang-switcher{display:flex;align-items:center;gap:.25rem;margin-left:1rem}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.35);color:inherit;font:600 .7rem/1 'Inter',sans-serif;letter-spacing:.05em;padding:.3rem .5rem;border-radius:3px;cursor:pointer;transition:background .2s,border-color .2s}
+    .lang-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+    .lang-btn--active{background:rgba(255,255,255,.18);border-color:#b8962e;color:#b8962e}
   </style>
 </head>
 <body>
@@ -46,7 +51,7 @@
   <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
     <div class="nav-top-row">
       <a href="index.html" class="logo"><img src="assets/images-removebg-preview.png" alt="Jarul Domnesc" height="55" style="display:block;"></a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">☰</button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
     </div>
     <div class="nav-links">
       <a href="index.html" data-i18n="nav.home">Home</a>
@@ -57,7 +62,7 @@
       <div class="lang-switcher" aria-label="Seleziona lingua">
         <button type="button" data-lang-btn="it" class="lang-btn lang-btn--active" aria-label="Italiano">IT</button>
         <button type="button" data-lang-btn="en" class="lang-btn" aria-label="English">EN</button>
-        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Română">RO</button>
+        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Rom\u00e2n\u0103">RO</button>
       </div>
     </div>
   </nav>
@@ -66,38 +71,38 @@
     <div class="page-hero">
       <img src="assets/WhatsApp Image 2026-06-10 at 07.20.28.jpeg" alt="Evento privato da Jarul Domnesc" loading="lazy">
       <div class="page-hero-content">
-        <h1>Eventi Privati</h1>
-        <p>Battesimi, comunioni, compleanni, cene aziendali e molto altro</p>
+        <h1 data-i18n="ev.hero.h1">Eventi Privati</h1>
+        <p data-i18n="ev.hero.p">Battesimi, comunioni, compleanni, cene aziendali e molto altro</p>
       </div>
     </div>
 
     <section class="eventi-section">
-      <p class="eventi-intro">Da Jarul Domnesc ogni occasione speciale merita una tavola all'altezza. Organizziamo eventi su misura per famiglie, gruppi e aziende: dall'allestimento al menù, ci occupiamo di tutto perché tu possa goderti ogni momento.</p>
+      <p class="eventi-intro" data-i18n="ev.intro">Da Jarul Domnesc ogni occasione speciale merita una tavola all\u2019altezza. Organizziamo eventi su misura per famiglie, gruppi e aziende: dall\u2019allestimento al men\u00f9, ci occupiamo di tutto perch\u00e9 tu possa goderti ogni momento.</p>
 
       <div class="eventi-grid">
-        <div class="evento-card"><h3>Battesimi</h3><p>Un giorno indimenticabile per tutta la famiglia. Menù personalizzato, sala riservata e attenzione ad ogni dettaglio.</p></div>
-        <div class="evento-card"><h3>Comunioni &amp; Cresime</h3><p>Celebra il grande giorno con un pranzo o una cena dedicata, in un ambiente caldo e accogliente.</p></div>
-        <div class="evento-card"><h3>Compleanni</h3><p>Feste di compleanno per tutte le età: dal dopocena tra amici alla tavolata in famiglia con torta inclusa.</p></div>
-        <div class="evento-card"><h3>Anniversari</h3><p>Sorprendi la persona speciale con una cena romantica o un pranzo in compagnia delle persone più care.</p></div>
-        <div class="evento-card"><h3>Cene Aziendali</h3><p>Team building, cene di fine anno o pranzi di lavoro: ambienti discreti e menù adatti a ogni budget aziendale.</p></div>
-        <div class="evento-card"><h3>Feste Private</h3><p>Qualsiasi altra occasione da festeggiare: lauree, promozioni, riunioni di famiglia. Contattaci e costruiamo insieme il tuo evento.</p></div>
+        <div class="evento-card"><h3 data-i18n="ev.card1.h3">Battesimi</h3><p data-i18n="ev.card1.p">Un giorno indimenticabile per tutta la famiglia. Men\u00f9 personalizzato, sala riservata e attenzione ad ogni dettaglio.</p></div>
+        <div class="evento-card"><h3 data-i18n="ev.card2.h3">Comunioni &amp; Cresime</h3><p data-i18n="ev.card2.p">Celebra il grande giorno con un pranzo o una cena dedicata, in un ambiente caldo e accogliente.</p></div>
+        <div class="evento-card"><h3 data-i18n="ev.card3.h3">Compleanni</h3><p data-i18n="ev.card3.p">Feste di compleanno per tutte le et\u00e0: dal dopocena tra amici alla tavolata in famiglia con torta inclusa.</p></div>
+        <div class="evento-card"><h3 data-i18n="ev.card4.h3">Anniversari</h3><p data-i18n="ev.card4.p">Sorprendi la persona speciale con una cena romantica o un pranzo in compagnia delle persone pi\u00f9 care.</p></div>
+        <div class="evento-card"><h3 data-i18n="ev.card5.h3">Cene Aziendali</h3><p data-i18n="ev.card5.p">Team building, cene di fine anno o pranzi di lavoro: ambienti discreti e men\u00f9 adatti a ogni budget aziendale.</p></div>
+        <div class="evento-card"><h3 data-i18n="ev.card6.h3">Feste Private</h3><p data-i18n="ev.card6.p">Qualsiasi altra occasione da festeggiare: lauree, promozioni, riunioni di famiglia. Contattaci e costruiamo insieme il tuo evento.</p></div>
       </div>
 
       <div class="come-funziona">
-        <h2>Come organizziamo il tuo evento</h2>
+        <h2 data-i18n="ev.how.h2">Come organizziamo il tuo evento</h2>
         <div class="steps">
-          <div class="step"><div class="step-num">1</div><h4>Ci contatti</h4><p>Chiamaci o scrivici indicando data, numero di persone e tipo di evento.</p></div>
-          <div class="step"><div class="step-num">2</div><h4>Definiamo i dettagli</h4><p>Scegliamo insieme menù, allestimento e orari. Tutto su misura per te.</p></div>
-          <div class="step"><div class="step-num">3</div><h4>Confermiamo</h4><p>Fissiamo la prenotazione con un piccolo acconto a garanzia della data.</p></div>
-          <div class="step"><div class="step-num">4</div><h4>Festeggia</h4><p>Il giorno dell'evento pensiamo a tutto noi. Tu goditi ogni momento.</p></div>
+          <div class="step"><div class="step-num">1</div><h4 data-i18n="ev.step1.h4">Ci contatti</h4><p data-i18n="ev.step1.p">Chiamaci o scrivici indicando data, numero di persone e tipo di evento.</p></div>
+          <div class="step"><div class="step-num">2</div><h4 data-i18n="ev.step2.h4">Definiamo i dettagli</h4><p data-i18n="ev.step2.p">Scegliamo insieme men\u00f9, allestimento e orari. Tutto su misura per te.</p></div>
+          <div class="step"><div class="step-num">3</div><h4 data-i18n="ev.step3.h4">Confermiamo</h4><p data-i18n="ev.step3.p">Fissiamo la prenotazione con un piccolo acconto a garanzia della data.</p></div>
+          <div class="step"><div class="step-num">4</div><h4 data-i18n="ev.step4.h4">Festeggia</h4><p data-i18n="ev.step4.p">Il giorno dell\u2019evento pensiamo a tutto noi. Tu goditi ogni momento.</p></div>
         </div>
       </div>
 
       <div class="cta-eventi">
-        <h2>Pronto a organizzare il tuo evento?</h2>
-        <p>Contattaci subito per verificare la disponibilità e ricevere un preventivo gratuito.</p>
-        <a href="contatti.html">Richiedi informazioni</a>
-        <a href="tel:+393398548172" class="btn-ghost">Chiamaci ora</a>
+        <h2 data-i18n="ev.cta.h2">Pronto a organizzare il tuo evento?</h2>
+        <p data-i18n="ev.cta.p">Contattaci subito per verificare la disponibilit\u00e0 e ricevere un preventivo gratuito.</p>
+        <a href="contatti.html" data-i18n="ev.cta.btn1">Richiedi informazioni</a>
+        <a href="tel:+393398548172" class="btn-ghost" data-i18n="ev.cta.btn2">Chiamaci ora</a>
       </div>
     </section>
   </main>
@@ -129,7 +134,7 @@
     </div>
   </footer>
 
-  <button class="scroll-top" id="scrollTop" aria-label="Torna su">⇧</button>
+  <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/cookie.js" defer></script>
   <script src="assets/js/i18n.js" defer></script>

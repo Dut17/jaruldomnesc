@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  // ─── Translation dictionary ───────────────────────────────────────────────
-
   const translations = {
     it: {
       // Navbar
@@ -12,26 +10,9 @@
       'nav.eventi':    'Eventi',
       'nav.contatti':  'Contatti',
 
-      // index.html — Hero
-      'hero.badge':    'Padova &middot; Cucina Rumena &amp; Moldava',
-      'hero.title':    'Sapori<br><em>di Casa</em>',
-      'hero.sub':      'Piatti della tradizione rumena e moldava preparati con ingredienti freschi e ricette di famiglia. Carne alla brace, stufati lenti e dolci fatti in casa.',
-      'hero.cta.menu': 'Scopri il Menu',
-      'hero.cta.map':  'Dove Siamo',
-
-      // index.html — Feature strip
-      'feat.grill.title': 'Carne alla Brace',
-      'feat.grill.desc':  'Mici, costite e friptura grigliate al momento su brace di legna.',
-      'feat.soup.title':  'Zuppe Tradizionali',
-      'feat.soup.desc':   'Ciorba di trippa, bors di pollo e sarmale cotti a fuoco lento ogni giorno.',
-      'feat.wine.title':  'Vini Rumeni',
-      'feat.wine.desc':   'Selezione di vini DOC della Romania: Feteasca, Merlot e Cabernet Sauvignon.',
-
-      // index.html — About strip
-      'about.eyebrow': 'La Nostra Storia',
-      'about.title':   'Un pezzo di<br>Romania a Padova',
-      'about.body':    'Jarul Domnesc Official nasce dal desiderio di portare la vera cucina di casa rumena e moldava in Italia. Ogni piatto \u00e8 preparato seguendo ricette tramandate di generazione in generazione: dal mamalighe croccante ai sarmale invernali, dall\u2019ostropel profumato alla papanasi calda con panna acida. Menu fisso a pranzo, aperto tutti i giorni.',
-      'about.cta':     'Vieni a Trovarci',
+      // Shared
+      'skip.link':   'Salta al contenuto',
+      'scroll.hint': 'Scorri',
 
       // Footer
       'footer.tagline':  'Cucina rumena, moldava e italiana<br>Padova',
@@ -40,9 +21,87 @@
       'footer.hours':    'Orari',
       'footer.schedule': 'Lun&ndash;Gio: 12:00&ndash;14:30<br>Ven: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sab&ndash;Dom: 12:00&ndash;14:30 / 19:00&ndash;22:00',
 
-      // Shared
-      'skip.link':   'Salta al contenuto',
-      'scroll.hint': 'Scorri',
+      // index.html
+      'hero.badge':        'Padova &middot; Cucina Rumena &amp; Moldava',
+      'hero.title':        'Sapori<br><em>di Casa</em>',
+      'hero.sub':          'Piatti della tradizione rumena e moldava preparati con ingredienti freschi e ricette di famiglia. Carne alla brace, stufati lenti e dolci fatti in casa.',
+      'hero.cta.menu':     'Scopri il Menu',
+      'hero.cta.map':      'Dove Siamo',
+      'feat.grill.title':  'Carne alla Brace',
+      'feat.grill.desc':   'Mici, costite e friptura grigliate al momento su brace di legna.',
+      'feat.soup.title':   'Zuppe Tradizionali',
+      'feat.soup.desc':    'Ciorba di trippa, bors di pollo e sarmale cotti a fuoco lento ogni giorno.',
+      'feat.wine.title':   'Vini Rumeni',
+      'feat.wine.desc':    'Selezione di vini DOC della Romania: Feteasca, Merlot e Cabernet Sauvignon.',
+      'about.eyebrow':     'La Nostra Storia',
+      'about.title':       'Un pezzo di<br>Romania a Padova',
+      'about.body':        'Jarul Domnesc Official nasce dal desiderio di portare la vera cucina di casa rumena e moldava in Italia. Ogni piatto \u00e8 preparato seguendo ricette tramandate di generazione in generazione: dal mamalighe croccante ai sarmale invernali, dall\u2019ostropel profumato alla papanasi calda con panna acida. Menu fisso a pranzo, aperto tutti i giorni.',
+      'about.cta':         'Vieni a Trovarci',
+
+      // struttura.html
+      'str.h1':            'La Nostra Struttura',
+      'str.intro':         'Jarul Domnesc Official offre ambienti accoglienti e versatili, pensati sia per il pranzo di tutti i giorni che per occasioni speciali. Ogni spazio \u00e8 curato nei dettagli per garantire comfort e un\u2019atmosfera autentica rumena.',
+      'str.sala1.title':   'Sala Principale',
+      'str.sala1.meta1':   'fino a [X] posti',
+      'str.sala1.meta2':   'con finestre',
+      'str.sala1.desc':    'La sala principale del ristorante, luminosa e accogliente. Ideale per pranzi in famiglia, cene romantiche e tavolate tra amici. Arredi caldi e atmosfera tipicamente rumena.',
+      'str.sala2.title':   'Sala Privata',
+      'str.sala2.meta1':   'fino a [X] posti',
+      'str.sala2.meta2':   'riservabile',
+      'str.sala2.desc':    'Sala riservata ideale per piccoli gruppi, riunioni di lavoro o celebrazioni esclusive. Pu\u00f2 essere allestita su misura in base all\u2019evento.',
+      'str.sala3.title':   'Spazio Esterno',
+      'str.sala3.meta1':   'fino a [X] posti',
+      'str.sala3.meta2':   'stagionale',
+      'str.sala3.desc':    'Area esterna disponibile nella bella stagione. Perfetta per aperitivi, cene estive e momenti di relax all\u2019aperto in un contesto tranquillo.',
+      'str.cta.h2':        'Vuoi visitarci o prenotare uno spazio?',
+      'str.cta.p':         'Contattaci per informazioni sulla disponibilit\u00e0 e per organizzare la tua visita.',
+      'str.cta.btn':       'Contattaci ora',
+
+      // eventi.html
+      'ev.hero.h1':        'Eventi Privati',
+      'ev.hero.p':         'Battesimi, comunioni, compleanni, cene aziendali e molto altro',
+      'ev.intro':          'Da Jarul Domnesc ogni occasione speciale merita una tavola all\u2019altezza. Organizziamo eventi su misura per famiglie, gruppi e aziende: dall\u2019allestimento al men\u00f9, ci occupiamo di tutto perch\u00e9 tu possa goderti ogni momento.',
+      'ev.card1.h3':       'Battesimi',
+      'ev.card1.p':        'Un giorno indimenticabile per tutta la famiglia. Men\u00f9 personalizzato, sala riservata e attenzione ad ogni dettaglio.',
+      'ev.card2.h3':       'Comunioni &amp; Cresime',
+      'ev.card2.p':        'Celebra il grande giorno con un pranzo o una cena dedicata, in un ambiente caldo e accogliente.',
+      'ev.card3.h3':       'Compleanni',
+      'ev.card3.p':        'Feste di compleanno per tutte le et\u00e0: dal dopocena tra amici alla tavolata in famiglia con torta inclusa.',
+      'ev.card4.h3':       'Anniversari',
+      'ev.card4.p':        'Sorprendi la persona speciale con una cena romantica o un pranzo in compagnia delle persone pi\u00f9 care.',
+      'ev.card5.h3':       'Cene Aziendali',
+      'ev.card5.p':        'Team building, cene di fine anno o pranzi di lavoro: ambienti discreti e men\u00f9 adatti a ogni budget aziendale.',
+      'ev.card6.h3':       'Feste Private',
+      'ev.card6.p':        'Qualsiasi altra occasione da festeggiare: lauree, promozioni, riunioni di famiglia. Contattaci e costruiamo insieme il tuo evento.',
+      'ev.how.h2':         'Come organizziamo il tuo evento',
+      'ev.step1.h4':       'Ci contatti',
+      'ev.step1.p':        'Chiamaci o scrivici indicando data, numero di persone e tipo di evento.',
+      'ev.step2.h4':       'Definiamo i dettagli',
+      'ev.step2.p':        'Scegliamo insieme men\u00f9, allestimento e orari. Tutto su misura per te.',
+      'ev.step3.h4':       'Confermiamo',
+      'ev.step3.p':        'Fissiamo la prenotazione con un piccolo acconto a garanzia della data.',
+      'ev.step4.h4':       'Festeggia',
+      'ev.step4.p':        'Il giorno dell\u2019evento pensiamo a tutto noi. Tu goditi ogni momento.',
+      'ev.cta.h2':         'Pronto a organizzare il tuo evento?',
+      'ev.cta.p':          'Contattaci subito per verificare la disponibilit\u00e0 e ricevere un preventivo gratuito.',
+      'ev.cta.btn1':       'Richiedi informazioni',
+      'ev.cta.btn2':       'Chiamaci ora',
+
+      // contatti.html
+      'ct.hero.h1':        'Contatti',
+      'ct.h2':             'Vieni a Trovarci',
+      'ct.addr.h3':        'Indirizzo',
+      'ct.phone.h3':       'Telefono',
+      'ct.email.h3':       'Email',
+      'ct.hours.h3':       'Orari di Apertura',
+      'ct.hours.note':     'Per eventi privati e serate speciali, <a href="tel:+393398548172" style="color:#b8962e;">contattaci direttamente</a>.',
+      'ct.days.mon':       'Luned\u00ec',
+      'ct.days.tue':       'Marted\u00ec',
+      'ct.days.wed':       'Mercoled\u00ec',
+      'ct.days.thu':       'Gioved\u00ec',
+      'ct.days.fri':       'Venerd\u00ec',
+      'ct.days.sat':       'Sabato',
+      'ct.days.sun':       'Domenica',
     },
 
     en: {
@@ -52,23 +111,8 @@
       'nav.eventi':    'Events',
       'nav.contatti':  'Contact',
 
-      'hero.badge':    'Padua &middot; Romanian &amp; Moldovan Cuisine',
-      'hero.title':    'Flavours<br><em>of Home</em>',
-      'hero.sub':      'Romanian and Moldovan family recipes made with fresh ingredients. Grilled meats, slow-cooked stews and homemade desserts.',
-      'hero.cta.menu': 'See the Menu',
-      'hero.cta.map':  'Find Us',
-
-      'feat.grill.title': 'Grilled Meats',
-      'feat.grill.desc':  'Mici, ribs and friptura grilled over wood fire.',
-      'feat.soup.title':  'Traditional Soups',
-      'feat.soup.desc':   'Tripe ciorba, chicken bors and sarmale slow-cooked every day.',
-      'feat.wine.title':  'Romanian Wines',
-      'feat.wine.desc':   'DOC wines from Romania: Feteasca, Merlot and Cabernet Sauvignon.',
-
-      'about.eyebrow': 'Our Story',
-      'about.title':   'A piece of<br>Romania in Padua',
-      'about.body':    'Jarul Domnesc Official was born from the desire to bring authentic Romanian and Moldovan home cooking to Italy. Every dish follows recipes passed down through generations: from crispy mamaliga to winter sarmale, fragrant ostropel to warm papanasi with sour cream. Fixed lunch menu, open every day.',
-      'about.cta':     'Come Visit Us',
+      'skip.link':   'Skip to content',
+      'scroll.hint': 'Scroll',
 
       'footer.tagline':  'Romanian, Moldovan and Italian cuisine<br>Padua',
       'footer.where':    'Find Us',
@@ -76,8 +120,83 @@
       'footer.hours':    'Opening Hours',
       'footer.schedule': 'Mon&ndash;Thu: 12:00&ndash;14:30<br>Fri: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sat&ndash;Sun: 12:00&ndash;14:30 / 19:00&ndash;22:00',
 
-      'skip.link':   'Skip to content',
-      'scroll.hint': 'Scroll',
+      'hero.badge':        'Padua &middot; Romanian &amp; Moldovan Cuisine',
+      'hero.title':        'Flavours<br><em>of Home</em>',
+      'hero.sub':          'Romanian and Moldovan family recipes made with fresh ingredients. Grilled meats, slow-cooked stews and homemade desserts.',
+      'hero.cta.menu':     'See the Menu',
+      'hero.cta.map':      'Find Us',
+      'feat.grill.title':  'Grilled Meats',
+      'feat.grill.desc':   'Mici, ribs and friptura grilled over wood fire.',
+      'feat.soup.title':   'Traditional Soups',
+      'feat.soup.desc':    'Tripe ciorba, chicken bors and sarmale slow-cooked every day.',
+      'feat.wine.title':   'Romanian Wines',
+      'feat.wine.desc':    'DOC wines from Romania: Feteasca, Merlot and Cabernet Sauvignon.',
+      'about.eyebrow':     'Our Story',
+      'about.title':       'A piece of<br>Romania in Padua',
+      'about.body':        'Jarul Domnesc Official was born from the desire to bring authentic Romanian and Moldovan home cooking to Italy. Every dish follows recipes passed down through generations: from crispy mamaliga to winter sarmale, fragrant ostropel to warm papanasi with sour cream. Fixed lunch menu, open every day.',
+      'about.cta':         'Come Visit Us',
+
+      'str.h1':            'Our Venue',
+      'str.intro':         'Jarul Domnesc Official offers warm and versatile spaces, designed for everyday lunches as well as special occasions. Every room is carefully arranged to ensure comfort and an authentic Romanian atmosphere.',
+      'str.sala1.title':   'Main Hall',
+      'str.sala1.meta1':   'up to [X] seats',
+      'str.sala1.meta2':   'with windows',
+      'str.sala1.desc':    'The main dining room, bright and welcoming. Perfect for family lunches, romantic dinners and group gatherings. Warm furnishings and a typically Romanian atmosphere.',
+      'str.sala2.title':   'Private Room',
+      'str.sala2.meta1':   'up to [X] seats',
+      'str.sala2.meta2':   'bookable',
+      'str.sala2.desc':    'A private room ideal for small groups, business meetings or exclusive celebrations. Can be arranged to suit any occasion.',
+      'str.sala3.title':   'Outdoor Space',
+      'str.sala3.meta1':   'up to [X] seats',
+      'str.sala3.meta2':   'seasonal',
+      'str.sala3.desc':    'Outdoor area available in the warm season. Perfect for aperitifs, summer dinners and relaxing moments in a peaceful setting.',
+      'str.cta.h2':        'Want to visit or book a space?',
+      'str.cta.p':         'Contact us for availability and to arrange your visit.',
+      'str.cta.btn':       'Contact Us',
+
+      'ev.hero.h1':        'Private Events',
+      'ev.hero.p':         'Christenings, communions, birthdays, corporate dinners and much more',
+      'ev.intro':          'At Jarul Domnesc every special occasion deserves a table that matches. We organise bespoke events for families, groups and companies: from setup to menu, we take care of everything so you can enjoy every moment.',
+      'ev.card1.h3':       'Christenings',
+      'ev.card1.p':        'An unforgettable day for the whole family. Custom menu, reserved room and attention to every detail.',
+      'ev.card2.h3':       'Communions &amp; Confirmations',
+      'ev.card2.p':        'Celebrate the big day with a dedicated lunch or dinner in a warm, welcoming environment.',
+      'ev.card3.h3':       'Birthdays',
+      'ev.card3.p':        'Birthday parties for all ages: from an evening out with friends to a family table with cake included.',
+      'ev.card4.h3':       'Anniversaries',
+      'ev.card4.p':        'Surprise that special someone with a romantic dinner or a lunch with your closest people.',
+      'ev.card5.h3':       'Corporate Dinners',
+      'ev.card5.p':        'Team building, end-of-year dinners or business lunches: discreet spaces and menus suited to any corporate budget.',
+      'ev.card6.h3':       'Private Parties',
+      'ev.card6.p':        'Any other occasion worth celebrating: graduations, promotions, family reunions. Contact us and we will build your event together.',
+      'ev.how.h2':         'How we organise your event',
+      'ev.step1.h4':       'Get in touch',
+      'ev.step1.p':        'Call or write to us with the date, number of guests and type of event.',
+      'ev.step2.h4':       'Define the details',
+      'ev.step2.p':        'We choose the menu, setup and timings together. Everything tailored to you.',
+      'ev.step3.h4':       'Confirm',
+      'ev.step3.p':        'We lock in the booking with a small deposit to secure the date.',
+      'ev.step4.h4':       'Celebrate',
+      'ev.step4.p':        'On the day of the event we handle everything. You just enjoy every moment.',
+      'ev.cta.h2':         'Ready to plan your event?',
+      'ev.cta.p':          'Contact us now to check availability and receive a free quote.',
+      'ev.cta.btn1':       'Request information',
+      'ev.cta.btn2':       'Call us now',
+
+      'ct.hero.h1':        'Contact',
+      'ct.h2':             'Come Find Us',
+      'ct.addr.h3':        'Address',
+      'ct.phone.h3':       'Phone',
+      'ct.email.h3':       'Email',
+      'ct.hours.h3':       'Opening Hours',
+      'ct.hours.note':     'For private events and special evenings, <a href="tel:+393398548172" style="color:#b8962e;">contact us directly</a>.',
+      'ct.days.mon':       'Monday',
+      'ct.days.tue':       'Tuesday',
+      'ct.days.wed':       'Wednesday',
+      'ct.days.thu':       'Thursday',
+      'ct.days.fri':       'Friday',
+      'ct.days.sat':       'Saturday',
+      'ct.days.sun':       'Sunday',
     },
 
     ro: {
@@ -87,23 +206,8 @@
       'nav.eventi':    'Evenimente',
       'nav.contatti':  'Contact',
 
-      'hero.badge':    'Padova &middot; Buc\u0103t\u0103rie Rom\u00e2n\u0103 &amp; Moldoveneasc\u0103',
-      'hero.title':    'Gusturi<br><em>de Acas\u0103</em>',
-      'hero.sub':      'Preparate tradi\u0163ionale rom\u00e2ne\u015fti \u015fi moldovene\u015fti din ingrediente proaspete \u015fi re\u0163ete de familie. Carne la gr\u0103tar, toc\u0103ni\u0163e \u015fi dulciuri de cas\u0103.',
-      'hero.cta.menu': 'Vezi Meniul',
-      'hero.cta.map':  'Unde Suntem',
-
-      'feat.grill.title': 'Carne la Gr\u0103tar',
-      'feat.grill.desc':  'Mici, coaste \u015fi friptur\u0103 la gr\u0103tar pe jar de lemn.',
-      'feat.soup.title':  'Ciorbe Tradi\u0163ionale',
-      'feat.soup.desc':   'Ciorb\u0103 de burt\u0103, bor\u015f de pui \u015fi sarmale fierte \u00een\u0103bu\u015fit \u00een fiecare zi.',
-      'feat.wine.title':  'Vinuri Rom\u00e2ne\u015fti',
-      'feat.wine.desc':   'Selec\u0163ie de vinuri DOC din Rom\u00e2nia: Feteasca, Merlot \u015fi Cabernet Sauvignon.',
-
-      'about.eyebrow': 'Povestea Noastr\u0103',
-      'about.title':   'O bucat\u0103 de<br>Rom\u00e2nia la Padova',
-      'about.body':    'Jarul Domnesc Official s-a n\u0103scut din dorin\u0163a de a aduce buc\u0103t\u0103ria autentic\u0103 rom\u00e2neasc\u0103 \u015fi moldoveneasc\u0103 \u00een Italia. Fiecare preparat urmeaz\u0103 re\u0163ete transmise din genera\u0163ie \u00een genera\u0163ie: de la m\u0103m\u0103ligu\u0163a crocant\u0103 la sarmalele de iarn\u0103, de la ostropelul parfumat la papana\u015fii calzi cu sm\u00e2nt\u00e2n\u0103. Meniu fix la pr\u00e2nz, deschis \u00een fiecare zi.',
-      'about.cta':     'Vino s\u0103 Ne Vizitezi',
+      'skip.link':   'Salt la con\u0163inut',
+      'scroll.hint': 'Deruleaz\u0103',
 
       'footer.tagline':  'Buc\u0103t\u0103rie rom\u00e2n\u0103, moldoveneasc\u0103 \u015fi italian\u0103<br>Padova',
       'footer.where':    'Unde Suntem',
@@ -111,78 +215,123 @@
       'footer.hours':    'Program',
       'footer.schedule': 'Lun&ndash;Joi: 12:00&ndash;14:30<br>Vin: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>S\u00e2m&ndash;Dum: 12:00&ndash;14:30 / 19:00&ndash;22:00',
 
-      'skip.link':   'Salt la con\u0163inut',
-      'scroll.hint': 'Deruleaz\u0103',
+      'hero.badge':        'Padova &middot; Buc\u0103t\u0103rie Rom\u00e2n\u0103 &amp; Moldoveneasc\u0103',
+      'hero.title':        'Gusturi<br><em>de Acas\u0103</em>',
+      'hero.sub':          'Preparate tradi\u0163ionale rom\u00e2ne\u015fti \u015fi moldovene\u015fti din ingrediente proaspete \u015fi re\u0163ete de familie. Carne la gr\u0103tar, toc\u0103ni\u0163e \u015fi dulciuri de cas\u0103.',
+      'hero.cta.menu':     'Vezi Meniul',
+      'hero.cta.map':      'Unde Suntem',
+      'feat.grill.title':  'Carne la Gr\u0103tar',
+      'feat.grill.desc':   'Mici, coaste \u015fi friptur\u0103 la gr\u0103tar pe jar de lemn.',
+      'feat.soup.title':   'Ciorbe Tradi\u0163ionale',
+      'feat.soup.desc':    'Ciorb\u0103 de burt\u0103, bor\u015f de pui \u015fi sarmale fierte \u00een\u0103bu\u015fit \u00een fiecare zi.',
+      'feat.wine.title':   'Vinuri Rom\u00e2ne\u015fti',
+      'feat.wine.desc':    'Selec\u0163ie de vinuri DOC din Rom\u00e2nia: Feteasca, Merlot \u015fi Cabernet Sauvignon.',
+      'about.eyebrow':     'Povestea Noastr\u0103',
+      'about.title':       'O bucat\u0103 de<br>Rom\u00e2nia la Padova',
+      'about.body':        'Jarul Domnesc Official s-a n\u0103scut din dorin\u0163a de a aduce buc\u0103t\u0103ria autentic\u0103 rom\u00e2neasc\u0103 \u015fi moldoveneasc\u0103 \u00een Italia. Fiecare preparat urmeaz\u0103 re\u0163ete transmise din genera\u0163ie \u00een genera\u0163ie: de la m\u0103m\u0103ligu\u0163a crocant\u0103 la sarmalele de iarn\u0103, de la ostropelul parfumat la papana\u015fii calzi cu sm\u00e2nt\u00e2n\u0103. Meniu fix la pr\u00e2nz, deschis \u00een fiecare zi.',
+      'about.cta':         'Vino s\u0103 Ne Vizitezi',
+
+      'str.h1':            'Spa\u0163iile Noastre',
+      'str.intro':         'Jarul Domnesc Official ofer\u0103 spa\u0163ii primitoare \u015fi versatile, concepute at\u00e2t pentru pr\u00e2nzul de zi cu zi, c\u00e2t \u015fi pentru ocazii speciale. Fiecare spa\u0163iu este \u00eengrijit \u00een detalii pentru a garanta confort \u015fi o atmosfer\u0103 autentic rom\u00e2neasc\u0103.',
+      'str.sala1.title':   'Sala Principal\u0103',
+      'str.sala1.meta1':   'p\u00e2n\u0103 la [X] locuri',
+      'str.sala1.meta2':   'cu ferestre',
+      'str.sala1.desc':    'Sala principal\u0103 a restaurantului, luminoas\u0103 \u015fi primitoare. Ideal\u0103 pentru pr\u00e2nzuri \u00een familie, cine romantice \u015fi mese cu prietenii. Mobilier cald \u015fi atmosfer\u0103 tipic rom\u00e2neasc\u0103.',
+      'str.sala2.title':   'Sal\u0103 Privat\u0103',
+      'str.sala2.meta1':   'p\u00e2n\u0103 la [X] locuri',
+      'str.sala2.meta2':   'rezervabil\u0103',
+      'str.sala2.desc':    'Sal\u0103 rezervat\u0103, ideal\u0103 pentru grupuri mici, \u00eent\u00e2lniri de afaceri sau celebr\u0103ri exclusive. Poate fi amenajat\u0103 personalizat \u00een func\u0163ie de eveniment.',
+      'str.sala3.title':   'Spa\u0163iu Exterior',
+      'str.sala3.meta1':   'p\u00e2n\u0103 la [X] locuri',
+      'str.sala3.meta2':   'sezonier',
+      'str.sala3.desc':    'Zon\u0103 exterioar\u0103 disponibil\u0103 \u00een sezonul cald. Perfect\u0103 pentru aperitive, cine de var\u0103 \u015fi momente de relaxare \u00een aer liber \u00eentr-un cadru lini\u015ftit.',
+      'str.cta.h2':        'Vrei s\u0103 ne vizitezi sau s\u0103 rezervi un spa\u0163iu?',
+      'str.cta.p':         'Contacteaz\u0103-ne pentru informa\u0163ii despre disponibilitate \u015fi pentru a-\u0163i organiza vizita.',
+      'str.cta.btn':       'Contacteaz\u0103-ne',
+
+      'ev.hero.h1':        'Evenimente Private',
+      'ev.hero.p':         'Botezuri, comuniuni, zile de na\u015ftere, cine de afaceri \u015fi multe altele',
+      'ev.intro':          'La Jarul Domnesc fiecare ocazie special\u0103 merit\u0103 o mas\u0103 pe m\u0103sur\u0103. Organiz\u0103m evenimente personalizate pentru familii, grupuri \u015fi companii: de la decor la meniu, ne ocup\u0103m de tot ca tu s\u0103 te bucuri de fiecare moment.',
+      'ev.card1.h3':       'Botezuri',
+      'ev.card1.p':        'O zi de neuitat pentru toat\u0103 familia. Meniu personalizat, sal\u0103 rezervat\u0103 \u015fi aten\u0163ie la fiecare detaliu.',
+      'ev.card2.h3':       'Comuniuni &amp; Confirm\u0103ri',
+      'ev.card2.p':        'S\u0103rb\u0103tore\u015fte ziua cea mare cu un pr\u00e2nz sau o cin\u0103 dedicat\u0103, \u00eentr-un mediu cald \u015fi primitor.',
+      'ev.card3.h3':       'Zile de Na\u015ftere',
+      'ev.card3.p':        'Petreceri de zi de na\u015ftere pentru toate v\u00e2rstele: de la o sear\u0103 cu prietenii la o mas\u0103 \u00een familie cu tort inclus.',
+      'ev.card4.h3':       'Aniversari',
+      'ev.card4.p':        'Surprinde persoana special\u0103 cu o cin\u0103 romantic\u0103 sau un pr\u00e2nz al\u0103turi de cei mai dragi.',
+      'ev.card5.h3':       'Cine de Afaceri',
+      'ev.card5.p':        'Team building, cine de sf\u00e2r\u015fit de an sau pr\u00e2nzuri de lucru: spa\u0163ii discrete \u015fi meniuri potrivite oric\u0103rui buget.',
+      'ev.card6.h3':       'Petreceri Private',
+      'ev.card6.p':        'Orice alt\u0103 ocazie de s\u0103rb\u0103torit: licen\u0163e, promov\u0103ri, re\u00eentruniri de familie. Contacteaz\u0103-ne \u015fi construim \u00eempreun\u0103 evenimentul t\u0103u.',
+      'ev.how.h2':         'Cum organiz\u0103m evenimentul t\u0103u',
+      'ev.step1.h4':       'Ne contactezi',
+      'ev.step1.p':        'Sun\u0103-ne sau scrie-ne cu data, num\u0103rul de persoane \u015fi tipul de eveniment.',
+      'ev.step2.h4':       'Definim detaliile',
+      'ev.step2.p':        'Alegem \u00eempreun\u0103 meniul, decorul \u015fi orarul. Totul personalizat pentru tine.',
+      'ev.step3.h4':       'Confirm\u0103m',
+      'ev.step3.p':        'Stabilim rezervarea cu un mic avans pentru garantarea datei.',
+      'ev.step4.h4':       'S\u0103rb\u0103tore\u015fte',
+      'ev.step4.p':        '\u00cen ziua evenimentului ne ocup\u0103m de tot. Tu bucur\u0103-te de fiecare moment.',
+      'ev.cta.h2':         'Preg\u0103tit s\u0103 organizezi evenimentul t\u0103u?',
+      'ev.cta.p':          'Contacteaz\u0103-ne acum pentru a verifica disponibilitatea \u015fi a primi o ofert\u0103 gratuit\u0103.',
+      'ev.cta.btn1':       'Solicit\u0103 informa\u0163ii',
+      'ev.cta.btn2':       'Sun\u0103-ne acum',
+
+      'ct.hero.h1':        'Contact',
+      'ct.h2':             'Vino s\u0103 Ne G\u0103se\u015fti',
+      'ct.addr.h3':        'Adres\u0103',
+      'ct.phone.h3':       'Telefon',
+      'ct.email.h3':       'Email',
+      'ct.hours.h3':       'Program de Func\u0163ionare',
+      'ct.hours.note':     'Pentru evenimente private \u015fi seri speciale, <a href="tel:+393398548172" style="color:#b8962e;">contacta\u0163i-ne direct</a>.',
+      'ct.days.mon':       'Luni',
+      'ct.days.tue':       'Mar\u0163i',
+      'ct.days.wed':       'Miercuri',
+      'ct.days.thu':       'Joi',
+      'ct.days.fri':       'Vineri',
+      'ct.days.sat':       'S\u00e2mb\u0103t\u0103',
+      'ct.days.sun':       'Duminic\u0103',
     },
   };
-
-  // ─── Config ───────────────────────────────────────────────────────────────
 
   const SUPPORTED_LANGS = ['it', 'en', 'ro'];
   const DEFAULT_LANG    = 'it';
   const STORAGE_KEY     = 'jd_lang';
 
-  // ─── Core engine ─────────────────────────────────────────────────────────
-
-  /**
-   * Applies translations to all [data-i18n] elements.
-   * Uses innerHTML to support <br> and <em> in strings.
-   * Falls back to DEFAULT_LANG if key is missing in chosen lang.
-   */
   function applyLanguage(lang) {
     var dict = translations[lang] || translations[DEFAULT_LANG];
-
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key         = el.getAttribute('data-i18n');
       var translation = dict[key] !== undefined ? dict[key] : translations[DEFAULT_LANG][key];
-
-      if (translation !== undefined) {
-        el.innerHTML = translation;
-      }
+      if (translation !== undefined) { el.innerHTML = translation; }
     });
-
-    // Update <html lang> for accessibility and SEO
     document.documentElement.lang = lang;
-
-    // Highlight active button
     document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
       btn.classList.toggle('lang-btn--active', btn.getAttribute('data-lang-btn') === lang);
     });
   }
 
-  /**
-   * Persists language choice and re-renders.
-   */
   function setLanguage(lang) {
     if (!SUPPORTED_LANGS.includes(lang)) { return; }
     localStorage.setItem(STORAGE_KEY, lang);
     applyLanguage(lang);
   }
 
-  /**
-   * Resolves initial language: localStorage → browser lang → default.
-   */
   function resolveInitialLang() {
     var stored  = localStorage.getItem(STORAGE_KEY);
     if (stored && SUPPORTED_LANGS.includes(stored)) { return stored; }
-
     var browser = (navigator.language || '').slice(0, 2).toLowerCase();
     return SUPPORTED_LANGS.includes(browser) ? browser : DEFAULT_LANG;
   }
 
-  // ─── Init ─────────────────────────────────────────────────────────────────
-
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        setLanguage(btn.getAttribute('data-lang-btn'));
-      });
+      btn.addEventListener('click', function () { setLanguage(btn.getAttribute('data-lang-btn')); });
     });
-
     applyLanguage(resolveInitialLang());
   });
 
-  // Public API
   window.i18n = { setLanguage: setLanguage };
 
 }());

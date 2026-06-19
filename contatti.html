@@ -10,8 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    .map-wrapper { width:100%; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(28,23,20,.10); min-height:420px; background:#f0ece5; }
-    .map-wrapper iframe { display:block; width:100%; height:420px; border:0; }
+    .map-wrapper{width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(28,23,20,.10);min-height:420px;background:#f0ece5}
+    .map-wrapper iframe{display:block;width:100%;height:420px;border:0}
+    /* Lang switcher */
+    .lang-switcher{display:flex;align-items:center;gap:.25rem;margin-left:1rem}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.35);color:inherit;font:600 .7rem/1 'Inter',sans-serif;letter-spacing:.05em;padding:.3rem .5rem;border-radius:3px;cursor:pointer;transition:background .2s,border-color .2s}
+    .lang-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+    .lang-btn--active{background:rgba(255,255,255,.18);border-color:#b8962e;color:#b8962e}
   </style>
 </head>
 <body>
@@ -20,7 +25,7 @@
   <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
     <div class="nav-top-row">
       <a href="index.html" class="logo"><img src="assets/images-removebg-preview.png" alt="Jarul Domnesc" height="55" style="display:block;"></a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">☰</button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
     </div>
     <div class="nav-links">
       <a href="index.html" data-i18n="nav.home">Home</a>
@@ -31,7 +36,7 @@
       <div class="lang-switcher" aria-label="Seleziona lingua">
         <button type="button" data-lang-btn="it" class="lang-btn lang-btn--active" aria-label="Italiano">IT</button>
         <button type="button" data-lang-btn="en" class="lang-btn" aria-label="English">EN</button>
-        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Română">RO</button>
+        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Rom\u00e2n\u0103">RO</button>
       </div>
     </div>
   </nav>
@@ -39,38 +44,38 @@
   <main id="main-content">
     <div class="contatti-hero">
       <img class="contatti-hero-bg" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&q=80" alt="" width="1400" height="360" loading="eager">
-      <h1 class="contatti-hero-title">Contatti</h1>
+      <h1 class="contatti-hero-title" data-i18n="ct.hero.h1">Contatti</h1>
     </div>
 
     <div class="contatti-body">
       <div class="contatti-info">
-        <h2>Vieni a Trovarci</h2>
+        <h2 data-i18n="ct.h2">Vieni a Trovarci</h2>
         <div class="contatti-block">
-          <h3>Indirizzo</h3>
+          <h3 data-i18n="ct.addr.h3">Indirizzo</h3>
           <address>Viale della Regione Veneto, 6<br>35121 Padova (PD)</address>
         </div>
         <div class="contatti-block">
-          <h3>Telefono</h3>
+          <h3 data-i18n="ct.phone.h3">Telefono</h3>
           <p><a href="tel:+393398548172">+39 339 854 8172</a></p>
         </div>
         <div class="contatti-block">
-          <h3>Email</h3>
+          <h3 data-i18n="ct.email.h3">Email</h3>
           <p><a href="mailto:jaruldomnescofficial@gmail.com">jaruldomnescofficial@gmail.com</a></p>
         </div>
         <div class="contatti-block">
-          <h3>Orari di Apertura</h3>
+          <h3 data-i18n="ct.hours.h3">Orari di Apertura</h3>
           <table style="font-family:'Inter',sans-serif;font-size:.95rem;border-collapse:collapse;width:100%;">
             <tbody>
-              <tr><td style="padding:.35rem 0;color:#555;">Lunedì</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 – 14:30</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;">Martedì</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 – 14:30</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;">Mercoledì</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 – 14:30</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;">Giovedì</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 – 14:30</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;">Venerdì</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 – 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 – 22:00</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;">Sabato</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 – 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 – 22:00</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;">Domenica</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 – 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 – 22:00</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.mon">Luned\u00ec</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.tue">Marted\u00ec</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.wed">Mercoled\u00ec</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.thu">Gioved\u00ec</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.fri">Venerd\u00ec</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 \u2013 22:00</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.sat">Sabato</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 \u2013 22:00</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.sun">Domenica</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 \u2013 22:00</td></tr>
             </tbody>
           </table>
-          <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#888;margin-top:1rem;">Per eventi privati e serate speciali, <a href="tel:+393398548172" style="color:#b8962e;">contattaci direttamente</a>.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#888;margin-top:1rem;" data-i18n="ct.hours.note">Per eventi privati e serate speciali, <a href="tel:+393398548172" style="color:#b8962e;">contattaci direttamente</a>.</p>
         </div>
       </div>
 
@@ -117,7 +122,7 @@
     </div>
   </footer>
 
-  <button class="scroll-top" id="scrollTop" aria-label="Torna su">⇧</button>
+  <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/cookie.js" defer></script>
   <script src="assets/js/i18n.js" defer></script>
