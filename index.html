@@ -6,7 +6,7 @@
   <meta name="description" content="Jarul Domnesc Official — Ristorante di cucina rumena, moldava e italiana a Padova. Menu fisso a pranzo, aperto tutti i giorni.">
   <title>Jarul Domnesc Official — Ristorante Rumeno · Padova</title>
   <meta property="og:title" content="Jarul Domnesc Official — Ristorante Rumeno · Padova">
-  <meta property="og:description" content="Cucina rumena, moldava e italiana nel cuore di Padova. Sapori autentici, carne alla brace e ospitalità calda.">
+  <meta property="og:description" content="Cucina rumena, moldava e italiana nel cuore di Padova. Sapori autentici, carne alla brace e ospitalit\u00e0 calda.">
   <meta property="og:type" content="restaurant">
   <meta property="og:locale" content="it_IT">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,15 +17,44 @@
     .hero-video-wrap { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
     .hero-video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-video-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+
+    /* ─── Language switcher ─────────────────────────────────────────── */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-left: 1rem;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: inherit;
+      font: 600 0.7rem/1 'Inter', sans-serif;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.5rem;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+    .lang-btn--active {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #b8962e;
+      color: #b8962e;
+    }
   </style>
 </head>
 <body>
+
   <a class="skip-link" href="#main-content" data-i18n="skip.link">Salta al contenuto</a>
 
   <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
     <div class="nav-top-row">
       <a href="index.html" class="logo"><img src="assets/images-removebg-preview.png" alt="Jarul Domnesc" height="55" style="display:block;"></a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">☰</button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
     </div>
     <div class="nav-links">
       <a href="index.html" data-i18n="nav.home">Home</a>
@@ -36,12 +65,13 @@
       <div class="lang-switcher" aria-label="Seleziona lingua">
         <button type="button" data-lang-btn="it" class="lang-btn lang-btn--active" aria-label="Italiano">IT</button>
         <button type="button" data-lang-btn="en" class="lang-btn" aria-label="English">EN</button>
-        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Română">RO</button>
+        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Rom\u00e2n\u0103">RO</button>
       </div>
     </div>
   </nav>
 
   <main id="main-content">
+
     <section class="hero" aria-label="Hero">
       <div class="hero-video-wrap" aria-hidden="true">
         <img src="assets/WhatsApp Image 2026-06-10 at 07.20.28.jpeg" alt="">
@@ -50,7 +80,7 @@
         </video>
       </div>
       <div class="hero-inner">
-        <span class="hero-badge" data-i18n="hero.badge">Padova · Cucina Rumena &amp; Moldava</span>
+        <span class="hero-badge" data-i18n="hero.badge">Padova &middot; Cucina Rumena &amp; Moldava</span>
         <h1 class="hero-title" data-i18n="hero.title">Sapori<br><em>di Casa</em></h1>
         <p class="hero-sub" data-i18n="hero.sub">Piatti della tradizione rumena e moldava preparati con ingredienti freschi e ricette di famiglia. Carne alla brace, stufati lenti e dolci fatti in casa.</p>
         <div class="hero-ctas">
@@ -66,17 +96,17 @@
 
     <section class="features-strip" aria-label="Caratteristiche">
       <div class="feature-item">
-        <span class="feature-icon" aria-hidden="true">🔥</span>
+        <span class="feature-icon" aria-hidden="true"></span>
         <div class="feature-title" data-i18n="feat.grill.title">Carne alla Brace</div>
         <p class="feature-desc" data-i18n="feat.grill.desc">Mici, costite e friptura grigliate al momento su brace di legna.</p>
       </div>
       <div class="feature-item">
-        <span class="feature-icon" aria-hidden="true">🍲</span>
+        <span class="feature-icon" aria-hidden="true"></span>
         <div class="feature-title" data-i18n="feat.soup.title">Zuppe Tradizionali</div>
         <p class="feature-desc" data-i18n="feat.soup.desc">Ciorba di trippa, bors di pollo e sarmale cotti a fuoco lento ogni giorno.</p>
       </div>
       <div class="feature-item">
-        <span class="feature-icon" aria-hidden="true">🍷</span>
+        <span class="feature-icon" aria-hidden="true"></span>
         <div class="feature-title" data-i18n="feat.wine.title">Vini Rumeni</div>
         <p class="feature-desc" data-i18n="feat.wine.desc">Selezione di vini DOC della Romania: Feteasca, Merlot e Cabernet Sauvignon.</p>
       </div>
@@ -86,7 +116,7 @@
       <div class="about-strip-text">
         <span class="section-eyebrow" data-i18n="about.eyebrow">La Nostra Storia</span>
         <h2 class="section-title" data-i18n="about.title">Un pezzo di<br>Romania a Padova</h2>
-        <p class="section-body" data-i18n="about.body">Jarul Domnesc Official nasce dal desiderio di portare la vera cucina di casa rumena e moldava in Italia. Ogni piatto è preparato seguendo ricette tramandate di generazione in generazione: dal mamalighe croccante ai sarmale invernali, dall'ostropel profumato alla papanasi calda con panna acida. Menu fisso a pranzo, aperto tutti i giorni.</p>
+        <p class="section-body" data-i18n="about.body">Jarul Domnesc Official nasce dal desiderio di portare la vera cucina di casa rumena e moldava in Italia. Ogni piatto \u00e8 preparato seguendo ricette tramandate di generazione in generazione: dal mamalighe croccante ai sarmale invernali, dall\u2019ostropel profumato alla papanasi calda con panna acida. Menu fisso a pranzo, aperto tutti i giorni.</p>
         <a href="contatti.html" class="btn-primary" data-i18n="about.cta">Vieni a Trovarci</a>
       </div>
       <div class="about-strip-img">
@@ -102,6 +132,7 @@
       <div class="foto-grid-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Atmosfera del ristorante" width="600" height="600" loading="lazy"></div>
       <div class="foto-grid-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Grigliata rumena" width="600" height="600" loading="lazy"></div>
     </section>
+
   </main>
 
   <footer>
@@ -125,13 +156,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2026 Jarul Domnesc Official &middot; Padova &nbsp;&middot;&nbsp;
-      P.IVA 05661800283 &nbsp;&middot;&nbsp;
-      <a href="privacy.html" style="color:#b8962e;">Privacy &amp; Cookie</a>
+      &copy; 2026 Jarul Domnesc Official &middot; Padova &nbsp;&middot;&nbsp; P.IVA 05661800283
+      &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:#b8962e;">Privacy &amp; Cookie</a>
     </div>
   </footer>
 
-  <button class="scroll-top" id="scrollTop" aria-label="Torna su">⇧</button>
+  <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/cookie.js" defer></script>
   <script src="assets/js/i18n.js" defer></script>
