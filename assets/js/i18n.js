@@ -60,7 +60,7 @@
       // eventi.html
       'ev.hero.h1':        'Eventi Privati',
       'ev.hero.p':         'Battesimi, comunioni, compleanni, cene aziendali e molto altro',
-      'ev.intro':          'Da Jarul Domnesc ogni occasione speciale merita una tavola all\u2019altezza. Organizziamo eventi su misura per famiglie, gruppi e aziende: dall\u2019allestimento al men\u00f9, ci occupiamo di tutto perch\u00e9 tu possa goderti ogni momento.',
+      'ev.intro':          'Che sia un battesimo con tutta la famiglia allargata o una cena aziendale di fine anno, da Jarul Domnesc ogni tavolata ha il suo peso. Concordiamo menu, allestimento e orari — noi pensiamo ai dettagli, tu ti godi l\u2019occasione.',
       'ev.card1.h3':       'Battesimi',
       'ev.card1.p':        'Un giorno indimenticabile per tutta la famiglia. Men\u00f9 personalizzato, sala riservata e attenzione ad ogni dettaglio.',
       'ev.card2.h3':       'Comunioni &amp; Cresime',
@@ -83,7 +83,7 @@
       'ev.step4.h4':       'Festeggia',
       'ev.step4.p':        'Il giorno dell\u2019evento pensiamo a tutto noi. Tu goditi ogni momento.',
       'ev.cta.h2':         'Pronto a organizzare il tuo evento?',
-      'ev.cta.p':          'Contattaci subito per verificare la disponibilit\u00e0 e ricevere un preventivo gratuito.',
+      'ev.cta.p':          'Scrivici o chiamaci: ti diciamo subito disponibilit\u00e0 e costi, senza impegno.',
       'ev.cta.btn1':       'Richiedi informazioni',
       'ev.cta.btn2':       'Chiamaci ora',
 
@@ -156,7 +156,7 @@
 
       'ev.hero.h1':        'Private Events',
       'ev.hero.p':         'Christenings, communions, birthdays, corporate dinners and much more',
-      'ev.intro':          'At Jarul Domnesc every special occasion deserves a table that matches. We organise bespoke events for families, groups and companies: from setup to menu, we take care of everything so you can enjoy every moment.',
+      'ev.intro':          'Whether it\u2019s a christening with the whole family or a company year-end dinner, at Jarul Domnesc every gathering matters. We agree on the menu, setup and timings\u2009\u2014\u2009we handle the details so you can enjoy the occasion.',
       'ev.card1.h3':       'Christenings',
       'ev.card1.p':        'An unforgettable day for the whole family. Custom menu, reserved room and attention to every detail.',
       'ev.card2.h3':       'Communions &amp; Confirmations',
@@ -179,7 +179,7 @@
       'ev.step4.h4':       'Celebrate',
       'ev.step4.p':        'On the day of the event we handle everything. You just enjoy every moment.',
       'ev.cta.h2':         'Ready to plan your event?',
-      'ev.cta.p':          'Contact us now to check availability and receive a free quote.',
+      'ev.cta.p':          'Write or call us: we\u2019ll tell you availability and costs straight away, no commitment needed.',
       'ev.cta.btn1':       'Request information',
       'ev.cta.btn2':       'Call us now',
 
@@ -251,7 +251,7 @@
 
       'ev.hero.h1':        'Evenimente Private',
       'ev.hero.p':         'Botezuri, comuniuni, zile de na\u015ftere, cine de afaceri \u015fi multe altele',
-      'ev.intro':          'La Jarul Domnesc fiecare ocazie special\u0103 merit\u0103 o mas\u0103 pe m\u0103sur\u0103. Organiz\u0103m evenimente personalizate pentru familii, grupuri \u015fi companii: de la decor la meniu, ne ocup\u0103m de tot ca tu s\u0103 te bucuri de fiecare moment.',
+      'ev.intro':          'Fie c\u0103 e un botez cu toat\u0103 familia sau o cin\u0103 de sfar\u015fit de an cu colegii, la Jarul Domnesc fiecare mas\u0103 conteaz\u0103. Stabilim meniul, decorul \u015fi orarul \u2014 noi ne ocup\u0103m de detalii, tu te bucuri de ocazie.',
       'ev.card1.h3':       'Botezuri',
       'ev.card1.p':        'O zi de neuitat pentru toat\u0103 familia. Meniu personalizat, sal\u0103 rezervat\u0103 \u015fi aten\u0163ie la fiecare detaliu.',
       'ev.card2.h3':       'Comuniuni &amp; Confirm\u0103ri',
@@ -274,7 +274,7 @@
       'ev.step4.h4':       'S\u0103rb\u0103tore\u015fte',
       'ev.step4.p':        '\u00cen ziua evenimentului ne ocup\u0103m de tot. Tu bucur\u0103-te de fiecare moment.',
       'ev.cta.h2':         'Preg\u0103tit s\u0103 organizezi evenimentul t\u0103u?',
-      'ev.cta.p':          'Contacteaz\u0103-ne acum pentru a verifica disponibilitatea \u015fi a primi o ofert\u0103 gratuit\u0103.',
+      'ev.cta.p':          'Scrie-ne sau sun\u0103-ne: \u00ee\u0163i spunem imediat disponibilitatea \u015fi costurile, f\u0103r\u0103 angajament.',
       'ev.cta.btn1':       'Solicit\u0103 informa\u0163ii',
       'ev.cta.btn2':       'Sun\u0103-ne acum',
 
