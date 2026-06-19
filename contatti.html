@@ -12,7 +12,6 @@
   <style>
     .map-wrapper{width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(28,23,20,.10);min-height:420px;background:#f0ece5}
     .map-wrapper iframe{display:block;width:100%;height:420px;border:0}
-    /* Lang switcher */
     .lang-switcher{display:flex;align-items:center;gap:.25rem;margin-left:1rem}
     .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.35);color:inherit;font:600 .7rem/1 'Inter',sans-serif;letter-spacing:.05em;padding:.3rem .5rem;border-radius:3px;cursor:pointer;transition:background .2s,border-color .2s}
     .lang-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
@@ -36,7 +35,7 @@
       <div class="lang-switcher" aria-label="Seleziona lingua">
         <button type="button" data-lang-btn="it" class="lang-btn lang-btn--active" aria-label="Italiano">IT</button>
         <button type="button" data-lang-btn="en" class="lang-btn" aria-label="English">EN</button>
-        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Rom\u00e2n\u0103">RO</button>
+        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Rom&acirc;n&abreve;">RO</button>
       </div>
     </div>
   </nav>
@@ -66,13 +65,13 @@
           <h3 data-i18n="ct.hours.h3">Orari di Apertura</h3>
           <table style="font-family:'Inter',sans-serif;font-size:.95rem;border-collapse:collapse;width:100%;">
             <tbody>
-              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.mon">Luned\u00ec</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.tue">Marted\u00ec</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.wed">Mercoled\u00ec</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.thu">Gioved\u00ec</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.fri">Venerd\u00ec</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 \u2013 22:00</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.sat">Sabato</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 \u2013 22:00</td></tr>
-              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.sun">Domenica</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 \u2013 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 \u2013 22:00</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.mon">Luned&igrave;</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 &ndash; 14:30</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.tue">Marted&igrave;</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 &ndash; 14:30</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.wed">Mercoled&igrave;</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 &ndash; 14:30</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.thu">Gioved&igrave;</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 &ndash; 14:30</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.fri">Venerd&igrave;</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 &ndash; 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 &ndash; 22:00</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.sat">Sabato</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 &ndash; 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 &ndash; 22:00</td></tr>
+              <tr><td style="padding:.35rem 0;color:#555;" data-i18n="ct.days.sun">Domenica</td><td style="padding:.35rem 0 .35rem 1rem;color:#1c1714;">12:00 &ndash; 14:30&nbsp;&nbsp;/&nbsp;&nbsp;19:00 &ndash; 22:00</td></tr>
             </tbody>
           </table>
           <p style="font-family:'Inter',sans-serif;font-size:.85rem;color:#888;margin-top:1rem;" data-i18n="ct.hours.note">Per eventi privati e serate speciali, <a href="tel:+393398548172" style="color:#b8962e;">contattaci direttamente</a>.</p>
