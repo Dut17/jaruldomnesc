@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="allergeni_title">Allergeni — Jarul Domnesc</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .allergeni-section { max-width: 860px; margin: 80px auto; padding: 0 24px 80px; }
+    .allergeni-section h1 { font-family: var(--font-display); color: var(--accent); font-size: 2.4rem; margin-bottom: 12px; }
+    .allergeni-section .subtitle { color: var(--gray); margin-bottom: 48px; font-size: 1rem; }
+    .allergeni-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .allergene-card { background: var(--white); border-radius: 12px; padding: 24px 20px; box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+    .allergene-card .num { font-size: .75rem; font-weight: 700; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+    .allergene-card .nome { font-family: var(--font-display); font-size: 1.1rem; color: var(--black); margin-bottom: 6px; }
+    .allergene-card .desc { font-size: .85rem; color: var(--gray); line-height: 1.5; }
+    .reg-note { margin-top: 48px; font-size: .82rem; color: var(--gray); border-top: 1px solid #e0d8d0; padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.png" alt="Jarul Domnesc" />
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" data-i18n="nav_home">Acasă</a>
+        <a href="menu.html" data-i18n="nav_menu">Meniu</a>
+        <a href="struttura.html" data-i18n="nav_gallery">Galerie</a>
+        <a href="eventi.html" data-i18n="nav_events">Evenimente</a>
+        <a href="contatti.html" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button class="lang-btn" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn active" onclick="setLang('ro')">RO</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="allergeni-section">
+    <h1 data-i18n="allergeni_h1">Informazioni sugli Allergeni</h1>
+    <p class="subtitle" data-i18n="allergeni_subtitle">Ai sensi del Reg. UE 1169/2011, forniamo le seguenti informazioni sulle sostanze allergeniche presenti nei nostri piatti.</p>
+
+    <div class="allergeni-grid">
+      <div class="allergene-card"><div class="num">01</div><div class="nome">Glutine</div><div class="desc">Frumento, segale, orzo, avena e prodotti derivati.</div></div>
+      <div class="allergene-card"><div class="num">02</div><div class="nome">Crostacei</div><div class="desc">Gamberi, granchi, aragoste e prodotti derivati.</div></div>
+      <div class="allergene-card"><div class="num">03</div><div class="nome">Uova</div><div class="desc">Uova e prodotti a base di uova.</div></div>
+      <div class="allergene-card"><div class="num">04</div><div class="nome">Pesce</div><div class="desc">Pesce e prodotti a base di pesce.</div></div>
+      <div class="allergene-card"><div class="num">05</div><div class="nome">Arachidi</div><div class="desc">Arachidi e prodotti a base di arachidi.</div></div>
+      <div class="allergene-card"><div class="num">06</div><div class="nome">Soia</div><div class="desc">Soia e prodotti a base di soia.</div></div>
+      <div class="allergene-card"><div class="num">07</div><div class="nome">Latte</div><div class="desc">Latte e prodotti lattiero-caseari (incluso lattosio).</div></div>
+      <div class="allergene-card"><div class="num">08</div><div class="nome">Frutta a guscio</div><div class="desc">Mandorle, nocciole, noci, anacardi, pistacchi, ecc.</div></div>
+      <div class="allergene-card"><div class="num">09</div><div class="nome">Sedano</div><div class="desc">Sedano e prodotti a base di sedano.</div></div>
+      <div class="allergene-card"><div class="num">10</div><div class="nome">Senape</div><div class="desc">Senape e prodotti a base di senape.</div></div>
+      <div class="allergene-card"><div class="num">11</div><div class="nome">Sesamo</div><div class="desc">Semi di sesamo e prodotti a base di sesamo.</div></div>
+      <div class="allergene-card"><div class="num">12</div><div class="nome">Anidride solforosa e solfiti</div><div class="desc">Presenti in vini, frutta secca e alcuni conservanti.</div></div>
+      <div class="allergene-card"><div class="num">13</div><div class="nome">Lupini</div><div class="desc">Lupini e prodotti a base di lupini.</div></div>
+      <div class="allergene-card"><div class="num">14</div><div class="nome">Molluschi</div><div class="desc">Cozze, vongole, calamari e prodotti derivati.</div></div>
+    </div>
+
+    <p class="reg-note" data-i18n="allergeni_note">Per informazioni dettagliate sugli allergeni presenti nei singoli piatti, chiedi al personale di sala. I nostri piatti possono contenere tracce di allergeni dovute alla lavorazione in cucina. Reg. UE 1169/2011.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>&copy; <span id="year"></span> Jarul Domnesc — Ristorante Rumeno · Padova</p>
+      <p><a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a> &nbsp;|&nbsp; <a href="allergeni.html" data-i18n="footer_allergeni">Allergeni</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
