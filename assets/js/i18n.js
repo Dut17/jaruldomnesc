@@ -51,7 +51,7 @@
       'about.subtitle':    'Un pezzo di Romania, Moldova e Italia nel cuore di Padova',
       'about.body':        'Il nostro ristorante nasce dall\u2019incontro di tre culture che amano stare a tavola: quella rumena, moldava e italiana. Abbiamo portato a Padova le ricette della tradizione, i sapori autentici di casa e la passione per la buona cucina, unendo ingredienti, profumi e storie che parlano di famiglia, amicizia e convivialit\u00e0.',
       'about.body2':       'Ogni piatto racconta un viaggio tra tradizioni diverse ma accomunate dallo stesso valore: il piacere di condividere un buon pasto. Qui potrete assaporare il meglio della cucina rumena, moldava e italiana in un ambiente accogliente, dove ogni ospite \u00e8 accolto come un amico.',
-      'about.tagline': 'Benvenuti a tavola, dove tre tradizioni si incontrano nel cuore di Padova. 🇷🇴🇲🇩🇮🇹🍷✨',
+      'about.tagline':     'Benvenuti a tavola, dove tre tradizioni si incontrano nel cuore di Padova. 🇷🇴🇲🇩🇮🇹🍷✨',
       'about.cta':         'Vieni a Trovarci',
 
       // struttura.html
@@ -165,7 +165,7 @@
       'about.subtitle':    'A piece of Romania, Moldova and Italy in the heart of Padua',
       'about.body':        'Our restaurant was born from the meeting of three cultures that love sharing a meal: Romanian, Moldovan and Italian. We brought to Padua the recipes of tradition, the authentic flavours of home and a passion for good food, blending ingredients, aromas and stories that speak of family, friendship and conviviality.',
       'about.body2':       'Every dish tells a journey through different traditions united by the same value: the pleasure of sharing a good meal. Here you can savour the best of Romanian, Moldovan and Italian cuisine in a welcoming environment, where every guest is treated like a friend.',
-      'about.tagline':     'Welcome to the table, where three traditions meet in the heart of Padua. \ud83c\uddf7\ud83c\uddf4\ud83c\uddf2\ud83c\udde9\ud83c\uddee\ud83c\uddf9\ud83c\udf77\u2728',
+      'about.tagline':     'Welcome to the table, where three traditions meet in the heart of Padua. 🇷🇴🇲🇩🇮🇹🍷✨',
       'about.cta':         'Come Visit Us',
 
       'str.h1':            'Our Venue',
@@ -276,7 +276,7 @@
       'about.subtitle':    'O buc\u0103t\u0103 din Rom\u00e2nia, Moldova \u015fi Italia \u00een inima Padovei',
       'about.body':        'Restaurantul nostru s-a n\u0103scut din \u00eent\u00e2lnirea a trei culturi care iubesc s\u0103 stea la mas\u0103: cea rom\u00e2neasc\u0103, moldoveneasc\u0103 \u015fi italian\u0103. Am adus la Padova re\u0163etele tradi\u0163iei, aromele autentice de acas\u0103 \u015fi pasiunea pentru buc\u0103t\u0103ria bun\u0103, \u00eembin\u00e2nd ingrediente, mirosuri \u015fi pove\u015fti care vorbesc despre familie, prietenie \u015fi convivialitate.',
       'about.body2':       'Fiecare preparat spune o c\u0103l\u0103torie prin tradi\u0163ii diferite, unite de aceea\u015fi valoare: pl\u0103cerea de a \u00emp\u0103r\u0163i o mas\u0103 bun\u0103. Aici pute\u0163i savura ce e mai bun din buc\u0103t\u0103ria rom\u00e2neasc\u0103, moldoveneasc\u0103 \u015fi italian\u0103 \u00eetr-un ambient primitor, unde fiecare oaspete este primit ca un prieten.',
-      'about.tagline':     'Bun venit la mas\u0103, unde trei tradi\u0163ii se \u00eent\u00e2lnesc \u00een inima Padovei. \ud83c\uddf7\ud83c\uddf4\ud83c\uddf2\ud83c\udde9\ud83c\uddee\ud83c\uddf9\ud83c\udf77\u2728',
+      'about.tagline':     'Bun venit la mas\u0103, unde trei tradi\u0163ii se \u00eent\u00e2lnesc \u00een inima Padovei. 🇷🇴🇲🇩🇮🇹🍷✨',
       'about.cta':         'Vino s\u0103 Ne Vizitezi',
 
       'str.h1':            'Spa\u0163iile Noastre',
