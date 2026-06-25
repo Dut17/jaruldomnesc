@@ -28,9 +28,9 @@
       'menu.secondo':  'Secondo',
       'menu.contorno': 'Contorno',
       'menu.prezzo':   'Prezzo',
-      'menu.loading':  'Caricamento menu in corso…',
-      'menu.empty':    'Menu non ancora inserito. Riprova più tardi.',
-      'menu.error':    'Impossibile caricare il menu. Riprova più tardi.',
+      'menu.loading':  'Caricamento menu in corso\u2026',
+      'menu.empty':    'Menu non ancora inserito. Riprova pi\u00f9 tardi.',
+      'menu.error':    'Impossibile caricare il menu. Riprova pi\u00f9 tardi.',
       'menu.allergeni':'Per informazioni sugli allergeni presenti nei nostri piatti, chiedi al personale di sala. Reg. UE 1169/2011.',
       'menu.contact':  'Per informazioni e prenotazioni: <a href="contatti.html" style="color:#b8962e;">contattaci</a>.',
 
@@ -48,7 +48,10 @@
       'feat.wine.desc':    'Selezione di vini DOC della Romania: Feteasca, Merlot e Cabernet Sauvignon.',
       'about.eyebrow':     'La Nostra Storia',
       'about.title':       'Un pezzo di<br>Romania a Padova',
-      'about.body':        'Jarul Domnesc Official nasce dal desiderio di portare la vera cucina di casa rumena e moldava in Italia. Ogni piatto \u00e8 preparato seguendo ricette tramandate di generazione in generazione: dal mamalighe croccante ai sarmale invernali, dall\u2019ostropel profumato alla papanasi calda con panna acida. Menu fisso a pranzo, aperto tutti i giorni.',
+      'about.subtitle':    'Un pezzo di Romania, Moldova e Italia nel cuore di Padova',
+      'about.body':        'Il nostro ristorante nasce dall\u2019incontro di tre culture che amano stare a tavola: quella rumena, moldava e italiana. Abbiamo portato a Padova le ricette della tradizione, i sapori autentici di casa e la passione per la buona cucina, unendo ingredienti, profumi e storie che parlano di famiglia, amicizia e convivialit\u00e0.',
+      'about.body2':       'Ogni piatto racconta un viaggio tra tradizioni diverse ma accomunate dallo stesso valore: il piacere di condividere un buon pasto. Qui potrete assaporare il meglio della cucina rumena, moldava e italiana in un ambiente accogliente, dove ogni ospite \u00e8 accolto come un amico.',
+      'about.tagline':     'Benvenuti a tavola, dove tre tradizioni si incontrano nel cuore di Padova. \ud83c\uddf7\ud83c\uddf4\ud83c\uddf2\ud83c\udde9\ud83c\uddee\ud83c\uddf9\ud83c\udf77\u2728',
       'about.cta':         'Vieni a Trovarci',
 
       // struttura.html
@@ -159,7 +162,10 @@
       'feat.wine.desc':    'DOC wines from Romania: Feteasca, Merlot and Cabernet Sauvignon.',
       'about.eyebrow':     'Our Story',
       'about.title':       'A piece of<br>Romania in Padua',
-      'about.body':        'Jarul Domnesc Official was born from the desire to bring authentic Romanian and Moldovan home cooking to Italy. Every dish follows recipes passed down through generations: from crispy mamaliga to winter sarmale, fragrant ostropel to warm papanasi with sour cream. Fixed lunch menu, open every day.',
+      'about.subtitle':    'A piece of Romania, Moldova and Italy in the heart of Padua',
+      'about.body':        'Our restaurant was born from the meeting of three cultures that love sharing a meal: Romanian, Moldovan and Italian. We brought to Padua the recipes of tradition, the authentic flavours of home and a passion for good food, blending ingredients, aromas and stories that speak of family, friendship and conviviality.',
+      'about.body2':       'Every dish tells a journey through different traditions united by the same value: the pleasure of sharing a good meal. Here you can savour the best of Romanian, Moldovan and Italian cuisine in a welcoming environment, where every guest is treated like a friend.',
+      'about.tagline':     'Welcome to the table, where three traditions meet in the heart of Padua. \ud83c\uddf7\ud83c\uddf4\ud83c\uddf2\ud83c\udde9\ud83c\uddee\ud83c\uddf9\ud83c\udf77\u2728',
       'about.cta':         'Come Visit Us',
 
       'str.h1':            'Our Venue',
@@ -267,7 +273,10 @@
       'feat.wine.desc':    'Selec\u0163ie de vinuri DOC din Rom\u00e2nia: Feteasca, Merlot \u015fi Cabernet Sauvignon.',
       'about.eyebrow':     'Povestea Noastr\u0103',
       'about.title':       'O bucat\u0103 de<br>Rom\u00e2nia la Padova',
-      'about.body':        'Jarul Domnesc Official s-a n\u0103scut din dorin\u0163a de a aduce buc\u0103t\u0103ria autentic\u0103 rom\u00e2neasc\u0103 \u015fi moldoveneasc\u0103 \u00een Italia. Fiecare preparat urmeaz\u0103 re\u0163ete transmise din genera\u0163ie \u00een genera\u0163ie: de la m\u0103m\u0103ligu\u0163a crocant\u0103 la sarmalele de iarn\u0103, de la ostropelul parfumat la papana\u015fii calzi cu sm\u00e2nt\u00e2n\u0103. Meniu fix la pr\u00e2nz, deschis \u00een fiecare zi.',
+      'about.subtitle':    'O buc\u0103t\u0103 din Rom\u00e2nia, Moldova \u015fi Italia \u00een inima Padovei',
+      'about.body':        'Restaurantul nostru s-a n\u0103scut din \u00eent\u00e2lnirea a trei culturi care iubesc s\u0103 stea la mas\u0103: cea rom\u00e2neasc\u0103, moldoveneasc\u0103 \u015fi italian\u0103. Am adus la Padova re\u0163etele tradi\u0163iei, aromele autentice de acas\u0103 \u015fi pasiunea pentru buc\u0103t\u0103ria bun\u0103, \u00eembin\u00e2nd ingrediente, mirosuri \u015fi pove\u015fti care vorbesc despre familie, prietenie \u015fi convivialitate.',
+      'about.body2':       'Fiecare preparat spune o c\u0103l\u0103torie prin tradi\u0163ii diferite, unite de aceea\u015fi valoare: pl\u0103cerea de a \u00emp\u0103r\u0163i o mas\u0103 bun\u0103. Aici pute\u0163i savura ce e mai bun din buc\u0103t\u0103ria rom\u00e2neasc\u0103, moldoveneasc\u0103 \u015fi italian\u0103 \u00eetr-un ambient primitor, unde fiecare oaspete este primit ca un prieten.',
+      'about.tagline':     'Bun venit la mas\u0103, unde trei tradi\u0163ii se \u00eent\u00e2lnesc \u00een inima Padovei. \ud83c\uddf7\ud83c\uddf4\ud83c\uddf2\ud83c\udde9\ud83c\uddee\ud83c\uddf9\ud83c\udf77\u2728',
       'about.cta':         'Vino s\u0103 Ne Vizitezi',
 
       'str.h1':            'Spa\u0163iile Noastre',
