@@ -28,7 +28,7 @@
       'about.title': 'Un pezzo di<br>Romania a Padova',
       'about.subtitle': 'Un pezzo di Romania, Moldova e Italia nel cuore di Padova',
       'about.body': 'Il nostro ristorante nasce dall&rsquo;incontro di tre culture che amano stare a tavola: quella rumena, moldava e italiana. Abbiamo portato a Padova le ricette della tradizione, i sapori autentici di casa e la passione per la buona cucina, unendo ingredienti, profumi e storie che parlano di famiglia, amicizia e convivialita.',
-      'about.body2': 'Ogni piatto racconta un viaggio tra tradizioni diverse ma accomunate dallo stesso valore: il piacere di condividere un buon pasto. Qui potrete assaporare il meglio della cucina rumena, moldava e italiana in un ambiente accogliente, dove ogni ospite e accolto come un amico.',
+      'about.body2': 'Ogni piatto racconta un viaggio tra tradizioni diverse ma accomunate dallo stesso valore: il piacere di condividere un buon pasto. Qui potrete assaporare il meglio della cucina rumena, moldava e italiana in un ambiente accogliente, dove ogni ospite è accolto come un amico.',
       'about.tagline': 'Benvenuti a tavola, dove tre tradizioni si incontrano nel cuore di Padova.',
       'about.cta': 'Vieni a Trovarci',
       'str.h1': 'La Nostra Struttura',
