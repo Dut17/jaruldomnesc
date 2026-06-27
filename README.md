@@ -11,8 +11,8 @@ CMS minimalista tramite Google Sheets per il menu del giorno.
 ```
 jaruldomnesc/
 ├── index.html        ✅ Completa
-├── menu.html         ✅ Completa (Google Sheets)
-├── struttura.html    ✅ Completa
+├── menu.html         ✅ Completa (Google Sheets + Apps Script)
+├── struttura.html    ✅ Completa (immagini aggiornate)
 ├── eventi.html       ✅ Completa
 ├── contatti.html     ✅ Completa
 ├── privacy.html      ✅ Completa
@@ -26,8 +26,13 @@ jaruldomnesc/
     ├── js/
     │   ├── main.js   ✅ Sistemato (IIFE completo)
     │   ├── cookie.js ✅ Banner GDPR
-    │   └── i18n.js   ❌ DA FARE — multilingua IT/EN/RO
+    │   └── i18n.js   ✅ Multilingua IT/EN/RO — fix emoji, fix DOMContentLoaded, fix Unicode escaping
     └── img/
+        ├── foto-sala-centrale.jpeg
+        ├── sala.jpeg
+        ├── tagliere.jpeg / tagliere1.jpeg / tagliere2.jpeg
+        ├── logo-jarulDomnesc.png
+        └── logo-removebg-jarulDomnesc.png
 ```
 
 ---
@@ -37,8 +42,8 @@ jaruldomnesc/
 | Pagina | Stato | Note |
 |---|---|---|
 | index.html | ✅ Completa | Hero video, about, galleria foto reali |
-| menu.html | ✅ Completa | fetch() da Google Sheets, aggiornamento quotidiano |
-| struttura.html | ✅ Completa | Galleria foto reali del locale |
+| menu.html | ✅ Completa | fetch() da Apps Script JSON — parser N piatti per sezione |
+| struttura.html | ✅ Completa | Immagini rinominate e riferimenti aggiornati |
 | eventi.html | ✅ Completa | Pagina eventi e locandine |
 | contatti.html | ✅ Completa | Mappa, orari aggiornati, form contatto |
 | privacy.html | ✅ Completa | GDPR, cookie policy, dati titolare |
@@ -54,11 +59,13 @@ jaruldomnesc/
 - `allergeni.html` — obbligo Reg. UE 1169/2011, aspetta lista piatti reali dal cliente
 
 ### 🟡 Pre-deploy
-- `i18n.js` — multilingua IT / EN / RO (menu.html esclusa)
-- Aggiungere `data-i18n` e bottone lingua in: `index.html`, `struttura.html`, `eventi.html`, `contatti.html`, `privacy.html`
+- **Vocali accentate IT** — sostituire `à`, `è`, `ì`, `ò`, `ù` rimanenti nei testi IT con HTML entities (`&agrave;`, `&egrave;` ecc.)
+- **Foto spazio esterno** — aggiungere immagine per la terza card in `struttura.html` (attualmente placeholder)
+- **Diacritici RO** — verificare a schermo che tutti i diacritici (`ș`, `ț`, `ă`, `â`, `î`) siano corretti dopo i commit
 - Attivare security headers in `nginx.conf` al momento del deploy
 
 ### 🟢 Post go-live
+- **Setup IntelliJ + Git locale** — clonare il repo e lavorare in locale con Live Preview invece di GitHub web editor
 - Aggiornare URL definitivo in `qr.html`
 - Stampare QR fisico
 - Sezione recensioni 5 stelle (dopo prime recensioni TripAdvisor reali)
