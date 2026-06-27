@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Menu del giorno di Jarul Domnesc Official — Cucina tradizionale rumena a Padova.">
-  <title>Menu — Jarul Domnesc Official · Padova</title>
+  <title>Menu &mdash; Jarul Domnesc Official &middot; Padova</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,17 +17,25 @@
     .sottotitolo{font-family:'Inter',sans-serif;color:#888;font-size:.95rem;margin-bottom:2.5rem}
     .menu-card{background:#fff;border:1px solid #f0e6c8;border-radius:12px;padding:2rem 2rem 1.5rem;box-shadow:0 4px 24px rgba(189,35,54,.07);text-align:left}
     .data-oggi{font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;color:#b8962e;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.5rem}
-    .piatto-riga{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed #f0e6c8;padding:.75rem 0;gap:1rem}
-    .piatto-riga:last-of-type{border-bottom:none}
-    .piatto-label{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:#bd2336;text-transform:uppercase;letter-spacing:.06em;min-width:80px}
+    .menu-sezione{margin-bottom:1.25rem}
+    .menu-sezione-titolo{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:#bd2336;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .piatto-riga{display:flex;align-items:baseline;border-bottom:1px dashed #f0e6c8;padding:.6rem 0;gap:1rem}
+    .piatto-riga:last-child{border-bottom:none}
     .piatto-nome{font-family:'Inter',sans-serif;font-size:1rem;color:#222;flex:1}
-    .piatto-prezzo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#b8962e;white-space:nowrap}
+    .prezzi-sezione{margin-top:1.5rem;padding-top:1.25rem;border-top:2px solid #f0e6c8}
+    .prezzi-sezione-titolo{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:#b8962e;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem}
+    .prezzo-riga{display:flex;justify-content:space-between;align-items:baseline;padding:.4rem 0;border-bottom:1px dashed #f0e6c8;gap:1rem}
+    .prezzo-riga:last-child{border-bottom:none}
+    .prezzo-label{font-family:'Inter',sans-serif;font-size:.9rem;color:#555;flex:1}
+    .prezzo-valore{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#b8962e;white-space:nowrap}
     .menu-loading{text-align:center;padding:3rem 1rem;font-family:'Inter',sans-serif;color:#888;font-size:.95rem}
     .menu-errore{text-align:center;padding:2rem 1rem;font-family:'Inter',sans-serif;color:#bd2336;font-size:.95rem;background:#fff5f5;border-radius:8px;border:1px solid #fdd}
-    .menu-chiuso{text-align:center;padding:2.5rem 1rem;font-family:'Inter',sans-serif;color:#555;font-size:1rem;background:#fafafa;border-radius:12px;border:1px solid #eee}
-    .menu-chiuso strong{display:block;font-family:'Playfair Display',serif;font-size:1.4rem;color:#222;margin-bottom:.5rem}
     .allergeni-nota{font-family:'Inter',sans-serif;font-size:.8rem;color:#888;margin-top:1.5rem;text-align:center;line-height:1.5}
-    .allergeni-nota a{color:#b8962e;text-decoration:underline}
+    /* Lang switcher */
+    .lang-switcher{display:flex;align-items:center;gap:.25rem;margin-left:1rem}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.35);color:inherit;font:600 .7rem/1 'Inter',sans-serif;letter-spacing:.05em;padding:.3rem .5rem;border-radius:3px;cursor:pointer;transition:background .2s,border-color .2s}
+    .lang-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+    .lang-btn--active{background:rgba(255,255,255,.18);border-color:#b8962e;color:#b8962e}
   </style>
 </head>
 <body>
@@ -47,7 +55,7 @@
       <div class="lang-switcher" aria-label="Seleziona lingua">
         <button type="button" data-lang-btn="it" class="lang-btn lang-btn--active" aria-label="Italiano">IT</button>
         <button type="button" data-lang-btn="en" class="lang-btn" aria-label="English">EN</button>
-        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Rom\u00e2n\u0103">RO</button>
+        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Rom&#226;n&#259;">RO</button>
       </div>
     </div>
   </nav>
@@ -55,8 +63,8 @@
   <main id="main-content">
     <section class="menu-oggi-section">
       <h1 data-i18n="menu.h1">Menu di Oggi</h1>
-      <p class="sottotitolo" data-i18n="menu.subtitle">Aggiornato ogni mattina — aperto tutti i giorni a pranzo</p>
-      <div id="menu-container"><p class="menu-loading" data-i18n="menu.loading">Caricamento menu in corso…</p></div>
+      <p class="sottotitolo" data-i18n="menu.subtitle">Aggiornato ogni mattina &mdash; aperto tutti i giorni a pranzo</p>
+      <div id="menu-container"><p class="menu-loading" data-i18n="menu.loading">Caricamento menu in corso&hellip;</p></div>
       <p class="allergeni-nota" data-i18n="menu.allergeni">Per informazioni sugli allergeni presenti nei nostri piatti, chiedi al personale di sala. Reg. UE 1169/2011.</p>
     </section>
     <section style="text-align:center;padding:1rem 1rem 4rem;">
@@ -94,57 +102,131 @@
   <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
 
   <script>
-    var API_URL = 'https://script.google.com/macros/s/AKfycbwSCEJjHK3mF-exPXR37uANCZqk2oNtHTRSeC8VMz83BpLUAmtwpdbfJh4fpcZzgX8-/exec';
-    var oggi = new Date();
-    var dataStr = oggi.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
-    var c = document.getElementById('menu-container');
+    (function () {
+      'use strict';
 
-    function buildMenu(d) {
-      /* Read active lang from localStorage, fall back to 'it' */
-      var lang = localStorage.getItem('jd_lang') || 'it';
+      var SHEET_ID  = '1lrCBo1OL7Met2DKvq0QXdilqldlTDguHB3m7Dx3cfwo';
+      var CSV_URL   = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=0';
+      var oggi      = new Date();
+      var dataStr   = oggi.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
+      var container = document.getElementById('menu-container');
 
-      /* Use window.i18n.t if available, otherwise plain fallbacks */
-      var t = (window.i18n && window.i18n.t)
-        ? function (key) { return window.i18n.t(key); }
-        : function (key) { return key; };
+      /* Parse a CSV string into a 2D array, handles quoted fields with commas */
+      function parseCSV(text) {
+        var rows = [];
+        var lines = text.split(/\r?\n/);
+        lines.forEach(function (line) {
+          if (!line.trim()) { return; }
+          var cols = [];
+          var current = '';
+          var inQuotes = false;
+          for (var i = 0; i < line.length; i++) {
+            var ch = line[i];
+            if (ch === '"') {
+              if (inQuotes && line[i + 1] === '"') { current += '"'; i++; }
+              else { inQuotes = !inQuotes; }
+            } else if (ch === ',' && !inQuotes) {
+              cols.push(current.trim());
+              current = '';
+            } else {
+              current += ch;
+            }
+          }
+          cols.push(current.trim());
+          rows.push(cols);
+        });
+        return rows;
+      }
 
       function esc(s) {
-        return String(s)
+        return String(s || '')
           .replace(/&/g, '&amp;').replace(/</g, '&lt;')
           .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
       }
 
-      var p1 = esc(d.primo    || '');
-      var p2 = esc(d.secondo  || '');
-      var p3 = esc(d.contorno || '');
-      var pz = d.prezzo || '';
-      if (typeof pz === 'number') { pz = pz + '\u20ac'; }
-      pz = esc(pz);
+      function buildMenu(rows) {
+        var t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : function (k) { return k; };
 
-      if (!p1 && !p2 && !p3) {
-        c.innerHTML = '<div class="menu-errore">' + t('menu.empty') + '</div>';
-        return;
+        /* Skip header row (row 0), read data rows from row 1 onwards */
+        var primi    = [];
+        var secondi  = [];
+        var contorni = [];
+        var prezzi   = [];
+
+        for (var i = 1; i < rows.length; i++) {
+          var r = rows[i];
+          if (r[0] && r[0].trim()) { primi.push(esc(r[0].trim())); }
+          if (r[1] && r[1].trim()) { secondi.push(esc(r[1].trim())); }
+          if (r[2] && r[2].trim()) { contorni.push(esc(r[2].trim())); }
+          if (r[3] && r[3].trim()) { prezzi.push(esc(r[3].trim())); }
+        }
+
+        if (!primi.length && !secondi.length && !contorni.length) {
+          container.innerHTML = '<div class="menu-errore">' + t('menu.empty') + '</div>';
+          return;
+        }
+
+        var h = '<div class="menu-card"><div class="data-oggi">' + dataStr + '</div>';
+
+        /* Sezione Primi */
+        if (primi.length) {
+          h += '<div class="menu-sezione"><div class="menu-sezione-titolo">' + t('menu.primo') + '</div>';
+          primi.forEach(function (p) {
+            h += '<div class="piatto-riga"><span class="piatto-nome">' + p + '</span></div>';
+          });
+          h += '</div>';
+        }
+
+        /* Sezione Secondi */
+        if (secondi.length) {
+          h += '<div class="menu-sezione"><div class="menu-sezione-titolo">' + t('menu.secondo') + '</div>';
+          secondi.forEach(function (p) {
+            h += '<div class="piatto-riga"><span class="piatto-nome">' + p + '</span></div>';
+          });
+          h += '</div>';
+        }
+
+        /* Sezione Contorni */
+        if (contorni.length) {
+          h += '<div class="menu-sezione"><div class="menu-sezione-titolo">' + t('menu.contorno') + '</div>';
+          contorni.forEach(function (p) {
+            h += '<div class="piatto-riga"><span class="piatto-nome">' + p + '</span></div>';
+          });
+          h += '</div>';
+        }
+
+        /* Sezione Prezzi */
+        if (prezzi.length) {
+          h += '<div class="prezzi-sezione"><div class="prezzi-sezione-titolo">' + t('menu.prezzo') + '</div>';
+          prezzi.forEach(function (p) {
+            /* Split on last space before the price value if format is "Label 9,00euro" */
+            var match = p.match(/^(.+?)\s+(\d[\d.,]*\s*[\u20ac€]?)$/);
+            if (match) {
+              h += '<div class="prezzo-riga"><span class="prezzo-label">' + match[1] + '</span><span class="prezzo-valore">' + match[2] + '</span></div>';
+            } else {
+              h += '<div class="prezzo-riga"><span class="prezzo-label">' + p + '</span></div>';
+            }
+          });
+          h += '</div>';
+        }
+
+        h += '</div>';
+        container.innerHTML = h;
       }
 
-      var h = '<div class="menu-card"><div class="data-oggi">' + dataStr + '</div>';
-      if (p1) { h += '<div class="piatto-riga"><span class="piatto-label">' + t('menu.primo')   + '</span><span class="piatto-nome">' + p1 + '</span></div>'; }
-      if (p2) { h += '<div class="piatto-riga"><span class="piatto-label">' + t('menu.secondo') + '</span><span class="piatto-nome">' + p2 + '</span></div>'; }
-      if (p3) { h += '<div class="piatto-riga"><span class="piatto-label">' + t('menu.contorno')+ '</span><span class="piatto-nome">' + p3 + '</span></div>'; }
-      if (pz) { h += '<div class="piatto-riga"><span class="piatto-label">' + t('menu.prezzo')  + '</span><span class="piatto-nome"></span><span class="piatto-prezzo">' + pz + '</span></div>'; }
-      h += '</div>';
-      c.innerHTML = h;
-    }
-
-    fetch(API_URL)
-      .then(function (r) {
-        if (!r.ok) { throw new Error('HTTP ' + r.status); }
-        return r.json();
-      })
-      .then(buildMenu)
-      .catch(function () {
-        var t = (window.i18n && window.i18n.t) ? window.i18n.t : function (k) { return k; };
-        c.innerHTML = '<div class="menu-errore">' + t('menu.error') + '</div>';
-      });
+      fetch(CSV_URL)
+        .then(function (r) {
+          if (!r.ok) { throw new Error('HTTP ' + r.status); }
+          return r.text();
+        })
+        .then(function (text) {
+          buildMenu(parseCSV(text));
+        })
+        .catch(function () {
+          var t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : function (k) { return k; };
+          container.innerHTML = '<div class="menu-errore">' + t('menu.error') + '</div>';
+        });
+    }());
   </script>
 
   <script src="assets/js/main.js" defer></script>
