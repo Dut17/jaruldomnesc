@@ -19,7 +19,7 @@ jaruldomnesc/
 ├── 404.html          ✅ Completa
 ├── qr.html           ✅ Pronta (aggiornare URL post-deploy)
 ├── nginx.conf        ✅ Creato
-├── allergeni.html    ❌ DA FARE — bloccante legale
+├── allergeni.html    ✅ Completa (gestione allergeni in sala, Reg. UE 1169/2011)
 └── assets/
     ├── css/
     │   └── style.css
@@ -49,14 +49,11 @@ jaruldomnesc/
 | privacy.html | ✅ Completa | GDPR, cookie policy, dati titolare |
 | 404.html | ✅ Completa | Richiede config Nginx |
 | qr.html | ✅ Pronta | Aggiornare URL dopo deploy |
-| allergeni.html | ❌ Mancante | Bloccante go-live — Reg. UE 1169/2011 |
+| allergeni.html | ✅ Completa | Rimando a personale di sala + Reg. UE 1169/2011 |
 
 ---
 
 ## Prossimi step
-
-### 🔴 Bloccante go-live
-- `allergeni.html` — obbligo Reg. UE 1169/2011, aspetta lista piatti reali dal cliente
 
 ### 🟡 Pre-deploy
 - **Vocali accentate IT** — sostituire `à`, `è`, `ì`, `ò`, `ù` rimanenti nei testi IT con HTML entities (`&agrave;`, `&egrave;` ecc.)
@@ -80,7 +77,7 @@ jaruldomnesc/
 | Informativa Privacy | Reg. UE 2016/679 (GDPR) | ✅ privacy.html |
 | Cookie banner | GDPR + Linee guida Garante 2021 | ✅ cookie.js |
 | P.IVA e ragione sociale | D.Lgs. 206/2005 | ✅ Footer |
-| Tabella 14 allergeni | Reg. UE 1169/2011 | ❌ allergeni.html mancante |
+| Tabella 14 allergeni | Reg. UE 1169/2011 | ✅ allergeni.html — rimando a personale di sala |
 | Security headers HTTP | Best practice OWASP | ✅ nginx.conf pronto |
 
 ---
