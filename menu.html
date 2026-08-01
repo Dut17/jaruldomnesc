@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Menu del giorno di Jarul Domnesc Official — Cucina tradizionale rumena a Padova.">
-  <title>Menu &mdash; Jarul Domnesc Official &middot; Padova</title>
+  <meta name="description" content="Menu del giorno di Jarul Domnesc Official — Ristorante di cucina rumena, moldava e italiana a Padova.">
+  <title>Menu — Jarul Domnesc Official · Padova</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -59,12 +59,15 @@
     <section class="menu-oggi-section">
       <h1 data-i18n="menu.h1">Menu di Oggi</h1>
       <p class="sottotitolo" data-i18n="menu.subtitle">Aggiornato ogni mattina &mdash; aperto tutti i giorni a pranzo</p>
-      <div id="menu-container"><p class="menu-loading" data-i18n="menu.loading">Caricamento menu in corso&hellip;</p></div>
+
+      <div id="menu-container">
+        <p class="menu-loading" data-i18n="menu.loading">Caricamento menu in corso&hellip;</p>
+      </div>
+
       <p class="allergeni-nota" data-i18n="menu.allergeni">Per informazioni sugli allergeni presenti nei nostri piatti, chiedi al personale di sala. Reg. UE 1169/2011.</p>
     </section>
-    <section style="text-align:center;padding:1rem 1rem 4rem;">
-      <p style="font-family:'Inter',sans-serif;color:#888;font-size:.9rem;" data-i18n="menu.contact">Per informazioni e prenotazioni: <a href="contatti.html" style="color:#b8962e;">contattaci</a>.</p>
-    </section>
+
+    <p style="text-align:center;font-family:'Inter',sans-serif;color:#555;margin:-3rem 0 4rem;" data-i18n="menu.contact">Per informazioni e prenotazioni: <a href="contatti.html" style="color:#b8962e;">contattaci</a>.</p>
   </main>
 
   <footer>
@@ -99,15 +102,10 @@
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/cookie.js" defer></script>
   <script src="assets/js/i18n.js" defer></script>
-
-  <script defer>
+  <script>
     const API_URL = 'https://script.google.com/macros/s/AKfycbxz-qSfSDGznd9sPpDG288SsOoJ4XFuRhCOeTPjkKgiNT3khNKpI9iBl4P3pz4wX991GQ/exec';
     const oggi = new Date();
-    const dataStr = oggi.toLocaleDateString('it-IT', {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-    });
+    const dataStr = oggi.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
     const container = document.getElementById('menu-container');
 
     function t(key) {
@@ -117,7 +115,6 @@
     function isMenuAllaCartaSlot() {
       const giorno = oggi.getDay();
       const ora = oggi.getHours();
-
       return giorno === 6 || giorno === 0 || (giorno === 5 && ora >= 15);
     }
 
@@ -139,14 +136,10 @@
     }
 
     function renderSection(titleKey, items) {
-      if (!items || !items.length) {
-        return '';
-      }
-
+      if (!items || !items.length) { return ''; }
       const righe = items
         .map((item) => `<div class="piatto-riga"><span class="piatto-nome">${escapeHtml(item)}</span></div>`)
         .join('');
-
       return `
         <div class="menu-sezione">
           <div class="menu-sezione-titolo">${t(titleKey)}</div>
@@ -156,14 +149,10 @@
     }
 
     function renderPrices(items) {
-      if (!items || !items.length) {
-        return '';
-      }
-
+      if (!items || !items.length) { return ''; }
       const righe = items
         .map((item) => `<div class="prezzo-riga"><span class="prezzo-label">${escapeHtml(item)}</span></div>`)
         .join('');
-
       return `
         <div class="prezzi-sezione">
           <div class="prezzi-sezione-titolo">${t('menu.prezzo')}</div>
@@ -200,9 +189,7 @@
       } else {
         fetch(API_URL)
           .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP ${response.status}`);
-            }
+            if (!response.ok) { throw new Error(`HTTP ${response.status}`); }
             return response.json();
           })
           .then(buildMenu)
@@ -212,7 +199,11 @@
       }
     }
 
-    initMenu();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMenu);
+    } else {
+      initMenu();
+    }
   </script>
 </body>
 </html>
