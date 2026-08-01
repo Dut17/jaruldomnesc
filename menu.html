@@ -96,7 +96,11 @@
 
   <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
 
-  <script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/cookie.js" defer></script>
+  <script src="assets/js/i18n.js" defer></script>
+
+  <script defer>
     const API_URL = 'https://script.google.com/macros/s/AKfycbxz-qSfSDGznd9sPpDG288SsOoJ4XFuRhCOeTPjkKgiNT3khNKpI9iBl4P3pz4wX991GQ/exec';
     const oggi = new Date();
     const dataStr = oggi.toLocaleDateString('it-IT', {
@@ -190,25 +194,25 @@
       `;
     }
 
-    if (isMenuAllaCartaSlot()) {
-      showMenuAllaCarta();
-    } else {
-      fetch(API_URL)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(buildMenu)
-        .catch(() => {
-          container.innerHTML = `<div class="menu-errore">${t('menu.error')}</div>`;
-        });
+    function initMenu() {
+      if (isMenuAllaCartaSlot()) {
+        showMenuAllaCarta();
+      } else {
+        fetch(API_URL)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(buildMenu)
+          .catch(() => {
+            container.innerHTML = `<div class="menu-errore">${t('menu.error')}</div>`;
+          });
+      }
     }
-  </script>
 
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/cookie.js" defer></script>
-  <script src="assets/js/i18n.js" defer></script>
+    initMenu();
+  </script>
 </body>
 </html>
