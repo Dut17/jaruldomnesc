@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Informativa sulla privacy e cookie policy di Jarul Domnesc Official — Padova.">
-  <title>Privacy &amp; Cookie — Jarul Domnesc Official</title>
+  <meta name="description" content="Informativa Privacy e Cookie di Jarul Domnesc Official — Padova.">
+  <title>Privacy &amp; Cookie &mdash; Jarul Domnesc Official</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
   <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
     <div class="nav-top-row">
       <a href="index.html" class="logo"><img src="assets/logo-removebg-jarulDomnesc.png" alt="Jarul Domnesc" height="55" style="display:block;"></a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">☰</button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
     </div>
     <div class="nav-links">
       <a href="index.html" data-i18n="nav.home">Home</a>
@@ -47,71 +47,100 @@
       <div class="lang-switcher" aria-label="Seleziona lingua">
         <button type="button" data-lang-btn="it" class="lang-btn lang-btn--active" aria-label="Italiano">IT</button>
         <button type="button" data-lang-btn="en" class="lang-btn" aria-label="English">EN</button>
-        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Română">RO</button>
+        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Romana">RO</button>
       </div>
     </div>
   </nav>
 
   <main id="main-content">
-    <div class="legal-hero">
-      <h1>Privacy &amp; Cookie</h1>
-      <p>Informativa ai sensi del Reg. UE 2016/679 (GDPR) &mdash; Aggiornata al 13 giugno 2026</p>
-    </div>
+    <section class="legal-hero">
+      <h1 data-i18n="privacy.h1">Privacy &amp; Cookie</h1>
+      <p data-i18n="privacy.updated">Informativa ai sensi del Reg. UE 2016/679 (GDPR) &mdash; Aggiornata al 13 giugno 2026</p>
+    </section>
 
-    <div class="legal-body">
-      <h2>1. Titolare del trattamento</h2>
-      <p><strong>Jarul Domnesc Official</strong><br>
-      Viale della Regione Veneto, 6 &mdash; 35121 Padova (PD)<br>
-      P.IVA: 05661800283<br>
-      Telefono: <a href="tel:+393398548172">+39 339 854 8172</a></p>
+    <section class="legal-body">
+      <h2 data-i18n="privacy.sec1.h2">1. Titolare del trattamento</h2>
+      <p data-i18n="privacy.sec1.body"><strong>Jarul Domnesc Official</strong><br>Viale della Regione Veneto, 6 &mdash; 35121 Padova (PD)<br>P.IVA: 05661800283<br>Telefono: <a href="tel:+393398548172">+39 339 854 8172</a></p>
 
-      <h2>2. Dati raccolti e finalit&agrave;</h2>
-      <p>Questo sito web ha natura esclusivamente informativa. <strong>Non raccoglie dati personali degli utenti</strong> attraverso moduli, registrazioni o sistemi di tracciamento proprietari.</p>
-      <p>I soli dati trattati sono quelli tecnici generati automaticamente dal browser durante la navigazione (indirizzo IP anonimizzato, tipo di browser, pagine visitate) e quelli derivanti dai servizi di terze parti elencati di seguito.</p>
+      <h2 data-i18n="privacy.sec2.h2">2. Dati raccolti e finalit&agrave;</h2>
+      <p data-i18n="privacy.sec2.body1">Questo sito web ha natura esclusivamente informativa. <strong>Non raccoglie dati personali degli utenti</strong> attraverso moduli, registrazioni o sistemi di tracciamento proprietari.</p>
+      <p data-i18n="privacy.sec2.body2">I soli dati trattati sono quelli tecnici generati automaticamente dal browser durante la navigazione (indirizzo IP anonimizzato, tipo di browser, pagine visitate) e quelli derivanti dai servizi di terze parti elencati di seguito.</p>
 
-      <h2>3. Servizi di terze parti</h2>
-      <p>Il sito utilizza i seguenti servizi esterni che possono trattare dati autonomamente:</p>
+      <h2 data-i18n="privacy.sec3.h2">3. Servizi di terze parti</h2>
+      <p data-i18n="privacy.sec3.intro">Il sito utilizza i seguenti servizi esterni che possono trattare dati autonomamente:</p>
       <table class="legal-table">
-        <thead><tr><th>Servizio</th><th>Finalit&agrave;</th><th>Dati trasmessi</th><th>Privacy policy</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Google Fonts</strong></td><td>Caricamento caratteri tipografici</td><td>Indirizzo IP, browser</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></td></tr>
-          <tr><td><strong>Google Maps</strong></td><td>Mappa interattiva nella pagina Contatti</td><td>Indirizzo IP, posizione approssimativa</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></td></tr>
-          <tr><td><strong>Google Sheets</strong></td><td>Visualizzazione menu del giorno</td><td>Indirizzo IP, browser</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></td></tr>
-        </tbody>
+        <tr>
+          <th data-i18n="privacy.table1.h.servizio">Servizio</th>
+          <th data-i18n="privacy.table1.h.finalita">Finalit&agrave;</th>
+          <th data-i18n="privacy.table1.h.dati">Dati trasmessi</th>
+          <th data-i18n="privacy.table1.h.policy">Privacy policy</th>
+        </tr>
+        <tr>
+          <td><strong>Google Fonts</strong></td>
+          <td data-i18n="privacy.table1.fonts.finalita">Caricamento caratteri tipografici</td>
+          <td data-i18n="privacy.table1.fonts.dati">Indirizzo IP, browser</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></td>
+        </tr>
+        <tr>
+          <td><strong>Google Maps</strong></td>
+          <td data-i18n="privacy.table1.maps.finalita">Mappa interattiva nella pagina Contatti</td>
+          <td data-i18n="privacy.table1.maps.dati">Indirizzo IP, posizione approssimativa</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></td>
+        </tr>
+        <tr>
+          <td><strong>Google Sheets</strong></td>
+          <td data-i18n="privacy.table1.sheets.finalita">Visualizzazione menu del giorno</td>
+          <td data-i18n="privacy.table1.sheets.dati">Indirizzo IP, browser</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></td>
+        </tr>
       </table>
-      <p>Jarul Domnesc Official non ha accesso ai dati raccolti da questi servizi e non li utilizza per finalit&agrave; proprie.</p>
+      <p data-i18n="privacy.sec3.outro">Jarul Domnesc Official non ha accesso ai dati raccolti da questi servizi e non li utilizza per finalit&agrave; proprie.</p>
 
-      <h2>4. Cookie</h2>
-      <p>Questo sito utilizza esclusivamente <strong>cookie tecnici necessari</strong> al funzionamento del sito. Non vengono utilizzati cookie di profilazione, marketing o tracciamento.</p>
+      <h2 data-i18n="privacy.sec4.h2">4. Cookie</h2>
+      <p data-i18n="privacy.sec4.intro">Questo sito utilizza cookie tecnici necessari al funzionamento e, solo previo consenso esplicito, il caricamento della mappa di Google Maps. Non vengono utilizzati cookie di profilazione, marketing o tracciamento.</p>
       <table class="legal-table">
-        <thead><tr><th>Nome cookie</th><th>Tipo</th><th>Durata</th><th>Finalit&agrave;</th></tr></thead>
-        <tbody>
-          <tr><td><code>jarul_cookie_ok</code></td><td>Tecnico &mdash; proprio</td><td>12 mesi</td><td>Memorizza il consenso al banner cookie per non mostrarlo ad ogni visita</td></tr>
-        </tbody>
+        <tr>
+          <th data-i18n="privacy.table2.h.nome">Nome cookie</th>
+          <th data-i18n="privacy.table2.h.tipo">Tipo</th>
+          <th data-i18n="privacy.table2.h.durata">Durata</th>
+          <th data-i18n="privacy.table2.h.finalita">Finalit&agrave;</th>
+        </tr>
+        <tr>
+          <td><code>jarul_cookie_ok</code></td>
+          <td data-i18n="privacy.table2.cookie1.tipo">Tecnico &mdash; proprio</td>
+          <td data-i18n="privacy.table2.cookie1.durata">12 mesi</td>
+          <td data-i18n="privacy.table2.cookie1.finalita">Memorizza il consenso al banner cookie per non mostrarlo ad ogni visita</td>
+        </tr>
+        <tr>
+          <td><code>jarul_maps_ok</code></td>
+          <td data-i18n="privacy.table2.cookie2.tipo">Tecnico &mdash; proprio</td>
+          <td data-i18n="privacy.table2.cookie2.durata">12 mesi</td>
+          <td data-i18n="privacy.table2.cookie2.finalita">Memorizza il consenso specifico al caricamento di Google Maps</td>
+        </tr>
       </table>
-      <p>I cookie di Google Fonts, Google Maps e Google Sheets sono gestiti autonomamente da Google. Per maggiori informazioni consulta la <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">cookie policy di Google</a>.</p>
-      <p>Puoi eliminare i cookie in qualsiasi momento dalle impostazioni del tuo browser.</p>
+      <p data-i18n="privacy.sec4.outro1">I cookie di Google Fonts, Google Maps e Google Sheets sono gestiti autonomamente da Google. Per maggiori informazioni consulta la <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">cookie policy di Google</a>.</p>
+      <p data-i18n="privacy.sec4.outro2">Puoi eliminare i cookie in qualsiasi momento dalle impostazioni del tuo browser.</p>
 
-      <h2>5. Base giuridica del trattamento</h2>
-      <p>Il trattamento dei dati tecnici di navigazione avviene sulla base del <strong>legittimo interesse</strong> del titolare (art. 6, par. 1, lett. f GDPR) per garantire il corretto funzionamento del sito. Il cookie tecnico <code>jarul_cookie_ok</code> &egrave; trattato sulla base del <strong>consenso</strong> espresso dall'utente (art. 6, par. 1, lett. a GDPR).</p>
+      <h2 data-i18n="privacy.sec5.h2">5. Base giuridica del trattamento</h2>
+      <p data-i18n="privacy.sec5.body">Il trattamento dei dati tecnici di navigazione avviene sulla base del <strong>legittimo interesse</strong> del titolare (art. 6, par. 1, lett. f GDPR) per garantire il corretto funzionamento del sito. Il cookie tecnico <code>jarul_cookie_ok</code> e il cookie <code>jarul_maps_ok</code> sono trattati sulla base del <strong>consenso</strong> espresso dall'utente (art. 6, par. 1, lett. a GDPR).</p>
 
-      <h2>6. Conservazione dei dati</h2>
-      <p>I dati tecnici di navigazione non vengono conservati dal titolare. Il cookie <code>jarul_cookie_ok</code> viene conservato per 12 mesi sul dispositivo dell'utente, dopodiché viene eliminato automaticamente.</p>
+      <h2 data-i18n="privacy.sec6.h2">6. Conservazione dei dati</h2>
+      <p data-i18n="privacy.sec6.body">I dati tecnici di navigazione non vengono conservati dal titolare. I cookie <code>jarul_cookie_ok</code> e <code>jarul_maps_ok</code> vengono conservati per 12 mesi sul dispositivo dell'utente, dopodich&eacute; vengono eliminati automaticamente.</p>
 
-      <h2>7. Diritti dell'interessato</h2>
-      <p>Ai sensi degli artt. 15&ndash;22 del Reg. UE 2016/679, hai il diritto di:</p>
+      <h2 data-i18n="privacy.sec7.h2">7. Diritti dell'interessato</h2>
+      <p data-i18n="privacy.sec7.intro">Ai sensi degli artt. 15&ndash;22 del Reg. UE 2016/679, hai il diritto di:</p>
       <ul>
-        <li>accedere ai tuoi dati personali (art. 15);</li>
-        <li>richiederne la rettifica (art. 16) o la cancellazione (art. 17);</li>
-        <li>opporti al trattamento (art. 21);</li>
-        <li>richiedere la limitazione del trattamento (art. 18);</li>
-        <li>proporre reclamo al Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>).</li>
+        <li data-i18n="privacy.sec7.li1">accedere ai tuoi dati personali (art. 15);</li>
+        <li data-i18n="privacy.sec7.li2">richiederne la rettifica (art. 16) o la cancellazione (art. 17);</li>
+        <li data-i18n="privacy.sec7.li3">opporti al trattamento (art. 21);</li>
+        <li data-i18n="privacy.sec7.li4">richiedere la limitazione del trattamento (art. 18);</li>
+        <li data-i18n="privacy.sec7.li5">proporre reclamo al Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>).</li>
       </ul>
-      <p>Per esercitare i tuoi diritti contattaci al numero <a href="tel:+393398548172">+39 339 854 8172</a>.</p>
+      <p data-i18n="privacy.sec7.outro">Per esercitare i tuoi diritti contattaci al numero <a href="tel:+393398548172">+39 339 854 8172</a>.</p>
 
-      <h2>8. Modifiche alla presente informativa</h2>
-      <p>Il titolare si riserva il diritto di modificare la presente informativa in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina con aggiornamento della data in cima al documento.</p>
-    </div>
+      <h2 data-i18n="privacy.sec8.h2">8. Modifiche alla presente informativa</h2>
+      <p data-i18n="privacy.sec8.body">Il titolare si riserva il diritto di modificare la presente informativa in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina con aggiornamento della data in cima al documento.</p>
+    </section>
   </main>
 
   <footer>
@@ -141,7 +170,8 @@
     </div>
   </footer>
 
-  <button class="scroll-top" id="scrollTop" aria-label="Torna su">⇧</button>
+  <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
+
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/cookie.js" defer></script>
   <script src="assets/js/i18n.js" defer></script>
