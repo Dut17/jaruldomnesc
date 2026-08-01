@@ -209,7 +209,7 @@
       'footer.schedule': 'Lun&ndash;Joi: 12:00&ndash;14:30<br>Vin: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sâm&ndash;Dum: 12:00&ndash;14:30 / 19:00&ndash;22:00',
       'menu.h1': 'Meniul de Azi',
       'menu.subtitle': 'Actualizat în fiecare dimineață &mdash; deschis în fiecare zi la prânz',
-      'menu.primo': 'Fel întâi', 'menu.secondo': 'Fel principal', 'menu.contorno': 'Garnitură', 'menu.prezzo': 'Preț',
+      'menu.primo': 'Felul întâi', 'menu.secondo': 'Felul doi', 'menu.contorno': 'Garnitură', 'menu.prezzo': 'Preț',
       'menu.weekendNotice': 'Meniu à la carte astăzi',
       'menu.loading': 'Se încarcă meniul&hellip;',
       'menu.empty': 'Meniul nu a fost încă introdus. Reveniți mai târziu.',
