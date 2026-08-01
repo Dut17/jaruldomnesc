@@ -28,8 +28,7 @@
     banner.setAttribute('role', 'alert');
     banner.setAttribute('aria-live', 'polite');
     banner.innerHTML =
-      '<span>Questo sito utilizza cookie tecnici necessari al funzionamento. ' +
-      'Google Maps viene caricato solo se acconsenti, poiché trasmette dati (IP, posizione approssimativa) a Google. ' +
+      '<span>Questo sito usa cookie tecnici essenziali. Per la mappa interattiva chiediamo un consenso separato. ' +
       '<a href="privacy.html">Informativa Privacy</a>.</span>' +
       '<div class="cookie-btns">' +
       '<button id="cookie-reject" type="button">Rifiuta</button>' +
