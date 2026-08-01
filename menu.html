@@ -97,64 +97,126 @@
   <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
 
   <script>
-    var API_URL = 'https://script.google.com/macros/s/AKfycbxz-qSfSDGznd9sPpDG288SsOoJ4XFuRhCOeTPjkKgiNT3khNKpI9iBl4P3pz4wX991GQ/exec';
-    var oggi = new Date();
-    var dataStr = oggi.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
-    var c = document.getElementById('menu-container');
+  var API_URL = 'https://script.google.com/macros/s/AKfycbxz-qSfSDGznd9sPpDG288SsOoJ4XFuRhCOeTPjkKgiNT3khNKpI9iBl4P3pz4wX991GQ/exec';
+  var oggi = new Date();
+  var dataStr = oggi.toLocaleDateString('it-IT', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long'
+  });
+  var container = document.getElementById('menu-container');
 
-    function buildMenu(d) {
-      var t = (window.i18n && window.i18n.t) ? function(k){ return window.i18n.t(k); } : function(k){ return k; };
+  function t(key) {
+    return (window.i18n && window.i18n.t) ? window.i18n.t(key) : key;
+  }
 
-      function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function isMenuAllaCartaSlot() {
+    var giorno = oggi.getDay();
+    var ora = oggi.getHours();
 
-      var primi    = d.primi    || [];
-      var secondi  = d.secondi  || [];
-      var contorni = d.contorni || [];
-      var prezzi   = d.prezzi   || [];
+    return giorno === 6 || giorno === 0 || (giorno === 5 && ora >= 18);
+  }
 
-      if (!primi.length && !secondi.length && !contorni.length) {
-        c.innerHTML = '<div class="menu-errore">' + t('menu.empty') + '</div>';
-        return;
-      }
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
 
-      var h = '<div class="menu-card"><div class="data-oggi">' + dataStr + '</div>';
+  function showMenuAllaCarta() {
+    container.innerHTML =
+      '<div class="menu-card">' +
+        '<div class="data-oggi">' + dataStr + '</div>' +
+        '<p class="allergeni-nota" style="margin-top:0">' +
+          t('menu.weekendNotice') +
+        '</p>' +
+      '</div>';
+  }
 
-      if (primi.length) {
-        h += '<div class="menu-sezione"><div class="menu-sezione-titolo">' + t('menu.primo') + '</div>';
-        primi.forEach(function(p){ h += '<div class="piatto-riga"><span class="piatto-nome">' + esc(p) + '</span></div>'; });
-        h += '</div>';
-      }
-
-      if (secondi.length) {
-        h += '<div class="menu-sezione"><div class="menu-sezione-titolo">' + t('menu.secondo') + '</div>';
-        secondi.forEach(function(p){ h += '<div class="piatto-riga"><span class="piatto-nome">' + esc(p) + '</span></div>'; });
-        h += '</div>';
-      }
-
-      if (contorni.length) {
-        h += '<div class="menu-sezione"><div class="menu-sezione-titolo">' + t('menu.contorno') + '</div>';
-        contorni.forEach(function(p){ h += '<div class="piatto-riga"><span class="piatto-nome">' + esc(p) + '</span></div>'; });
-        h += '</div>';
-      }
-
-      if (prezzi.length) {
-        h += '<div class="prezzi-sezione"><div class="prezzi-sezione-titolo">' + t('menu.prezzo') + '</div>';
-        prezzi.forEach(function(p){ h += '<div class="prezzo-riga"><span class="prezzo-label">' + esc(p) + '</span></div>'; });
-        h += '</div>';
-      }
-
-      h += '</div>';
-      c.innerHTML = h;
+  function renderSection(titleKey, items) {
+    if (!items || !items.length) {
+      return '';
     }
 
+    var html =
+      '<div class="menu-sezione">' +
+        '<div class="menu-sezione-titolo">' + t(titleKey) + '</div>';
+
+    items.forEach(function (item) {
+      html +=
+        '<div class="piatto-riga">' +
+          '<span class="piatto-nome">' + escapeHtml(item) + '</span>' +
+        '</div>';
+    });
+
+    html += '</div>';
+
+    return html;
+  }
+
+  function renderPrices(items) {
+    if (!items || !items.length) {
+      return '';
+    }
+
+    var html =
+      '<div class="prezzi-sezione">' +
+        '<div class="prezzi-sezione-titolo">' + t('menu.prezzo') + '</div>';
+
+    items.forEach(function (item) {
+      html +=
+        '<div class="prezzo-riga">' +
+          '<span class="prezzo-label">' + escapeHtml(item) + '</span>' +
+        '</div>';
+    });
+
+    html += '</div>';
+
+    return html;
+  }
+
+  function buildMenu(data) {
+    var primi = data.primi || [];
+    var secondi = data.secondi || [];
+    var contorni = data.contorni || [];
+    var prezzi = data.prezzi || [];
+
+    if (!primi.length && !secondi.length && !contorni.length) {
+      container.innerHTML = '<div class="menu-errore">' + t('menu.empty') + '</div>';
+      return;
+    }
+
+    var html =
+      '<div class="menu-card">' +
+        '<div class="data-oggi">' + dataStr + '</div>' +
+        renderSection('menu.primo', primi) +
+        renderSection('menu.secondo', secondi) +
+        renderSection('menu.contorno', contorni) +
+        renderPrices(prezzi) +
+      '</div>';
+
+    container.innerHTML = html;
+  }
+
+  if (isMenuAllaCartaSlot()) {
+    showMenuAllaCarta();
+  } else {
     fetch(API_URL)
-      .then(function(r){ if(!r.ok){ throw new Error('HTTP '+r.status); } return r.json(); })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status);
+        }
+
+        return response.json();
+      })
       .then(buildMenu)
-      .catch(function(){
-        var t = (window.i18n && window.i18n.t) ? window.i18n.t : function(k){ return k; };
-        c.innerHTML = '<div class="menu-errore">' + t('menu.error') + '</div>';
+      .catch(function () {
+        container.innerHTML = '<div class="menu-errore">' + t('menu.error') + '</div>';
       });
-  </script>
+  }
+</script>
 
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/cookie.js" defer></script>
