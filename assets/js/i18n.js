@@ -12,6 +12,9 @@
       'menu.h1': 'Menu di Oggi',
       'menu.subtitle': 'Aggiornato ogni mattina &mdash; aperto tutti i giorni a pranzo',
       'menu.primo': 'Primo', 'menu.secondo': 'Secondo', 'menu.contorno': 'Contorno', 'menu.prezzo': 'Prezzo',
+      'menu.weekendNotice': 'Oggi menu alla carta',
+      'menu.weekendNotice': 'À la carte menu today',   // sezione EN
+      'menu.weekendNotice': 'Meniu à la carte astăzi', // sezione RO
       'menu.loading': 'Caricamento menu in corso&hellip;',
       'menu.empty': 'Menu non ancora inserito. Riprova piu tardi.',
       'menu.error': 'Impossibile caricare il menu. Riprova piu tardi.',
