@@ -11,7 +11,7 @@
     'footer.schedule': 'Lun&ndash;Gio: 12:00&ndash;14:30<br>Ven: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sab&ndash;Dom: 12:00&ndash;14:30 / 19:00&ndash;22:00',
     'menu.h1': 'Menu di Oggi',
     'menu.subtitle': 'Aggiornato ogni mattina &mdash; aperto tutti i giorni a pranzo',
-    'menu.primo': 'Primo', 'menu.secondo': 'Secondo', 'menu.contorno': 'Contorno', 'menu.prezzo': 'Prezzo',
+    'menu.primo': 'Primi', 'menu.secondo': 'Secondi', 'menu.contorno': 'Contorni', 'menu.prezzo': 'Prezzo',
     'menu.weekendNotice': 'Oggi menu alla carta',
     'menu.loading': 'Caricamento menu in corso&hellip;',
     'menu.empty': 'Menu non ancora inserito. Riprova piu tardi.',
