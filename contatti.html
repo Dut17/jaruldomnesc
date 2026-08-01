@@ -12,6 +12,9 @@
   <style>
     .map-wrapper{width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(28,23,20,.10);min-height:420px;background:#f0ece5}
     .map-wrapper iframe{display:block;width:100%;height:420px;border:0}
+    .map-consent-notice{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;height:420px;padding:2rem;text-align:center;font-family:'Inter',sans-serif;color:#555;font-size:.9rem}
+    .map-consent-notice button{background:#bd2336;color:#fff;border:none;padding:.55rem 1.3rem;border-radius:6px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600}
+    .map-consent-notice button:hover{background:#a01f2d}
     .lang-switcher{display:flex;align-items:center;gap:.25rem;margin-left:1rem}
     .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.35);color:inherit;font:600 .7rem/1 'Inter',sans-serif;letter-spacing:.05em;padding:.3rem .5rem;border-radius:3px;cursor:pointer;transition:background .2s,border-color .2s}
     .lang-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
@@ -51,7 +54,7 @@
         <h2 data-i18n="ct.h2">Vieni a Trovarci</h2>
         <div class="contatti-block">
           <h3 data-i18n="ct.addr.h3">Indirizzo</h3>
-          <address>Viale della Regione Veneto, 6<br>35121 Padova (PD)</address>
+          <address>Viale della Regione Veneto, 6<br>35127 Padova (PD)</address>
         </div>
         <div class="contatti-block">
           <h3 data-i18n="ct.phone.h3">Telefono</h3>
@@ -79,9 +82,9 @@
       </div>
 
       <div class="contatti-map">
-        <div class="map-wrapper">
+        <div class="map-wrapper" id="mapWrapper">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2801.8409923259746!2d11.949963176110087!3d45.39237827107287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ec5ec8a81ff59%3A0xcdae7aa21d626bd0!2sJARUL%20DOMNESC!5e0!3m2!1sit!2sit!4v1781897646276!5m2!1sit!2sit"
+            data-maps-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2801.8409923259746!2d11.949963176110087!3d45.39237827107287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ec5ec8a81ff59%3A0xcdae7aa21d626bd0!2sJARUL%20DOMNESC!5e0!3m2!1sit!2sit!4v1781897646276!5m2!1sit!2sit"
             width="600" height="420"
             style="border:0;"
             allowfullscreen=""
@@ -102,7 +105,7 @@
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer.where">Dove Siamo</h4>
-        <address>Viale della Regione Veneto, 6<br>35121 Padova (PD)</address>
+        <address>Viale della Regione Veneto, 6<br>35127 Padova (PD)</address>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer.contacts">Contatti</h4>
