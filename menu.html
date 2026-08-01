@@ -1,225 +1,108 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Menu del giorno di Jarul Domnesc Official — Cucina tradizionale rumena a Padova.">
-  <title>Menu &mdash; Jarul Domnesc Official &middot; Padova</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    body{min-height:100vh;display:flex;flex-direction:column}
-    main{flex:1;padding-top:120px}
-    .menu-oggi-section{padding:3rem 1rem 6rem;max-width:680px;margin:0 auto;text-align:center}
-    .menu-oggi-section h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);color:#bd2336;margin-bottom:.25rem}
-    .sottotitolo{font-family:'Inter',sans-serif;color:#888;font-size:.95rem;margin-bottom:2.5rem}
-    .menu-card{background:#fff;border:1px solid #f0e6c8;border-radius:12px;padding:2rem 2rem 1.5rem;box-shadow:0 4px 24px rgba(189,35,54,.07);text-align:left}
-    .data-oggi{font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;color:#b8962e;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.5rem}
-    .menu-sezione{margin-bottom:1.25rem}
-    .menu-sezione-titolo{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:#bd2336;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
-    .piatto-riga{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed #f0e6c8;padding:.6rem 0;gap:1rem}
-    .piatto-riga:last-of-type{border-bottom:none}
-    .piatto-nome{font-family:'Inter',sans-serif;font-size:1rem;color:#222;flex:1}
-    .prezzi-sezione{margin-top:1.5rem;padding-top:1.25rem;border-top:2px solid #f0e6c8}
-    .prezzi-sezione-titolo{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:#b8962e;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
-    .prezzo-riga{display:flex;justify-content:space-between;align-items:baseline;padding:.4rem 0;border-bottom:1px dashed #f0e6c8;gap:1rem}
-    .prezzo-riga:last-of-type{border-bottom:none}
-    .prezzo-label{font-family:'Inter',sans-serif;font-size:.95rem;color:#444;flex:1}
-    .prezzo-valore{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#b8962e;white-space:nowrap}
-    .menu-loading{text-align:center;padding:3rem 1rem;font-family:'Inter',sans-serif;color:#888;font-size:.95rem}
-    .menu-errore{text-align:center;padding:2rem 1rem;font-family:'Inter',sans-serif;color:#bd2336;font-size:.95rem;background:#fff5f5;border-radius:8px;border:1px solid #fdd}
-    .allergeni-nota{font-family:'Inter',sans-serif;font-size:.8rem;color:#888;margin-top:1.5rem;text-align:center;line-height:1.5}
-  </style>
-</head>
-<body>
-  <a class="skip-link" href="#main-content" data-i18n="skip.link">Salta al contenuto</a>
+const API_URL = 'https://script.google.com/macros/s/AKfycbxz-qSfSDGznd9sPpDG288SsOoJ4XFuRhCOeTPjkKgiNT3khNKpI9iBl4P3pz4wX991GQ/exec';
+const oggi = new Date();
+const dataStr = oggi.toLocaleDateString('it-IT', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+});
+const container = document.getElementById('menu-container');
 
-  <nav class="topnav" id="myTopnav" aria-label="Navigazione principale">
-    <div class="nav-top-row">
-      <a href="index.html" class="logo"><img src="assets/logo-removebg-jarulDomnesc.png" alt="Jarul Domnesc" height="55" style="display:block;"></a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu" aria-expanded="false">&#9776;</button>
+function t(key) {
+  return (window.i18n && window.i18n.t) ? window.i18n.t(key) : key;
+}
+
+function isMenuAllaCartaSlot() {
+  const giorno = oggi.getDay();
+  const ora = oggi.getHours();
+
+  return giorno === 6 || giorno === 0 || (giorno === 5 && ora >= 18);
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function showMenuAllaCarta() {
+  container.innerHTML = `
+    <div class="menu-card">
+      <div class="data-oggi">${dataStr}</div>
+      <p class="allergeni-nota" style="margin-top:0">${t('menu.weekendNotice')}</p>
     </div>
-    <div class="nav-links">
-      <a href="index.html" data-i18n="nav.home">Home</a>
-      <a href="menu.html" class="active" data-i18n="nav.menu">Menu</a>
-      <a href="struttura.html" data-i18n="nav.struttura">Struttura</a>
-      <a href="eventi.html" data-i18n="nav.eventi">Eventi</a>
-      <a href="contatti.html" data-i18n="nav.contatti">Contatti</a>
-      <div class="lang-switcher" aria-label="Seleziona lingua">
-        <button type="button" data-lang-btn="it" class="lang-btn lang-btn--active" aria-label="Italiano">IT</button>
-        <button type="button" data-lang-btn="en" class="lang-btn" aria-label="English">EN</button>
-        <button type="button" data-lang-btn="ro" class="lang-btn" aria-label="Romana">RO</button>
-      </div>
-    </div>
-  </nav>
+  `;
+}
 
-  <main id="main-content">
-    <section class="menu-oggi-section">
-      <h1 data-i18n="menu.h1">Menu di Oggi</h1>
-      <p class="sottotitolo" data-i18n="menu.subtitle">Aggiornato ogni mattina &mdash; aperto tutti i giorni a pranzo</p>
-      <div id="menu-container"><p class="menu-loading" data-i18n="menu.loading">Caricamento menu in corso&hellip;</p></div>
-      <p class="allergeni-nota" data-i18n="menu.allergeni">Per informazioni sugli allergeni presenti nei nostri piatti, chiedi al personale di sala. Reg. UE 1169/2011.</p>
-    </section>
-    <section style="text-align:center;padding:1rem 1rem 4rem;">
-      <p style="font-family:'Inter',sans-serif;color:#888;font-size:.9rem;" data-i18n="menu.contact">Per informazioni e prenotazioni: <a href="contatti.html" style="color:#b8962e;">contattaci</a>.</p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo"><em>Jarul</em> Domnesc</div>
-        <p class="footer-tagline" data-i18n="footer.tagline">Cucina rumena, moldava e italiana<br>Padova</p>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.where">Dove Siamo</h4>
-        <address>Viale della Regione Veneto, 6<br>35121 Padova (PD)</address>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.contacts">Contatti</h4>
-        <p><a href="tel:+393398548172">+39 339 854 8172</a></p>
-        <p><a href="mailto:jaruldomnescofficial@gmail.com">jaruldomnescofficial@gmail.com</a></p>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.hours">Orari</h4>
-        <p data-i18n="footer.schedule">Lun&ndash;Gio: 12:00&ndash;14:30<br>Ven: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sab&ndash;Dom: 12:00&ndash;14:30 / 19:00&ndash;22:00</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2026 Jarul Domnesc Official &middot; Padova &nbsp;&middot;&nbsp;
-      P.IVA 05661800283 &nbsp;&middot;&nbsp;
-      <a href="privacy.html" style="color:#b8962e;">Privacy &amp; Cookie</a>
-    </div>
-  </footer>
-
-  <button class="scroll-top" id="scrollTop" aria-label="Torna su">&#8679;</button>
-
-  <script>
-  var API_URL = 'https://script.google.com/macros/s/AKfycbxz-qSfSDGznd9sPpDG288SsOoJ4XFuRhCOeTPjkKgiNT3khNKpI9iBl4P3pz4wX991GQ/exec';
-  var oggi = new Date();
-  var dataStr = oggi.toLocaleDateString('it-IT', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long'
-  });
-  var container = document.getElementById('menu-container');
-
-  function t(key) {
-    return (window.i18n && window.i18n.t) ? window.i18n.t(key) : key;
+function renderSection(titleKey, items) {
+  if (!items || !items.length) {
+    return '';
   }
 
-  function isMenuAllaCartaSlot() {
-    var giorno = oggi.getDay();
-    var ora = oggi.getHours();
+  const righe = items
+    .map((item) => `<div class="piatto-riga"><span class="piatto-nome">${escapeHtml(item)}</span></div>`)
+    .join('');
 
-    return giorno === 6 || giorno === 0 || (giorno === 5 && ora >= 18);
+  return `
+    <div class="menu-sezione">
+      <div class="menu-sezione-titolo">${t(titleKey)}</div>
+      ${righe}
+    </div>
+  `;
+}
+
+function renderPrices(items) {
+  if (!items || !items.length) {
+    return '';
   }
 
-  function escapeHtml(value) {
-    return String(value)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+  const righe = items
+    .map((item) => `<div class="prezzo-riga"><span class="prezzo-label">${escapeHtml(item)}</span></div>`)
+    .join('');
+
+  return `
+    <div class="prezzi-sezione">
+      <div class="prezzi-sezione-titolo">${t('menu.prezzo')}</div>
+      ${righe}
+    </div>
+  `;
+}
+
+function buildMenu(data) {
+  const primi = data.primi || [];
+  const secondi = data.secondi || [];
+  const contorni = data.contorni || [];
+  const prezzi = data.prezzi || [];
+
+  if (!primi.length && !secondi.length && !contorni.length) {
+    container.innerHTML = `<div class="menu-errore">${t('menu.empty')}</div>`;
+    return;
   }
 
-  function showMenuAllaCarta() {
-    container.innerHTML =
-      '<div class="menu-card">' +
-        '<div class="data-oggi">' + dataStr + '</div>' +
-        '<p class="allergeni-nota" style="margin-top:0">' +
-          t('menu.weekendNotice') +
-        '</p>' +
-      '</div>';
-  }
+  container.innerHTML = `
+    <div class="menu-card">
+      <div class="data-oggi">${dataStr}</div>
+      ${renderSection('menu.primo', primi)}
+      ${renderSection('menu.secondo', secondi)}
+      ${renderSection('menu.contorno', contorni)}
+      ${renderPrices(prezzi)}
+    </div>
+  `;
+}
 
-  function renderSection(titleKey, items) {
-    if (!items || !items.length) {
-      return '';
-    }
-
-    var html =
-      '<div class="menu-sezione">' +
-        '<div class="menu-sezione-titolo">' + t(titleKey) + '</div>';
-
-    items.forEach(function (item) {
-      html +=
-        '<div class="piatto-riga">' +
-          '<span class="piatto-nome">' + escapeHtml(item) + '</span>' +
-        '</div>';
+if (isMenuAllaCartaSlot()) {
+  showMenuAllaCarta();
+} else {
+  fetch(API_URL)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(buildMenu)
+    .catch(() => {
+      container.innerHTML = `<div class="menu-errore">${t('menu.error')}</div>`;
     });
-
-    html += '</div>';
-
-    return html;
-  }
-
-  function renderPrices(items) {
-    if (!items || !items.length) {
-      return '';
-    }
-
-    var html =
-      '<div class="prezzi-sezione">' +
-        '<div class="prezzi-sezione-titolo">' + t('menu.prezzo') + '</div>';
-
-    items.forEach(function (item) {
-      html +=
-        '<div class="prezzo-riga">' +
-          '<span class="prezzo-label">' + escapeHtml(item) + '</span>' +
-        '</div>';
-    });
-
-    html += '</div>';
-
-    return html;
-  }
-
-  function buildMenu(data) {
-    var primi = data.primi || [];
-    var secondi = data.secondi || [];
-    var contorni = data.contorni || [];
-    var prezzi = data.prezzi || [];
-
-    if (!primi.length && !secondi.length && !contorni.length) {
-      container.innerHTML = '<div class="menu-errore">' + t('menu.empty') + '</div>';
-      return;
-    }
-
-    var html =
-      '<div class="menu-card">' +
-        '<div class="data-oggi">' + dataStr + '</div>' +
-        renderSection('menu.primo', primi) +
-        renderSection('menu.secondo', secondi) +
-        renderSection('menu.contorno', contorni) +
-        renderPrices(prezzi) +
-      '</div>';
-
-    container.innerHTML = html;
-  }
-
-  if (isMenuAllaCartaSlot()) {
-    showMenuAllaCarta();
-  } else {
-    fetch(API_URL)
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error('HTTP ' + response.status);
-        }
-
-        return response.json();
-      })
-      .then(buildMenu)
-      .catch(function () {
-        container.innerHTML = '<div class="menu-errore">' + t('menu.error') + '</div>';
-      });
-  }
-</script>
-
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/cookie.js" defer></script>
-  <script src="assets/js/i18n.js" defer></script>
-</body>
-</html>
+}
