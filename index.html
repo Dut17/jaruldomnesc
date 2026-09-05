@@ -13,12 +13,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Jarul Domnesc Official",
+    "image": "https://jaruldomnescofficial.it/assets/tagliere1.jpeg",
+    "telephone": "+39 339 854 8172",
+    "email": "jaruldomnescofficial@gmail.com",
+    "url": "https://jaruldomnescofficial.it/",
+    "servesCuisine": ["Romanian", "Moldovan", "Italian"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Viale della Regione Veneto, 6",
+      "addressLocality": "Padova",
+      "postalCode": "35127",
+      "addressCountry": "IT"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "12:00", "closes": "14:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "12:00", "closes": "14:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "19:00", "closes": "22:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "12:00", "closes": "14:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "19:00", "closes": "22:00" }
+    ]
+  }
+  </script>
   <style>
     .hero-video-wrap { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
     .hero-video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-video-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
 
-    /* ─── Language switcher ─────────────────────────────────────────── */
+    /* ─── Language switcher ────────────────────────────────────────────────────────────────────────────────────────────── */
     .lang-switcher {
       display: flex;
       align-items: center;
@@ -160,16 +186,16 @@
         <p class="footer-tagline" data-i18n="footer.tagline">Cucina rumena, moldava e italiana<br>Padova</p>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.where">Dove Siamo</h4>
+        <h3 data-i18n="footer.where">Dove Siamo</h3>
         <address>Viale della Regione Veneto, 6<br>35127 Padova (PD)</address>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.contacts">Contatti</h4>
+        <h3 data-i18n="footer.contacts">Contatti</h3>
         <p><a href="tel:+393398548172">+39 339 854 8172</a></p>
         <p><a href="mailto:jaruldomnescofficial@gmail.com">jaruldomnescofficial@gmail.com</a></p>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.hours">Orari</h4>
+        <h3 data-i18n="footer.hours">Orari</h3>
         <p data-i18n="footer.schedule">Lun&ndash;Gio: 12:00&ndash;14:30<br>Ven: 12:00&ndash;14:30 / 19:00&ndash;22:00<br>Sab&ndash;Dom: 12:00&ndash;14:30 / 19:00&ndash;22:00</p>
       </div>
     </div>
